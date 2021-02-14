@@ -1,0 +1,196 @@
+.principal{
+	padding: 2%;
+	margin: 3%;
+}
+
+.background{
+	position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    text-align: center;
+}
+
+ion-spinner{
+	transform: scale(2,7);
+    --color: #FFFFFF;
+    margin-top: 90%;
+    width: 100%;
+}
+
+.header{
+	font-size: 4vw;
+	padding: 2%;
+	margin: 3%;
+}
+
+ion-content{
+	--background: no-repeat center center / cover !important;  
+}
+
+.btn-segmentos{
+	margin: 5% auto;
+	width: 90%;
+	height: 50vw;
+}
+
+.logo{
+	width: 50%;
+    margin: auto;
+}
+
+.pontos{
+	margin-right: 1%;
+    border-radius: 1.5em;
+    min-width: 25%;
+    height: 8vw;
+    text-align: center;
+    padding: 1%;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 5.5vw;
+    color: white;
+    float: right;
+    margin-top: 4%;
+}
+
+.logo-icon{
+	color: gold;
+}
+
+.avatar{
+	margin-left: 2%;
+	float: left;
+}
+
+.search-ofertas{
+	width: 90%;
+	margin: 5% auto 0;
+	--background: rgba(255, 255, 255, 0.4);
+	color: #FFFFFF;
+}
+
+.cupons-recentes{
+	color: #FFFFFF;
+	font-size: 3.1vw;
+    font-family: sans-serif;
+    margin: 2% 2% 2% 7%;
+}
+
+.bar{
+	width: 100%;
+	height: 30vw;
+}
+
+.bar-oferta{
+	width: 100%;
+	height: 50vw;	
+}
+
+.cupom{
+	background-position: center;    
+	background-size: cover;     
+	width: 100%;    
+	height: 98%;     
+	text-align: center;     
+	border: 1px solid;     
+	margin: 5% 5% 5% 10%;     
+	padding-top: 4%;     
+	font-size: 4vw;     
+	color: #FFFFFF;     
+	border-radius: 15px;
+	float: left;
+}
+
+.ofertas{
+	width: 100%;    
+	height: 100%;     
+	text-align: center;     
+	border: 1px solid;     
+	margin: 5% 5% 5% 15%;  
+	font-size: 4vw;     
+	color: #FFFFFF;     
+	border-radius: 15px;
+	float: left;
+}
+
+.card-oferta-title{
+	background-position: center;    
+	background-size: cover;
+	height: 50%;     
+}
+
+ion-slides{
+	height: 100%;
+}
+
+.ver-mais{
+	float: right;
+	text-decoration: none;
+	color: gray;
+}
+
+.oferta-nome{
+	color: #7410cb;
+}
+
+.quantPontos{
+	color: orange;
+	margin-right: 5%;
+}
+
+.quantPontosSegmento{
+	color: orange;
+	margin-left: 5%;
+	font-size: 4vw;
+}
+
+.nome-prod{
+	font-size: 3vw;
+	margin-left: 5%;
+}
+
+.btn-ofertas-star{
+	font-size: 3.5vw;
+	color: #e3e3e3;
+	float: left;
+	margin: 0;
+}
+
+.btn-ofertas-plus{
+	font-size: 3.5vw;
+	color: #03cf70;
+	float: right;
+	margin: 0;
+}
+
+.img-prod{
+	border-radius: 15px;
+	width: 15vw;
+	height: 15vw;
+	background-position: center;    
+	background-size: cover;
+	margin-right: 2%;
+}
+
+.lbl-desc{
+	white-space: normal;
+	font-size: 2vw;
+}
+
+.offer-img-moeda{
+	width: 20%;
+}
+
+.content-card-offer{
+	padding-top: 0;
+	height: 50%;
+}
+
+.label-segmento{
+	font-size: 4vw;
+    color: #8011CC;
+    font-family: Poppins-Medium;
+}

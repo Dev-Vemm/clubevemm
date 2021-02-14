@@ -1,0 +1,40 @@
+<ion-content [ngStyle]="{'background-image': bg}">
+	<div class="principal">
+		<div class="header">
+			<div class="avatar">
+	    		<ion-avatar>
+		    		<ion-img src="assets/imgs/img-a.jpg"></ion-img>
+		    	</ion-avatar>
+	    	</div>
+	    	<div class="pontos">
+	    		<div class="bar-pontos">
+	    			<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">1000</span>
+	    		</div>
+	    	</div>
+		</div>
+		<ion-searchbar placeholder="Pesquisar ofertas" class="search-ofertas"></ion-searchbar>
+		<div>
+			<div class="bar-segmentos">
+				<ion-card *ngFor="let prod of busca">
+					<ion-card-title>
+						<ion-label class="nome-prod">{{prod.nome}}</ion-label>
+						<ion-label class="quantPontosSegmento" *ngIf="prod.custo" ><ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>{{prod.custo}}</ion-label>
+					</ion-card-title>
+					<ion-card-content class="content-prod-segmento">
+						<ion-item lines="none">
+							<div class="img-prod" [ngStyle]="{'background-image': prod.img}"></div>
+							<div class="desc-prod">
+								<ion-label>{{prod.produto}}</ion-label>
+								<ion-label class="lbl-desc">{{prod.desc}}</ion-label>
+							</div>
+							<div class="buttons-prods" slot="end">
+								<ion-button fill="clear" class="btn-ofertas-star btn-off"><ion-icon name="star-outline" mode="ios" class="estrela"></ion-icon></ion-button>
+								<ion-button fill="clear" class="btn-ofertas-plus btn-off"><ion-icon name="add-circle"></ion-icon></ion-button>
+							</div>
+						</ion-item>
+					</ion-card-content>
+				</ion-card>
+			</div>
+		</div>	
+	</div>
+</ion-content>

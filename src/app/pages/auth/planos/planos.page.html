@@ -1,0 +1,23 @@
+<div class="background" *ngIf="load">
+	<ion-spinner name="dots"></ion-spinner>
+</div>
+<ion-content [ngStyle]="{'background-image': bg}">
+	<div class="principal">
+		<div class="header ion-text-center">
+			<ion-img src="assets/imgs/logo/logo-principal.png" class="logo-principal"></ion-img>
+			<p class="titulo">Assine e aproveite</p>
+			<p class="escolha">Escolha o seu plano</p>
+			<ion-slides class="slides">
+				<ion-slide class="ion-text-center slide">
+					<p class="slide-txt">Receba mais ofertas e promoções</p>
+				</ion-slide>
+			</ion-slides>
+		</div>
+		<div class="body">
+			<ion-card class="card-plano" *ngFor="let plano of planos" [ngStyle]="{'background-color': (plano.TIPO == 1)? '#000000' : '#FFFFFF'}" (click)="abrirDetalhes(plano)">
+				<span class="plano-titulo">{{plano.TITULO}}</span>
+				<span class="plano-valor" [ngStyle]="{'color': (plano.TIPO == 1)? '#FFFFFF' : '#000000'}">R$ {{plano.VALOR.toFixed(2)}}</span>
+			</ion-card>
+		</div>
+	</div>
+</ion-content>

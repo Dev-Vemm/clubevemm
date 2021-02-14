@@ -1,0 +1,19 @@
+<ion-content>
+	<div class="principal">
+		<div class="header ion-text-center">
+			<ion-img src="assets/imgs/logo/logo-principal.png" class="logo-principal"></ion-img>
+			<p class="titulo">Seja Bem vindo(a)</p>
+		</div>
+		<div class="body ion-text-center">
+			<ion-button expand="block" shape="round" class="btn-visitante btns" (click)="navigate('menu')">Entrar como visitante</ion-button>
+			<ion-button expand="block" shape="round" class="btn-login btns" (click)="navigate('login')">Iniciar sessão com E-mail e Senha</ion-button>
+			<ion-button expand="block" shape="round" class="btn-facebook btns" (click)="navigate('planos')">Iniciar Sessão com Facebook
+			</ion-button>
+			<ion-button expand="block" shape="round" class="btn-apple btns" (click)="navigate('planos')">Iniciar sessão com Apple</ion-button>
+		</div>
+		<div class="footer ion-text-center">
+			<p class="senhaReset">Não tem uma conta? <a (click)="navigate('cadastro')">Crie uma.</a></p>
+			<p class="senhaReset">Esqueceu a senha? <a (click)="navigate('reset-senha')">Clique aqui.</a></p>
+		</div>
+	</div>
+</ion-content>

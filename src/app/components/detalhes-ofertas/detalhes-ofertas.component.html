@@ -1,0 +1,25 @@
+<ion-content>
+	<ion-button fill="clear" class="btn-voltar" (click)="voltar()">
+		<ion-icon name="close-circle-outline" class="close-modal"></ion-icon>
+	</ion-button>
+	<div class="content">
+		<div class="img-fundo" [ngStyle]="{'background-image': detalhes.img}"></div>
+		<div class="detalhes">
+			<div class="prod ion-text-center">
+				<p class="produto">{{detalhes.produto}}</p>
+				<p class="desc">{{detalhes.descricao}}</p>
+			</div>
+			<div class="custo">
+				<!--<ion-icon name="star-outline"></ion-icon>
+				<ion-icon name="star"></ion-icon> -->
+			</div>
+			<div class="empresa-produto">
+				<p class="nome">{{detalhes.nome}}</p>		
+				<p class="end">{{detalhes.endereco}}, {{detalhes.numero}}<span *ngIf="detalhes.complemento">, {{detalhes.complemento}}</span> - {{detalhes.cidade}} - {{detalhes.estado}} - CEP: {{detalhes.cep}}</p>
+			</div>
+		</div>
+		<div class="btn-consumir ion-text-center">
+			<ion-button class="btn-base" shape="round" (click)="confirmar(detalhes.oferta_id, detalhes.custo, detalhes.produto)">Adquira por <ion-icon src="assets/imgs/icons/moeda.svg" class="moeda"></ion-icon> <span class="custo">{{detalhes.custo}}</span></ion-button>
+		</div>
+	</div>
+</ion-content>

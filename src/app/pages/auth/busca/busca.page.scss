@@ -1,0 +1,143 @@
+.principal{
+	padding: 2%;
+	margin: 3%;
+}
+
+.header{
+	font-size: 4vw;
+	padding: 2%;
+	margin: 3%;
+}
+
+ion-content{
+	--background: no-repeat center center / cover !important;  
+}
+
+.avatar{
+	margin-left: 2%;
+	float: left;
+}
+
+.search-ofertas{
+	width: 90%;
+	margin: 5% auto 0;
+	--background: rgba(255, 255, 255, 0.4);
+	color: #FFFFFF;
+}
+
+.ofertas{
+	width: 100%;    
+	height: 100%;     
+	text-align: center;     
+	border: 1px solid;     
+	margin: 5% 5% 5% 15%;  
+	font-size: 4vw;     
+	color: #FFFFFF;     
+	border-radius: 15px;
+	float: left;
+}
+
+.card-oferta-title{
+	background-position: center;    
+	background-size: cover;
+	height: 50%;     
+}
+
+ion-slides{
+	height: 100%;
+}
+
+.ver-mais{
+	float: right;
+	text-decoration: none;
+	color: gray;
+}
+
+.oferta-nome{
+	color: #7410cb;
+}
+
+.quantPontos{
+	color: orange;
+	margin-right: 5%;
+}
+
+.quantPontosSegmento{
+	color: orange;
+	margin-left: 5%;
+	font-size: 4vw;
+}
+
+.nome-prod{
+	font-size: 3vw;
+	margin-left: 5%;
+}
+
+.btn-ofertas-star{
+	font-size: 3.5vw;
+	color: #e3e3e3;
+	float: left;
+	margin: 0;
+}
+
+.btn-ofertas-plus{
+	font-size: 3.5vw;
+	color: #03cf70;
+	float: right;
+	margin: 0;
+}
+
+.img-prod{
+	border-radius: 15px;
+	width: 15vw;
+	height: 15vw;
+	background-position: center;    
+	background-size: cover;
+	margin-right: 2%;
+}
+
+.lbl-desc{
+	white-space: normal;
+	font-size: 2vw;
+}
+
+.offer-img-moeda{
+	width: 20%;
+}
+
+.content-card-offer{
+	padding-top: 0;
+	height: 50%;
+}
+
+.label-segmento{
+	font-size: 4vw;
+    color: #8011CC;
+    font-family: Poppins-Medium;
+}
+
+.content{
+	margin-top: 20%;
+}
+
+.estrela{
+	color: #FF9500;
+}
+
+.pontos{
+	margin-right: 1%;
+    border-radius: 1.5em;
+    min-width: 25%;
+    height: 8vw;
+    text-align: center;
+    padding: 1%;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 5.5vw;
+    color: white;
+    float: right;
+    margin-top: 4%;
+}
+
+.logo-icon{
+	color: gold;
+}

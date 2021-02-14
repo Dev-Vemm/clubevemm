@@ -1,0 +1,46 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-button fill="clear" (click)="voltar()" class="btn-voltar">Voltar</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="content">
+		<ion-card class="card-detalhes">
+			<ion-card-title [ngStyle]="{'background-image': detalhes.background}" class="card-title"></ion-card-title>
+			<ion-card-content>
+				<div class="progresso">
+					<div class="label-progresso">
+						<ion-label class="label-resgatar"><ion-icon src="assets/imgs/icons/moeda.svg" class="moeda"></ion-icon> Resgatar por {{detalhes.resgate}}</ion-label>
+						<ion-label class="label-pontos" *ngIf="detalhes.pontos != detalhes.resgate">{{detalhes.pontos}} / <span class="span-resgate">{{detalhes.resgate}}</span></ion-label>	
+					</div>
+					<div class="bar-progress">
+						<ion-progress-bar class="progress-bar-detalhe" value="{{detalhes.progresso}}"></ion-progress-bar>
+					</div>	
+				</div>
+			</ion-card-content>
+		</ion-card>
+		<div class="detalhes-cupom">
+			<div class="img-empresa" [ngStyle]="{'background-image': detalhes.img}"></div>
+			<div class="content-detalhes">
+				<ion-label class="label-empresa">{{detalhes.empresa}}</ion-label>
+				<div class="moeda-detalhes">
+					<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda"></ion-icon> <span class="span-moeda">{{detalhes.resgate}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="detalhes-sobre">
+			<ion-label class="label-sobre">Sobre</ion-label>
+			<p class="texto">{{detalhes.sobre}}</p>
+		</div>
+		<div class="detalhes-detalhes">
+			<ion-label class="label-sobre">Detalhes</ion-label>
+			<p class="texto">{{detalhes.detalhes}}</p>
+		</div>
+		<div class="ion-text-center">
+			<ion-button shape="round" class="btn-base">Resgatar Oferta</ion-button>
+		</div>
+	</div>
+</ion-content>

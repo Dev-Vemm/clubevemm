@@ -1,0 +1,108 @@
+.header{
+	font-size: 4vw;
+	padding: 2%;
+	margin: 3%;
+}
+
+ion-avatar{
+	border: 1px solid #FFFFFF;
+}
+
+ion-content{
+	--background: no-repeat center center / cover !important;  
+}
+
+.search-cupons{
+	width: 90%;
+	margin: 5% auto 0;
+	--background: rgba(255, 255, 255, 0.4);
+	color: #FFFFFF;
+}
+
+.btn-left{
+	float: left;
+}
+
+.title-card{
+	background-position: center;    
+	background-size: cover;  
+}
+
+.img-prod{
+	background-position: center;    
+	background-size: cover;	
+}
+
+.label-empresa{
+	color: #8011CC;
+}
+
+.resgate-obj{
+	color: #8011CC;	
+}
+
+.resgate-span{
+	color: #C4C4C4;
+}
+
+.contagem{
+	color: #C4C4C4;	
+}
+
+.header-menu{
+	margin-top: 10%;
+}
+
+.btn-menu-header{
+	font-size: 2.7vw;
+    color: #FFFFFF;
+	font-family: Poppins-Medium;
+	border-radius: 15px;
+    height: 7vw;
+}
+
+.content{
+	margin-top: 20%;
+}
+
+.img-prod{
+	height: 20vw;
+    width: 20vw;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 50%;
+}
+
+.title-card{
+	height: 35vw;
+}
+
+.content-card{
+	height: 20vw;
+}
+
+.desc-prod{
+	position: absolute;
+    left: 28%;
+    bottom: 23%;
+    width: 67%;
+}
+
+.contagem{
+	float: right;
+}
+
+.btn-resgate{
+	width: 35%;
+    height: 6vw;
+    font-size: 2.8vw;
+    float: right;
+    margin: 0 0 1% 0;
+}
+
+.cupom-progress{
+	height: 3vw;
+	border-radius: 1.5em;
+	--background:  #DADADA;
+	--progress-background: #8011CC;
+}

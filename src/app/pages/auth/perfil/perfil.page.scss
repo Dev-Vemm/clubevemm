@@ -1,0 +1,41 @@
+.principal{
+	padding: 2%;
+	margin: 3%;
+}
+
+.header{
+	font-size: 4vw;
+	padding: 2%;
+	margin: 3%;
+}
+
+ion-content{
+	--background: no-repeat center center / cover !important;  
+}
+
+.pontuacao{
+	margin-top: 5%;
+	font-family: Poppins-Bold;
+	color: #FFFFFF;
+	font-size: 5.5vw;
+}
+
+.pontos-header{
+	margin-top: 10%;
+    font-size: 9vw;
+    color: #FFFFFF;
+    font-family: Poppins-Medium;
+}
+.pontos-quant{
+	margin-left: 3%;
+}
+
+.label-perfil{
+	font-family: Poppins-Medium;
+	font-size: 4vw;
+	color: #8011CC;
+}
+
+.user-span{
+	color: #FF9500;
+}

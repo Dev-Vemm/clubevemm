@@ -1,0 +1,28 @@
+.principal{
+	padding: 2%;
+	margin: 3%;
+}
+
+.header{
+	font-size: 4vw;
+	font-family: verdana;
+	margin-bottom: 3%;
+	margin-top: 3%;	
+}
+
+ion-card-content{
+	margin-top: 5%;
+}
+
+.lojas{
+	width: 90%;
+	margin: 5% auto;
+}
+
+.segmento-empresa, .segmento-pontos{
+	float: left;
+}
+
+.segmento-nota, .segmento-reserva{
+	float: right
+}

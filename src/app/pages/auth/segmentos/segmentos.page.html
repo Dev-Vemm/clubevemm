@@ -1,0 +1,28 @@
+<ion-header class="accent" lines="none">
+  <ion-toolbar class="accent" lines="none">
+  	<ion-buttons slot="start">
+      <ion-back-button  text="Voltar" class="primary-text" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="principal">
+		<div class="header ion-text-center">
+			<p>Nome do segmento</p>
+			<ion-searchbar placeholder="Pesquise pelo nome"></ion-searchbar>
+		</div>
+		<div class="body">
+			<ion-card class="lojas" *ngFor="let data of dataArr" (click)="navigate('menu/loja')">
+				<ion-card-header>
+					<ion-label class="segmento-empresa">{{data.EMPRESA}}</ion-label>
+					<ion-label class="segmento-nota">{{data.NOTA}}/5</ion-label>
+				</ion-card-header>
+				<ion-card-content>
+					<ion-label class="segmento-pontos">{{data.PONTOS}} Pontos</ion-label>
+					<ion-label class="segmento-reserva">RESERVAR</ion-label>
+				</ion-card-content>
+			</ion-card>
+		</div>	
+	</div>
+</ion-content>

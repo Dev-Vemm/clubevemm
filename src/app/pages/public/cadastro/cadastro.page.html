@@ -1,0 +1,37 @@
+<div class="background" *ngIf="cadastrando">
+	<ion-spinner name="dots"></ion-spinner>
+</div>
+<ion-header class="ion-no-border toolbarVerde" no-border>
+  <ion-toolbar class="header-principal toolbarVerde" lines="none">
+  	<ion-buttons slot="start">
+      <ion-back-button  text="Voltar" class="primary-text" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="principal">
+		<div class="header">
+			<ion-img src="assets/imgs/logo/logo-principal.png" class="logo-principal"></ion-img>
+			<p class="titulo">Registro</p>
+		</div>
+		<div class="body">
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>Nome</ion-label>
+				<ion-input type="text" class="nomeInput" [(ngModel)]="nome"></ion-input>
+			</ion-item>
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>E-mail</ion-label>
+				<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
+			</ion-item>
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>Senha</ion-label>
+				<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
+			</ion-item>
+		</div>
+		<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha)" shape="round" expand="block">Cadastrar</ion-button>
+		<div class="termos">
+			<p>Ao registrar você concorda com os nossos <a>Termos de Serviços</a> e nossa <a>Política de Privacidade</a>.</p>
+		</div>
+	</div>
+</ion-content>

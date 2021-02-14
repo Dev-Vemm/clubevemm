@@ -1,0 +1,113 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.header-md::after{
+	background-image: none !important;
+}
+
+.searchbar-input{
+	border-radius: 1.5em !important;
+}
+
+.searchbar-search-icon{
+	color: #FFFFFF !important;
+}
+
+.slides-cupom{
+	width: 60% !important;
+}
+
+.slides-melhores-ofertas{
+	width: 45% !important;
+}
+
+.content-prod-segmento{
+	padding: 3% 1% !important;
+}
+
+.btn-base{
+	--background: #04D361 !important;
+}
+
+.btn-base-plano{
+	--background: #8011CC !important;
+}
+
+.btn-base-ajuda{
+	--background: #FF9500 !important;
+}
+
+.item-cadastro{
+	--border-bottom-width: 3px #D4C2FF !important;
+}
+
+.header-principal{
+	--background: #3b11cc !important;
+	color: #FFFFFF;
+}
+
+.toolbarVerde{
+	border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}
+
+.moeda-img{
+	width: 20%;
+	margin-right: 3%;
+}
+
+.tab-selected{
+	color: #8011CC;
+}
+
+.progress{
+	--background: #8011CC !important;
+}
+
+.modal-planos-detalhes{
+  height: 70%;
+  width: 98.5%;
+  margin-left: auto;
+  margin-right: auto;
+  top: 28%;
+  position: absolute; 
+  border-radius: 10px;
+}
+
+@font-face{
+  font-family: Poppins-Bold;
+  src: url('assets/fonts/Poppins-Bold.ttf') format('ttf');
+  font-weight: 200;
+}
+
+@font-face{
+  font-family: Poppins-Medium;
+  src: url('assets/fonts/Poppins-Medium.ttf') format('ttf');
+  font-weight: 200;
+}

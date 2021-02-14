@@ -1,0 +1,23 @@
+<ion-header class="ion-no-border toolbarVerde" no-border>
+  <ion-toolbar class="header-principal toolbarVerde" lines="none">
+  	<ion-buttons slot="start">
+      <ion-back-button  text="Voltar" class="primary-text" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="principal">
+		<div class="header ion-text-center">
+			<ion-img src="assets/imgs/logo/logo-principal.png" class="logo-principal"></ion-img>
+			<p class="titulo">Insira o seu E-mail para uma nova senha.</p>
+		</div>
+		<div class="body">
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>E-mail</ion-label>
+				<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
+			</ion-item>
+		</div>
+		<ion-button class="btn-enviar btn-base" (click)="enviarEmail(email)" shape="round" expand="block">Recuperar Senha</ion-button>
+	</div>
+</ion-content>

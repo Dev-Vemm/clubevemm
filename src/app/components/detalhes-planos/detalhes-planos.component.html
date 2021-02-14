@@ -1,0 +1,20 @@
+<ion-content>
+	<div [ngClass]="(detalhes.TIPO == 1)? 'tipo1' : 'tipo2'">
+		<div class="div-voltar ion-text-center">
+			<ion-button class="btn-voltar" fill="clear" (click)="voltar()">
+				<ion-icon name="chevron-down-outline" class="icon-down"></ion-icon>
+			</ion-button>
+		</div>
+		<div class="detalhes ion-text-center">
+			<p class="titulo">{{detalhes.TITULO}}</p>
+			<p class="valor" [ngStyle]="{'color': (detalhes.tipo == 1)? '#FFFFFF' : '#000000'}">R$ {{detalhes.VALOR.toFixed(2)}}</p>
+			<div class="vantagens">
+				<p *ngFor="let txt of detalhes.VANTAGENS.split(', ')" class="txts">{{txt}}</p>
+			</div>
+			<p *ngIf="detalhes.DESC_ESPECIAL" class="desc">{{detalhes.DESC_ESPECIAL}}</p>
+		</div>
+		<div class="comprar">
+			<ion-button [ngClass]="(detalhes.TIPO == 1)? 'btn-comprar btn-base-plano' : 'btn-comprar btn-base'" (click)="assinar(detalhes.ID)" shape="round" expand="block">Assinar Plano</ion-button>
+		</div>
+	</div>
+</ion-content>

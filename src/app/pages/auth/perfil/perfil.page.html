@@ -1,0 +1,31 @@
+<ion-content [ngStyle]="{'background-image': bg}">
+	<div class="principal">
+		<div class="header">
+			<div class="avatar">
+	    		<ion-avatar>
+		    		<ion-img src="assets/imgs/img-a.jpg"></ion-img>
+		    	</ion-avatar>
+	    	</div>
+	    	<div class="pontuacao">
+				<label class="ponto-label">Minha Pontuação</label>
+			</div>
+			<div class="pontos-header">
+				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span>
+			</div>
+		</div>
+		<div class="content">
+			<ion-item>
+				<ion-label class="label-perfil">Nome: <span class="user-span">{{usuario.nome}}</span></ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label class="label-perfil">E-mail: <span class="user-span">{{usuario.email}}</span></ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label class="label-perfil">Plano: <span class="user-span">{{usuario.plano}}</span></ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label class="label-perfil">Data de Entrada: <span class="user-span">{{usuario.data_entrada}}</span></ion-label>
+			</ion-item>
+		</div>	
+	</div>
+</ion-content>
