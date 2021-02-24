@@ -8,6 +8,17 @@ ion-avatar{
 	border: 1px solid #FFFFFF;
 }
 
+.spinner{
+	margin-top: 50%;
+    text-align: center;
+}
+
+ion-spinner{
+	transform: scale(4);
+    --color: #8011CC;
+    width: 100%;
+}
+
 ion-content{
 	--background: no-repeat center center / cover !important;  
 }

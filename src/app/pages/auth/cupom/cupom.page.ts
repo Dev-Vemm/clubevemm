@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DetalhesCuponsComponent } from '../../../components/detalhes-cupons/detalhes-cupons.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-cupom',
@@ -19,8 +20,14 @@ export class CupomPage implements OnInit {
   private modalOpen: boolean = false;
 
   public bg = "url('assets/imgs/cover.png')";
+  public user:any;
+  public pontos: any;
+  public load: boolean = false;
+  public favoritos: any;
   constructor(
-  	private modaCtrl: ModalController
+  	private modaCtrl: ModalController,
+    private platform: Platform,
+    private data: DataService
   ){ 
   	this.cupons = [{
   		background: "url('assets/imgs/img1.jpg')",
@@ -53,6 +60,25 @@ export class CupomPage implements OnInit {
   }
 
   ngOnInit() {
+    this.platform.ready().then(async ()=>{
+      this.user = await this.data.getStorage('USER');
+      this.pontos = this.user[0].PONTOS;
+    });
+  }
+
+  ionViewWillEnter(){
+    this.loadContent();
+  }
+
+  async loadContent(){
+    this.load = true;
+    try{
+      this.favoritos = await this.data.requestPost({uid: this.user[0].UID}, 'favoritos');
+      console.log(this.favoritos);
+      this.load = false;
+    }catch(err){
+      console.log(err);
+    }
   }
 
   alterarContent(btn){
@@ -84,10 +110,23 @@ export class CupomPage implements OnInit {
       this.modal.onDidDismiss().then(()=>{
       	if(this.modal){
       		this.modal.dismiss();
+          this.modalOpen = false;
       	}
       });
       return await this.modal.present();
     }
+  }
+
+  findImg(img, pos){
+    if(pos == 1){
+      return (img)? img : "url('assets/imgs/img1.jpg')";
+    }else{
+      return (img)? img : "url('assets/imgs/img2.jpg')";
+    }
+  }
+
+  progresso(pontos, resgate){
+    return pontos / resgate;
   }
 
 }

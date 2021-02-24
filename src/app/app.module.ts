@@ -21,8 +21,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { firebaseConfig } from './configs/firebase';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+//import { Facebook } from '@ionic-native/facebook/ngx';
 
 const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.com/', options: {}};
 
@@ -50,6 +53,8 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
   ],
   providers: [
     StatusBar,
+    OneSignal,
+    //Facebook,
     NativeStorage,
     HTTP,
     SplashScreen,

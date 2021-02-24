@@ -8,12 +8,12 @@
 	    	</div>
 	    	<div class="pontos">
 	    		<div class="bar-pontos">
-	    			<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">1000</span>
+	    			<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">{{pontos}}</span>
 	    		</div>
 	    	</div>
 		</div>
-		<ion-searchbar placeholder="Pesquisar ofertas" class="search-ofertas"></ion-searchbar>
-		<div>
+		<div *ngIf="tabBusca">
+			<ion-searchbar placeholder="Pesquisar ofertas" class="search-ofertas"></ion-searchbar>
 			<div class="bar-segmentos">
 				<ion-card *ngFor="let prod of busca">
 					<ion-card-title>
@@ -35,6 +35,25 @@
 					</ion-card-content>
 				</ion-card>
 			</div>
+		</div>
+
+		<div class="mapa" [hidden]="!tabMapa">
+			<ion-searchbar placeholder="Pesquisar pontos" class="search-ofertas"></ion-searchbar>
+			<div #map id="map"></div>
 		</div>	
+	</div>
+	<div class="footer">
+		<ion-tabs>
+			<ion-tab-bar slot="bottom">
+				<ion-tab-button class="tab-menu" [selected]="tabBusca" (click)="selecionaTab(0)">
+					<ion-icon name="search"></ion-icon>
+					<ion-label>Buscar</ion-label>
+				</ion-tab-button>
+				<ion-tab-button class="tab-menu" [selected]="tabMapa" (click)="selecionaTab(1)">
+					<ion-icon name="locate-outline"></ion-icon>
+					<ion-label>Mapa</ion-label>
+				</ion-tab-button>
+			</ion-tab-bar>
+		</ion-tabs>
 	</div>
 </ion-content>

@@ -19,11 +19,11 @@
 			</div>
 			<div class="header-menu">
 				<div class="meus-pontos">
-					<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [ngStyle]="{'background-color': btnPontos? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Meus Pontos</ion-button>
+					<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [ngStyle]="{'background-color': btnPontos? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Status</ion-button>
 				</div>
-				<!-- <div class="meus-favoritos">
-					<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(1)" [ngStyle]="{'background-color': btnFavoritos? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Favoritos</ion-button>
-				</div> -->
+				<div class="meus-favoritos">
+					<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(1)" [ngStyle]="{'background-color': btnFavoritos? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Histórico</ion-button>
+				</div>
 				<div class="filtro">
 					<ion-button fill="clear" class="btn-menu-header btn-right btn-filtro">Hoje <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></ion-button>
 				</div>
@@ -60,18 +60,22 @@
 			</div>
 
 			<div class="content-favoritos" *ngIf="btnFavoritos">
-				<ion-card *ngFor="let prod of dataFav" class="card-pontos">
-					<ion-item lines="none">
-						<div class="img-prod" [ngStyle]="{'background-image': prod.IMG}"></div>
-						<div class="desc-prod">
-							<ion-label class="empresa">{{prod.EMPRESA}}</ion-label>
-							<ion-label class="lbl-produto">{{prod.PRODUTO}}</ion-label>
-						</div>
-						<div class="pontos" slot="end">
-							<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><span class="ponto-gasto">{{prod.PONTO_GASTO}}</span>
-						</div>
-					</ion-item>
-				</ion-card>
+				<div *ngFor="let prod of historico">
+					<ion-card  class="card-pontos">
+						<ion-item lines="none">
+							<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.IMG"></div>
+							<div class="desc-prod">
+								<ion-label class="empresa">{{prod.TITULO}}</ion-label>
+								<ion-label class="lbl-produto" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
+							</div>
+							<div slot="end" class="div-pontos">
+								<div class="pontos">
+									<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><ion-icon [name]="(prod.TIPO == 1)? 'remove-outline': 'add-outline'" class="operador-icon"></ion-icon><span class="ponto-gasto">{{prod.VALOR}}</span>
+								</div>
+							</div>
+						</ion-item>
+					</ion-card>
+				</div>
 			</div>
 		</div>
 	</div>

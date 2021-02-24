@@ -11,7 +11,7 @@
 		    		<ion-img src="assets/imgs/ps.png"></ion-img>
 		    	</div>-->
 			</div>
-			<ion-searchbar placeholder="Pesquisar cupons" class="search-cupons"></ion-searchbar>
+			<ion-searchbar placeholder="Pesquisar favoritos" class="search-cupons"></ion-searchbar>
 			<div class="header-menu">
 				<div class="meus-pontos">
 					<ion-button fill="clear" class="btn-menu-header btn-left btn-todos" (click)="alterarContent(0)" [ngStyle]="{'background-color': btnTodos? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Todos</ion-button>
@@ -24,23 +24,26 @@
 				</div>
 			</div>
 		</div>
-		<div class="content">
+		<div class="spinner" *ngIf="load">
+			<ion-spinner class="spin" name="bubbles"></ion-spinner>
+		</div>
+		<div class="content" *ngIf="!load">
 			<div class="cupons-page">
-				<ion-card class="card-cupom" *ngFor="let cupom of cupons" (click)="abrirDetalhes(cupom.background, cupom.img, cupom.empresa, cupom.resgate, cupom.pontos, cupom.progresso, cupom.sobre, cupom.detalhes)">
-					<ion-card-title class="title-card" [ngStyle]="{'background-image': cupom.background}"></ion-card-title>
+				<ion-card class="card-cupom" *ngFor="let cupom of favoritos" (click)="abrirDetalhes(findImg(cupom.background, 1), findImg(cupom.img, 2), cupom.empresa, cupom.resgate, pontos, progresso(pontos, cupom.resgate), cupom.sobre, cupom.detalhes)">
+					<ion-card-title class="title-card" [ngStyle]="{'background-image': findImg(cupom.background, 1)}"></ion-card-title>
 					<ion-card-content class="content-card">
-						<div class="img-prod" [ngStyle]="{'background-image': cupom.img}"></div>
+						<div class="img-prod" [ngStyle]="{'background-image': findImg(cupom.img, 2)}"></div>
 						<div class="desc-prod">
 							<ion-label class="label-empresa">{{cupom.empresa}}</ion-label>
 							<div class="resgatar">
 								<ion-label slot="start" class="label-resgate">
 									<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-cupom"></ion-icon> <span class="resgate-span">Resgatar por {{cupom.resgate}}</span>
 								</ion-label>
-								<ion-label class="contagem" *ngIf="cupom.pontos != cupom.resgate">{{cupom.pontos}} / <span class="resgate-obj">{{cupom.resgate}}</span></ion-label>
-								<ion-button class="btn-base btn-resgate" shape="round" *ngIf="cupom.pontos == cupom.resgate">Resgatar</ion-button>
+								<ion-label class="contagem" *ngIf="pontos < cupom.resgate">{{pontos}} / <span class="resgate-obj">{{cupom.resgate}}</span></ion-label>
+								<ion-button class="btn-base btn-resgate" shape="round" *ngIf="pontos >= cupom.resgate">Resgatar</ion-button>
 							</div>
 							<div class="progresso">
-								<ion-progress-bar value="{{cupom.progresso}}" class="cupom-progress"></ion-progress-bar>
+								<ion-progress-bar value="{{progresso(pontos, cupom.resgate)}}" class="cupom-progress"></ion-progress-bar>
 							</div>
 						</div>
 					</ion-card-content>

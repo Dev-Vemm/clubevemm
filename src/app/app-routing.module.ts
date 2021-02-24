@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'start',
-    loadChildren: () => import('./pages/public/start/start.module').then( m => m.StartPageModule)
+    loadChildren: () => import('./pages/public/start/start.module').then( m => m.StartPageModule), 
+    canActivate: [LoginGuard]
   },
   {
     path: 'cadastro',
@@ -29,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    loadChildren: () => import('./pages/auth/menu/menu.module').then( m => m.MenuPageModule)
+    loadChildren: () => import('./pages/auth/menu/menu.module').then( m => m.MenuPageModule),
+    canActivate: [AuthGuard]
   },
 ];
 

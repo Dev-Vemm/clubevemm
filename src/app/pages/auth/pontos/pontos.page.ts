@@ -24,7 +24,7 @@ export class PontosPage implements OnInit {
 
   private modal: any;
   private modalOpen: boolean = false;
-
+  public historico: any;
   public load: boolean = false;
   public user: any;
   constructor(
@@ -56,12 +56,10 @@ export class PontosPage implements OnInit {
     this.platform.ready().then(async ()=>{
       this.user = await this.data.getStorage('USER');
       this.pontos = this.user[0].PONTOS;
-      await this.loadContent();
       this.socket.fromEvent('offer').subscribe((data: any) =>{
         if(data){
           console.log(data);
           let i = this.dataArr.findIndex(x => x.ID == data.oferta);
-          console.log(i);
           if(i !== -1){
             let a = {
               DATA_HORA_GASTO: this.dataArr[i].DATA_HORA_GASTO,
@@ -73,22 +71,49 @@ export class PontosPage implements OnInit {
               STATUS: data.status, 
             }
             this.dataArr[i] = a;
+            if(data.status == 2){
+              this.data.getStorage('USER').then((dt) =>{
+                if(dt[0].UID == data.uid){
+                  let val = dt;
+                  val[0].PONTOS = parseInt(val[0].PONTOS) + parseInt(data.retorno);
+                  this.pontos = val[0].PONTOS;
+                  this.data.setStorage('USER', val);
+                }
+              });
+            }
           }
-          console.log(this.dataArr);
         }
       });
-    });  	
+      this.socket.fromEvent('pontos-add').subscribe((data: any) =>{
+        if(this.user[0].UID == data.user){
+          this.data.getStorage('USER').then((store: any)=>{
+            let update = store;
+            update[0].PONTOS += parseInt(data.pontos);
+            this.pontos = parseInt(update[0].PONTOS);
+
+            this.data.setStorage('USER', update);
+          });
+        }
+      });
+    });    
+  }
+
+  ionViewWillEnter(){
+    this.loadContent();
   }
 
   async loadContent(){
     this.load = true;
     try{
-      this.data.requestPost({uid: this.user[0].UID}, 'consumos').then((res) =>{
-        if(res){
-          this.dataArr = res;
-          this.load = false;
-          console.log(this.dataArr);
+      this.data.requestPost({uid: this.user[0].UID}, 'consumos').then((res:any) =>{
+        if(res.consumos){
+          this.dataArr = res.consumos;
+        }  
+        if(res.historico){
+          this.historico = res.historico;   
         }
+        this.load = false;
+        console.log(this.dataArr);
       });
     }catch(err){
       console.log(err);

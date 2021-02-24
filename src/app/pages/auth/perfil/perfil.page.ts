@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { Platform } from '@ionic/angular';
+import { FirebaseService } from '../../../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -17,7 +19,12 @@ export class PerfilPage implements OnInit {
   	data_entrada: ''
   };
   public user: any;
-  constructor(private data: DataService, private platform: Platform) { }
+  constructor(
+    private data: DataService, 
+    private platform: Platform, 
+    private firebase: FirebaseService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.platform.ready().then(async ()=>{
@@ -29,6 +36,14 @@ export class PerfilPage implements OnInit {
         plano: this.user[0].TITULO,
         data_entrada: this.user[0].DATA_HORA_ENTRADA
       }; 
+    });
+  }
+
+  async logout(){
+    this.firebase.logout().then(async ()=>{
+      await this.data.removeStorage('USER').then(()=>{
+        this.router.navigate(['start']);
+      });
     });
   }
 

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { Platform, ModalController } from '@ionic/angular';
 import { DetalhesOfertasComponent } from '../../../components/detalhes-ofertas/detalhes-ofertas.component';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-home',
@@ -42,23 +43,40 @@ export class HomePage implements OnInit {
   private modal: any;
   private modalOpen: boolean = false;
   load: boolean = false;
+  visitante: boolean = false;
   constructor(
     private modaCtrl: ModalController,
     private route: Router, 
     private data: DataService, 
-    private platform: Platform
+    private platform: Platform,
+    private socket: Socket
   ) { }
 
   ngOnInit() {
     this.platform.ready().then(async ()=>{
       this.user = await this.data.getStorage('USER');
-      this.pontos = this.user[0].PONTOS;
       this.loadContent();
+      if(this.user.vistante){
+        this.visitante = true;
+      }else{
+        this.pontos = this.user[0].PONTOS;  
+        this.socket.fromEvent('pontos-add').subscribe((data: any) =>{
+          if(this.user[0].UID == data.user){
+            this.data.getStorage('USER').then((store: any)=>{
+              let update = store;
+              update[0].PONTOS += parseInt(data.pontos);
+              this.pontos = parseInt(update[0].PONTOS);
+
+              this.data.setStorage('USER', update);
+            });
+          }
+        });
+      }
     });
   }
 
   async loadContent(){
-    this.data.requestPost({}, 'principal').then((APIres:any)=>{
+    this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
       this.segmentos = APIres;
     });
   }
@@ -118,6 +136,25 @@ export class HomePage implements OnInit {
       console.log(err);
       this.load = false;
     }
+  }
+
+  bgImage(img){
+    return (img)? img : "url('assets/imgs/img1.jpg')";
+  }
+
+  async favoritar(seg: any){
+    let vals = {uid: this.user[0].UID, oferta: seg.oferta_id};
+    let fav: any;
+    let endpoint = '';
+    if(seg.favorito){
+      fav = null;
+      endpoint = 'desfavoritar';
+    }else{
+      fav = seg.oferta_id;
+      endpoint = 'favoritar';
+    }
+    this.data.requestPost(vals, endpoint);
+    seg.favorito = fav;
   }
 
 }

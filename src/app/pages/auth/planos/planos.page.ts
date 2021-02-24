@@ -23,13 +23,11 @@ export class PlanosPage implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    
-  }
-
-  ionViewWillEnter(){
+  
+  ngOnInit(){
     this.platform.ready().then(async ()=>{
       this.user = await this.data.getStorage('USER');
+      console.log(this.user);
       this.loadPlanos();
     });
   }
@@ -66,7 +64,7 @@ export class PlanosPage implements OnInit {
           this.modalOpen = false;
         }
         if(data.data){
-          this.finalizaAssinatura(this.user.UID, data.data.plano_id);
+          this.finalizaAssinatura(this.user[0].UID, data.data.plano_id);
         }
       });
       return await this.modal.present();

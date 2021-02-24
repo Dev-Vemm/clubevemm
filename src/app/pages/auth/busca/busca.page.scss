@@ -3,6 +3,16 @@
 	margin: 3%;
 }
 
+.mapa{
+	height: 100vw;
+}
+
+#map{
+	height: 100%;
+    margin-top: 12%;
+    border-radius: 15px;
+}
+
 .header{
 	font-size: 4vw;
 	padding: 2%;
@@ -19,7 +29,7 @@ ion-content{
 }
 
 .search-ofertas{
-	width: 90%;
+	width: 100%;
 	margin: 5% auto 0;
 	--background: rgba(255, 255, 255, 0.4);
 	color: #FFFFFF;

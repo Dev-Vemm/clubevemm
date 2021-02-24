@@ -68,13 +68,13 @@
 				</ion-card-title>
 				<ion-card-content class="content-prod-segmento">
 					<ion-item lines="none">
-						<div class="img-prod" [ngStyle]="{'background-image': prod.img}"></div>
+						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }"></div>
 						<div class="desc-prod">
 							<ion-label>{{prod.produto}}</ion-label>
-							<ion-label class="lbl-desc">{{prod.desc}}</ion-label>
+							<ion-label class="lbl-desc">{{prod.descricao}}</ion-label>
 						</div>
 						<div class="buttons-prods" slot="end">
-							<ion-button fill="clear" class="btn-ofertas-star btn-off"><ion-icon name="star-outline" mode="ios"></ion-icon></ion-button>
+							<ion-button fill="clear" class="btn-ofertas-star btn-off" (click)="favoritar(prod)"><ion-icon [name]="(prod.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
 							<ion-button fill="clear" class="btn-ofertas-plus btn-off" (click)="abrirDetalhes(prod)"><ion-icon name="add-circle"></ion-icon></ion-button>
 						</div>
 					</ion-item>

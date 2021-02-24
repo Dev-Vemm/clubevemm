@@ -30,15 +30,15 @@ ion-content{
 
 .pontos{
 	width: 100%;
-    height: 6vw;
+    height: 8vw;
     background-color: #FF9500;
     color: #FFFFFF;
     font-family: Poppins-Medium;
-    font-size: 3vw;
+    font-size: 4vw;
     border-radius: 15px;
     text-align: center;
     padding-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
 .status{
@@ -109,18 +109,22 @@ ion-content{
 }
 
 .icon-moeda-pontos{
-	margin-right: 20%;
+	margin-top: 2%;
+}
+
+.operador-icon{
+	margin-right: 15%;
 }
 
 .empresa{
 	color: #8011CC;
-	font-size: 4vw;
+	font-size: 3.5vw;
 	font-family: Poppins-Medium;
 }
 
 .lbl-produto{
 	margin-top: 1%;
 	color: #C4C4C4;
-	font-size: 4vw;
+	font-size: 3.5vw;
 	font-family: Poppins-Medium;
 }

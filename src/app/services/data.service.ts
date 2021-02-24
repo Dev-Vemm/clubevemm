@@ -58,4 +58,8 @@ export class DataService {
         }
       });
     }
+
+    async removeStorage(key){
+      await this.storage.remove(key);
+    }
 }

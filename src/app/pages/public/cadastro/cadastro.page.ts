@@ -34,15 +34,18 @@ export class CadastroPage implements OnInit {
   				};
   				this.data.requestPost(vals, 'cadastrar').then((APIres) =>{
   					if(APIres['status']){
-              let arr = {
-                'UID': APIres['dados'][0]['UID'],
-                'NOME': APIres['dados'][0]['NOME'],
-                'EMAIL': APIres['dados'][0]['EMAIL'],
-                'PONTOS': APIres['dados'][0]['PONTOS'],
-                'DATA_HORA_ENTRADA': APIres['dados'][0]['DATA_HORA_ENTRADA'],
-                'IMG': '',
-                'TIPO_PLANO': ''
-              };
+              let arr = [
+                {
+                  'UID': APIres['dados'][0]['UID'],
+                  'NOME': APIres['dados'][0]['NOME'],
+                  'EMAIL': APIres['dados'][0]['EMAIL'],
+                  'PONTOS': APIres['dados'][0]['PONTOS'],
+                  'DATA_HORA_ENTRADA': APIres['dados'][0]['DATA_HORA_ENTRADA'],
+                  'IMG': '',
+                  'TIPO_PLANO': '',
+                  'ONE_SIGNAL_ID': ''
+                } 
+              ];
               this.data.setStorage('USER', arr);
               this.cadastrando = false;
   						this.router.navigate(['menu']);
