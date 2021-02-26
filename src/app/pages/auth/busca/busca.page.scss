@@ -5,6 +5,10 @@
 
 .mapa{
 	height: 100vw;
+    z-index: 9999;
+    position: absolute;
+    left: 2%;
+    margin-top: 13%;
 }
 
 #map{

@@ -24,6 +24,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 //import { Facebook } from '@ionic-native/facebook/ngx';
 
@@ -49,7 +51,8 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,

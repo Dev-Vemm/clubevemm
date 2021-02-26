@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-senha.page.scss'],
 })
 export class ResetSenhaPage implements OnInit {
-
+	public email: any;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  enviarEmail(email){
+  	alert('Em breve');
   }
 
 }
