@@ -54,8 +54,6 @@ export class PontosPage implements OnInit {
 
   ngOnInit() {
     this.platform.ready().then(async ()=>{
-      this.user = await this.data.getStorage('USER');
-      this.pontos = this.user[0].PONTOS;
       this.socket.fromEvent('offer').subscribe((data: any) =>{
         if(data){
           console.log(data);
@@ -99,7 +97,11 @@ export class PontosPage implements OnInit {
   }
 
   ionViewWillEnter(){
-    this.loadContent();
+    this.platform.ready().then(async ()=>{
+      this.user = await this.data.getStorage('USER');
+      this.pontos = this.user[0].PONTOS;
+      this.loadContent();
+    });
   }
 
   async loadContent(){

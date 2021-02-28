@@ -30,6 +30,7 @@ export class LoginPage implements OnInit {
             uid: fireLogin['user'].uid
           };
           this.data.requestPost(vals, 'logar').then((APIres) =>{
+            console.log(APIres);
             if(APIres['status']){
               this.data.setStorage('USER', APIres['dados']);
               this.cadastrando = false;

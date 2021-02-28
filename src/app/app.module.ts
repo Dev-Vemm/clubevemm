@@ -15,12 +15,15 @@ import { DetalhesOfertasComponent } from './components/detalhes-ofertas/detalhes
 import { DetalhesPlanosComponent } from './components/detalhes-planos/detalhes-planos.component';
 
 import { HTTP } from '@ionic-native/http/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { firebaseConfig } from './configs/firebase';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -48,9 +51,11 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    HttpClientModule,
     SocketIoModule.forRoot(config),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
