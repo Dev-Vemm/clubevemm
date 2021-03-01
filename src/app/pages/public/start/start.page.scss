@@ -52,3 +52,36 @@ a{
 .btn-login{
 	--background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(106,122,29,1) 35%, rgba(221, 236, 40,1) 100%);
 }
+
+//----------------------------------------------------------------------------------------------------//
+
+@media (min-width: 800px) {
+  	.logo-principal{
+		width: 10%;
+		margin: 2% auto;
+	}
+
+	.titulo{
+		color: #FFFFFF;
+		font-size: 2vw; 
+		font-family: Poppins-Bold;
+	}
+
+	.btns{
+		height: 3.5vw;
+		margin: 5% 5%;
+		white-space: normal;
+		font-size: 0.8vw;
+	}
+
+	.body{
+		width: 35%;
+		margin: auto;
+	}
+
+	.footer{
+		font-size: 1vw;
+		color: #FFFFFF;
+		font-family: Poppins-Medium;
+	}
+}
