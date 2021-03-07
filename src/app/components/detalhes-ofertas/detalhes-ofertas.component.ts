@@ -43,4 +43,12 @@ export class DetalhesOfertasComponent implements OnInit {
     await alert.present();
   }
 
+  returnImg(img){
+    if(img){
+      return img;
+    }else{
+      return "url('assets/imgs/img3.jpg')";
+    }
+  }
+
 }

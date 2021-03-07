@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -50,6 +52,7 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
   ],
   imports: [
     BrowserModule, 
+    FormsModule,
     IonicModule.forRoot(), 
     IonicStorageModule.forRoot(),
     AppRoutingModule,

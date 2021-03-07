@@ -27,6 +27,8 @@ export class PontosPage implements OnInit {
   public historico: any;
   public load: boolean = false;
   public user: any;
+  public uid: any;
+  public index: any;
   constructor(
   	private modaCtrl: ModalController,
     private platform: Platform,
@@ -100,6 +102,7 @@ export class PontosPage implements OnInit {
     this.platform.ready().then(async ()=>{
       this.user = await this.data.getStorage('USER');
       this.pontos = this.user[0].PONTOS;
+      this.uid = this.user[0].UID;
       this.loadContent();
     });
   }
@@ -161,20 +164,42 @@ export class PontosPage implements OnInit {
   	}
   }
 
-  async abrirDetalhes(img, empresa, produto, pontos, data_hora){
+  async abrirDetalhes(img, empresa, produto, pontos, data_hora, status, nota, comentario, favorito, oferta, index){
     if(this.modalOpen){
       this.modal.dismiss();
       this.modalOpen = false;
     }else{
+      this.index = index;
+      let det = {
+        img: img, 
+        empresa: empresa, 
+        produto: produto, 
+        pontos: pontos, 
+        data_hora: data_hora, 
+        status: status,
+        nota: nota,
+        comentario: comentario,
+        favorito: favorito,
+        uid: this.uid,
+        oferta_id: oferta
+      };
       this.modalOpen = true;
       this.modal = await this.modaCtrl.create({
         component: DetalhesPontosComponent,
-        componentProps: { modal: this.modal, detalhes: {img: img, empresa: empresa, produto: produto, pontos: pontos, data_hora: data_hora} }
+        componentProps: { modal: this.modal, detalhes: det }
       });
-      this.modal.onDidDismiss().then(()=>{
+      this.modal.onDidDismiss().then((data:any)=>{
+        this.modalOpen = false;
       	if(this.modal){
       		this.modal.dismiss();
       	}
+        if(data.data.status == 3){
+          this.dataArr[this.index].COMENTARIO = data.data.comentario;
+          this.dataArr[this.index].NOTA = data.data.nota;
+          this.dataArr[this.index].FAVORITO = data.data.favorito;
+        }else{
+          this.dataArr[this.index].FAVORITO = data.data.favorito;
+        }
       });
       return await this.modal.present();
     }

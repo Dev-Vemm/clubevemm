@@ -34,8 +34,8 @@
 		</div>
 		<div class="content" *ngIf="!load">
 			<div class="content-pontos" *ngIf="btnPontos">
-				<ion-card *ngFor="let prod of dataArr" class="card-pontos">
-					<ion-item lines="none" (click)="abrirDetalhes(returnImg(prod.IMG), prod.EMPRESA, prod.PRODUTO, prod.PONTO_GASTO, prod.DATA_HORA_GASTO)">
+				<ion-card *ngFor="let prod of dataArr; let i = index;" class="card-pontos">
+					<ion-item lines="none" (click)="abrirDetalhes(returnImg(prod.IMG), prod.EMPRESA, prod.PRODUTO, prod.PONTO_GASTO, prod.DATA_HORA_GASTO, prod.STATUS, prod.NOTA, prod.COMENTARIO, prod.FAVORITO, prod.OFERTA_ID, i)">
 						<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}"></div>
 						<div class="desc-prod">
 							<ion-label class="empresa">{{prod.EMPRESA}}</ion-label>
@@ -52,6 +52,12 @@
 								<ion-label class="label-status">Aprovado</ion-label>
 							</div>
 							<div class="status" [ngStyle]="{'background-color' : '#F71111'}" *ngIf="prod.STATUS == 2">
+								<ion-label class="label-status">Reprovado</ion-label>
+							</div>
+							<div class="status" [ngStyle]="{'background-color' : '#4c4c85'}" *ngIf="prod.STATUS == 3">
+								<ion-label class="label-status">Finalizado</ion-label>
+							</div>
+							<div class="status" [ngStyle]="{'background-color' : '#525252'}" *ngIf="prod.STATUS == 4">
 								<ion-label class="label-status">Cancelado</ion-label>
 							</div>
 						</div>

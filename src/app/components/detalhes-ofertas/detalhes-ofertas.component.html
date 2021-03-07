@@ -3,7 +3,7 @@
 		<ion-icon name="close-circle-outline" class="close-modal"></ion-icon>
 	</ion-button>
 	<div class="content">
-		<div class="img-fundo" [ngStyle]="{'background-image': detalhes.img}"></div>
+		<div class="img-fundo" [ngStyle]="{'background-image': returnImg(detalhes.img)}"></div>
 		<div class="detalhes">
 			<div class="prod ion-text-center">
 				<p class="produto">{{detalhes.produto}}</p>
@@ -14,7 +14,10 @@
 				<ion-icon name="star"></ion-icon> -->
 			</div>
 			<div class="empresa-produto">
-				<p class="nome">{{detalhes.nome}}</p>		
+				<div class="div_empresa">
+				<span class="nome" slot="start">{{detalhes.nome}}</span>		
+				<span slot="end" class="coments">Comentários <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></span>
+				</div>
 				<p class="end">{{detalhes.endereco}}, {{detalhes.numero}}<span *ngIf="detalhes.complemento">, {{detalhes.complemento}}</span> - {{detalhes.cidade}} - {{detalhes.estado}} - CEP: {{detalhes.cep}}</p>
 			</div>
 		</div>
