@@ -61,15 +61,11 @@ export class DetalhesPontosComponent implements OnInit {
     this.icon_favoritado = fav;
   }
 
+
   avaliar(estrelas){
     this.nota = estrelas;
     switch (estrelas) {
       case 1:
-        this.avalIcon1 = 'star';
-        this.avalIcon2 = 'star-outline';
-        this.avalIcon3 = 'star-outline';
-        this.avalIcon4 = 'star-outline';
-        this.avalIcon5 = 'star-outline';
         this.starColor= {
           color: '#A8A300',
           shadow: 'none'

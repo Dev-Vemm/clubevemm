@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; 
 
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
@@ -15,6 +17,9 @@ import { DetalhesPontosComponent } from './components/detalhes-pontos/detalhes-p
 import { DetalhesCuponsComponent } from './components/detalhes-cupons/detalhes-cupons.component';
 import { DetalhesOfertasComponent } from './components/detalhes-ofertas/detalhes-ofertas.component';
 import { DetalhesPlanosComponent } from './components/detalhes-planos/detalhes-planos.component';
+import { DetalhesComentariosComponent } from './components/detalhes-comentarios/detalhes-comentarios.component';
+import { ShareComponent } from './components/share/share.component';
+import { ShareEmailComponent } from './components/share-email/share-email.component';
 
 import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,16 +47,23 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     DetalhesPontosComponent, 
     DetalhesCuponsComponent, 
     DetalhesPlanosComponent, 
-    DetalhesOfertasComponent
+    DetalhesOfertasComponent,
+    DetalhesComentariosComponent,
+    ShareComponent,
+    ShareEmailComponent
   ],
   entryComponents: [
     DetalhesPontosComponent, 
     DetalhesCuponsComponent, 
     DetalhesPlanosComponent, 
-    DetalhesOfertasComponent
+    DetalhesOfertasComponent,
+    DetalhesComentariosComponent,
+    ShareComponent,
+    ShareEmailComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
+    CommonModule, 
     FormsModule,
     IonicModule.forRoot(), 
     IonicStorageModule.forRoot(),
@@ -66,6 +78,7 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     StatusBar,
     OneSignal,
     //Facebook,
+    SocialSharing,
     NativeStorage,
     HTTP,
     SplashScreen,

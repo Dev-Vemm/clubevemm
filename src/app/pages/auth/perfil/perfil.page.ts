@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
-import { Platform } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
 import { FirebaseService } from '../../../services/firebase.service';
 import { Router } from '@angular/router';
+import { ShareComponent } from '../../../components/share/share.component';
 
 @Component({
   selector: 'app-perfil',
@@ -18,12 +19,14 @@ export class PerfilPage implements OnInit {
   	plano: '',
   	data_entrada: ''
   };
+  private modal: any;
   public user: any;
   constructor(
     private data: DataService, 
     private platform: Platform, 
     private firebase: FirebaseService,
-    private router: Router
+    private router: Router,
+    private modaCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -45,6 +48,15 @@ export class PerfilPage implements OnInit {
         this.router.navigate(['start']);
       });
     });
+  }
+
+  async share(){
+    this.modal = await this.modaCtrl.create({
+      component: ShareComponent,
+      cssClass: 'share-email',
+      componentProps: { uid: this.user[0].UID, modal: this.modal }
+    });
+    return await this.modal.present();
   }
 
 }

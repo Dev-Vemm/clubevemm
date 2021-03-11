@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-button fill="clear" (click)="voltar()" class="btn-voltar">
+				<ion-icon name="close-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="header ion-text-center">
+		<ion-label>Indique novos usuários</ion-label>
+	</div>
+	<ion-list>
+		<p>Como deseja enviar a mensagem?</p>
+		<ion-card>
+			<ion-item (click)="sendEmail()">
+				<ion-icon name="mail-outline"></ion-icon>
+				<ion-label class="lblType">E-mail</ion-label>
+			</ion-item>
+			<ion-item (click)="shareWhatsapp()">
+				<ion-icon name="logo-whatsapp"></ion-icon>
+				<ion-label class="lblType">Whatsapp</ion-label>
+			</ion-item>
+		</ion-card>
+	</ion-list>
+</ion-content>

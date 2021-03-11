@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, AlertController } from '@ionic/angular';
+import { NavParams, AlertController, ModalController } from '@ionic/angular';
+import { DetalhesComentariosComponent } from '../detalhes-comentarios/detalhes-comentarios.component';
 
 @Component({
   selector: 'app-detalhes-ofertas',
@@ -9,7 +10,12 @@ import { NavParams, AlertController } from '@ionic/angular';
 export class DetalhesOfertasComponent implements OnInit {
   private modal: any = this.navParam.data.modal;
   public detalhes: any = this.navParam.data.detalhes;	
-  constructor(private navParam: NavParams, private alertCtrl: AlertController) { }
+  private mod: any;
+  constructor(
+    private navParam: NavParams, 
+    private alertCtrl: AlertController, 
+    private modaCtrl: ModalController
+  ) { }
 
   ngOnInit() {}
 
@@ -49,6 +55,14 @@ export class DetalhesOfertasComponent implements OnInit {
     }else{
       return "url('assets/imgs/img3.jpg')";
     }
+  }
+
+  async abrirComentarios(oferta, nome){
+    this.mod = await this.modaCtrl.create({
+      component: DetalhesComentariosComponent,
+      componentProps: { modal: this.mod, detalhes: {oferta: oferta, nome: nome} }
+    });
+    return await this.mod.present();
   }
 
 }

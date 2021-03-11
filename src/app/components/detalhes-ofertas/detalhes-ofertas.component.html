@@ -15,8 +15,8 @@
 			</div>
 			<div class="empresa-produto">
 				<div class="div_empresa">
-				<span class="nome" slot="start">{{detalhes.nome}}</span>		
-				<span slot="end" class="coments">Comentários <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></span>
+					<span class="nome" slot="start">{{detalhes.nome}}</span>		
+					<span slot="end" class="coments" (click)="abrirComentarios(detalhes.oferta_id, detalhes.produto)">Comentários <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></span>
 				</div>
 				<p class="end">{{detalhes.endereco}}, {{detalhes.numero}}<span *ngIf="detalhes.complemento">, {{detalhes.complemento}}</span> - {{detalhes.cidade}} - {{detalhes.estado}} - CEP: {{detalhes.cep}}</p>
 			</div>
