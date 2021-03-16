@@ -1,7 +1,12 @@
+<div class="background" *ngIf="cadastrando">
+	<ion-spinner name="dots"></ion-spinner>
+</div>
 <ion-header class="ion-no-border toolbarVerde" no-border>
-  <ion-toolbar class="header-principal toolbarVerde" lines="none">
-  	<ion-buttons slot="start">
-      <ion-back-button  text="Voltar" class="primary-text" defaultHref="/"></ion-back-button>
+  <ion-toolbar lines="none">
+  	<ion-buttons slot="start" class="returnBtn">
+      <ion-button  fill="clear" class="primary-text" (click)="navigate()">
+      	<ion-img src="assets/imgs/icons/Vector.png"></ion-img>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +14,19 @@
 <ion-content>
 	<div class="principal">
 		<div class="header ion-text-center">
-			<ion-img src="assets/imgs/logo/logo-principal.png" class="logo-principal"></ion-img>
+			<ion-grid>
+				<ion-row>
+					<ion-col class="ion-align-self-start group g1" size="1">
+						<ion-img src="assets/imgs/icons/Group1.png"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-center" size="12">
+						<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-end group g2" size="1">
+						<ion-img src="assets/imgs/icons/Group2.png"></ion-img>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
 			<p class="titulo">Insira o seu E-mail para uma nova senha.</p>
 		</div>
 		<div class="body">

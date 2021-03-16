@@ -22,6 +22,10 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
+  navigate(){
+    this.router.navigateByUrl('/');
+  }
+
   async cadastrar(nome, email, senha){
   	this.cadastrando = true;
   	try{

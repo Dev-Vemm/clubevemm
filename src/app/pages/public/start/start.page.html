@@ -1,19 +1,29 @@
-<ion-content>
+<ion-content [scrollY]="!mobile">
 	<div class="principal">
 		<div class="header ion-text-center">
-			<ion-img src="assets/imgs/logo/logo-principal.png" class="logo-principal"></ion-img>
+			<ion-grid>
+				<ion-row>
+					<ion-col class="ion-align-self-start group g1" size="1">
+						<ion-img src="assets/imgs/icons/Group1.png"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-center" size="12">
+						<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-end group g2" size="1">
+						<ion-img src="assets/imgs/icons/Group2.png"></ion-img>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
 			<p class="titulo">Seja Bem vindo(a)</p>
 		</div>
 		<div class="body ion-text-center">
-			<ion-button expand="block" shape="round" class="btn-visitante btns" (click)="navigate('menu')">Entrar como visitante</ion-button>
-			<ion-button expand="block" shape="round" class="btn-login btns" (click)="navigate('login')">Iniciar sessão com E-mail e Senha</ion-button>
-			<ion-button expand="block" shape="round" class="btn-facebook btns" (click)="navigate('planos')">Iniciar Sessão com Facebook
-			</ion-button>
-			<ion-button expand="block" shape="round" class="btn-apple btns" (click)="navigate('planos')">Iniciar sessão com Apple</ion-button>
+			<ion-button expand="block" fill="clear" class="btn-visitante btns" (click)="navigate('menu')"><ion-img src="assets/imgs/icons/gmail-login.png" class="btn-img"></ion-img></ion-button>
+			<ion-button expand="block" fill="clear" class="btn-login btns" (click)="navigate('login')"><ion-img src="assets/imgs/icons/email-login.png" class="btn-img"></ion-img></ion-button>
+			<ion-button expand="block" fill="clear" class="btn-facebook btns" (click)="navigate('planos')"><ion-img src="assets/imgs/icons/facebook-login.png" class="btn-img"></ion-img></ion-button>
+			<ion-button expand="block" fill="clear" class="btn-apple btns" (click)="navigate('planos')"><ion-img src="assets/imgs/icons/apple-login.png" class="btn-img"></ion-img></ion-button>
 		</div>
 		<div class="footer ion-text-center">
-			<p class="senhaReset">Não tem uma conta? <a (click)="navigate('cadastro')">Crie uma.</a></p>
-			<p class="senhaReset">Esqueceu a senha? <a (click)="navigate('reset-senha')">Clique aqui.</a></p>
+			<p class="senhaReset">Não tem uma conta? <a (click)="navigate('cadastro')" class="aSenha">Crie uma.</a></p>
 		</div>
 	</div>
 </ion-content>

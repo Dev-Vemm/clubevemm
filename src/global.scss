@@ -50,7 +50,7 @@
 }
 
 .btn-base{
-	--background: #04D361 !important;
+	--background: #0AE28F !important;
 }
 
 .btn-base-plano{
@@ -72,9 +72,9 @@
 
 .toolbarVerde{
 	border: 0px !important;
-    border-bottom-color: transparent !important;
-    background-image: none !important;
-    border-bottom: none !important;
+  border-bottom-color: transparent !important;
+  background-image: none !important;
+  border-bottom: none !important;
 }
 
 .moeda-img{
@@ -119,5 +119,23 @@
 @font-face{
   font-family: Poppins-Medium;
   src: url('assets/fonts/Poppins-Medium.ttf') format('ttf');
+  font-weight: 200;
+}
+
+@font-face{
+  font-family: Hero-Bold;
+  src: url('assets/fonts/Hero-Bold.ttf') format('ttf');
+  font-weight: 200;
+}
+
+@font-face{
+  font-family: Hero-Regular;
+  src: url('assets/fonts/Hero-Regular.ttf') format('ttf');
+  font-weight: 200;
+}
+
+@font-face{
+  font-family: Hero-Light;
+  src: url('assets/fonts/Hero-Light.ttf') format('ttf');
   font-weight: 200;
 }

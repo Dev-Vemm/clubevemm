@@ -46,7 +46,7 @@ export class ShareComponent implements OnInit {
     	if(data.data.email){
     		let vals = {
     			email: data.data.email,
-    			link: this.text
+    			link: this.url
     		}
     		await this.data.requestPost(vals, 'email-share').then(()=>{
     			this.presentToast('E-mail enviado com sucesso.');

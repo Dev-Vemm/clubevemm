@@ -1,5 +1,40 @@
 ion-content{
-	--background: linear-gradient(to bottom, #3b11cc, #9911cc, #8011cc);
+	--background: rgb(72, 0, 141);
+}
+
+
+.group{
+	position: absolute;
+}
+
+.returnBtn{
+	margin: 8% 10%;
+}
+
+.g1{
+	top: 13%;
+	left: 0;
+}
+
+.g2{
+	top: 13%;
+	right: 0;
+}
+
+ion-toolbar {
+  	--background: transparent no-repeat fixed center;
+  	position: absolute;
+  	top: 0;
+}
+
+ion-header {
+  &.header-md:after {
+    background: none;
+  }
+}
+
+.aSenha{
+	color: #FFA700;
 }
 
 .background{
@@ -33,8 +68,7 @@ ion-item{
 }
 
 .logo-principal{
-	width: 25%;
-	margin: 0 auto;
+	margin: auto;
 }
 
 .body{
@@ -45,12 +79,17 @@ ion-item{
 .btn-enviar{
 	width: 80%;
 	margin: auto;
-	height: 15vw;
+	height: 12vw;
 }
 
 .titulo{
-	margin-left: 5%;
-	color: #FFFFFF;
-	font-size: 8vw; 
-	font-family: Poppins-Bold;
+	color: #D4C2FF;
+	font-size: 4vw; 
+	font-family: Hero-Bold;
+}
+
+.footer{
+	font-size: 3.5vw;
+	color: #D4C2FF;
+	font-family: Hero-Regular;
 }

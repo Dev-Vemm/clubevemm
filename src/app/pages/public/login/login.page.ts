@@ -21,6 +21,10 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  navigate(url){
+    this.router.navigate([url]);
+  }
+
   login(email, senha){
     this.cadastrando = true;
     try{

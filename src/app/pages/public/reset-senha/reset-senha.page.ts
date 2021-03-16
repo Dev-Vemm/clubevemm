@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-reset-senha',
@@ -7,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetSenhaPage implements OnInit {
 	public email: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   enviarEmail(email){
   	alert('Em breve');
+  }
+
+  navigate(){
+    this.router.navigateByUrl('login');
   }
 
 }
