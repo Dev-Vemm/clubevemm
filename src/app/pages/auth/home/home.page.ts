@@ -13,6 +13,16 @@ import { Socket } from 'ngx-socket-io';
 export class HomePage implements OnInit {
   public lorem = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letr';
   public bg = "url('assets/imgs/cover.png')";
+  public btnsMenus = [{
+    icon: 'assets/imgs/icons/hospedagem_btn.png',
+    content: 'Hospedagem'
+  },{
+    icon: 'assets/imgs/icons/saude_btn.png',
+    content: 'Saúde'
+  },{
+    icon: 'assets/imgs/icons/exp_btn.png',
+    content: 'Experiências'
+  }];
   public cupons = [{
   	img: "url('assets/imgs/img1.jpg')",
   	desc: 20

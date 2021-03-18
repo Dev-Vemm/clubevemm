@@ -1,6 +1,24 @@
+ion-content{
+	--background: rgb(72, 0, 141);
+}
+
+ion-toolbar {
+  	padding-top: 15% !important;
+  	--background: transparent no-repeat fixed center;
+  	position: absolute;
+  	top: 0;
+}
+
 .principal{
 	padding: 2%;
 	margin: 3%;
+}
+
+.pontosIniciais{
+	color: #FFFFFF;
+	font-family: 'Hero-Regular';
+	margin-right: 5%;
+	font-size: 14px;
 }
 
 .background{
@@ -21,14 +39,8 @@ ion-spinner{
     width: 100%;
 }
 
-.header{
-	font-size: 4vw;
-	padding: 2%;
-	margin: 3%;
-}
-
-ion-content{
-	--background: no-repeat center center / cover !important;  
+label{
+	font-family: 'Hero-Regular';
 }
 
 .btn-segmentos{
@@ -38,11 +50,21 @@ ion-content{
 }
 
 .logo{
-	width: 50%;
-    margin: auto;
+	width: 70%;
+    margin-left: 10%;
+}
+
+ion-buttons{
+	min-width: 30%;
+    margin-left: 3%;
+}
+
+.title-card{
+	padding-top: 1%;
 }
 
 .pontos{
+	width: 100%;
 	margin-right: 1%;
     border-radius: 1.5em;
     min-width: 25%;
@@ -52,7 +74,6 @@ ion-content{
     background-color: rgba(255, 255, 255, 0.4);
     font-size: 5.5vw;
     color: white;
-    float: right;
     margin-top: 4%;
 }
 
@@ -60,60 +81,81 @@ ion-content{
 	color: gold;
 }
 
-.avatar{
-	margin-left: 2%;
-	float: left;
+.icons-btns{
+	width: 32%;
+    height: 35vw;
+
+}
+
+ion-avatar{
+	width: 15vw;
+	height: 15vw;
+	border: 2px solid #FFFFFF;
+	margin-right: 9%;
+	margin-top: 2%;
 }
 
 .search-ofertas{
 	width: 90%;
-	margin: 5% auto 0;
+	margin: 38% auto 0;
 	--background: rgba(255, 255, 255, 0.4);
 	color: #FFFFFF;
+	text-align: center;
+	font-family: 'Hero-Regular';
 }
 
 .cupons-recentes{
 	color: #FFFFFF;
-	font-size: 3.1vw;
-    font-family: sans-serif;
-    margin: 2% 2% 2% 7%;
+	font-size: 4vw;
+    font-family: 'Hero-Regular';
+    margin: 5% 2% 0% 7%;
 }
 
 .bar{
-	width: 100%;
-	height: 30vw;
+	height: 40vw;
+	align-items: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	flex-wrap: nowrap;
+  	overflow-x: auto;
+  	overflow-y: hidden;
+  	margin: 0 2%;
 }
 
 .bar-oferta{
-	width: 100%;
-	height: 50vw;	
+	height: 50vw;
+	align-items: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	flex-wrap: nowrap;
+  	overflow-x: auto;
+  	overflow-y: hidden;
+  	margin: 0 2%;	
 }
 
 .cupom{
 	background-position: center;    
 	background-size: cover;     
-	width: 100%;    
-	height: 98%;     
-	text-align: center;     
-	border: 1px solid;     
-	margin: 5% 5% 5% 10%;     
-	padding-top: 4%;     
-	font-size: 4vw;     
-	color: #FFFFFF;     
-	border-radius: 15px;
-	float: left;
+	min-width: 50%;
+  	padding: .75rem;
+  	margin-bottom: 2rem;
+  	border: 0;
+  	flex-basis: 33.333%;
+  	flex-grow: 0;
+  	flex-shrink: 0;
+  	border-radius: 10px;
+	
 }
 
 .ofertas{
-	width: 100%;    
-	height: 100%;     
+	height: 95%;     
 	text-align: center;     
-	border: 1px solid;     
-	margin: 5% 5% 5% 15%;  
-	font-size: 4vw;     
-	color: #FFFFFF;     
-	border-radius: 15px;
-	float: left;
+	min-width: 40%;
+  	margin-bottom: 2rem;
+  	border-radius: 10px;
+  	flex-basis: 33.333%;
+  	flex-grow: 0;
+  	flex-shrink: 0;
 }
 
 .card-oferta-title{
@@ -129,7 +171,9 @@ ion-slides{
 .ver-mais{
 	float: right;
 	text-decoration: none;
-	color: gray;
+	color: rgb(255, 255, 255, 0.6);
+	margin-right: 5%;
+	font-size: 12px;
 }
 
 .oferta-nome{
@@ -141,26 +185,46 @@ ion-slides{
 	margin-right: 5%;
 }
 
+.desc-prod{
+	height: 100%;
+    width: 100%;
+}
+
 .quantPontosSegmento{
 	color: orange;
-	margin-left: 5%;
-	font-size: 4vw;
+    font-size: 13px;
+    margin-right: 10%;
+    margin-top: 2%;
+    float: right;
+    font-family: 'Hero-Bold';
+}
+
+.lblCusto{
+	position: absolute;
+	margin-left: 1%;
 }
 
 .nome-prod{
-	font-size: 3vw;
-	margin-left: 5%;
+	font-size: 12px;
+	margin-left: 3%;
+    color: #48008D;
+    font-family: 'Hero-Bold';
 }
 
 .btn-ofertas-star{
-	font-size: 3.5vw;
+	font-size: 4vw;
 	color: #ff9500;
 	float: left;
 	margin: 0;
 }
 
+.prod-produto{
+	font-size: 13px;
+	font-family: 'Hero-Bold';	
+}
+
 .btn-ofertas-plus{
-	font-size: 3.5vw;
+	font-size: 4vw;
 	color: #03cf70;
 	float: right;
 	margin: 0;
@@ -168,29 +232,54 @@ ion-slides{
 
 .img-prod{
 	border-radius: 15px;
-	width: 15vw;
+	width: 20vw;
 	height: 15vw;
 	background-position: center;    
 	background-size: cover;
 	margin-right: 2%;
+	margin-left: 3%;
 }
 
 .lbl-desc{
 	white-space: normal;
-	font-size: 2vw;
+	font-size: 12px;
+	font-family: 'Hero-Regular'
 }
 
 .offer-img-moeda{
 	width: 20%;
 }
 
+.buttons-ofertas{
+	padding: 0 15%;
+}
+
+.buttons-prods{
+	margin: 0;
+}
+
 .content-card-offer{
-	padding-top: 0;
+	padding: 0;
 	height: 50%;
 }
 
 .label-segmento{
-	font-size: 4vw;
-    color: #8011CC;
-    font-family: Poppins-Medium;
+	font-size: 15px;
+    color: #FFFFFF;
+    font-family: 'Hero-Bold';
+}
+
+.img-ver-mais{
+	width: 100%;
+	margin: auto;
+}
+
+.segs{
+	margin: 5% 0;
+}
+
+.btn-ver-mais{
+	width: 24%;
+	height: 10vw;
+	margin: 0;
 }

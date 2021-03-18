@@ -33,6 +33,15 @@
 	border-radius: 1.5em !important;
 }
 
+.searchbar-search-icon.sc-ion-searchbar-md{
+  top: 7px !important;
+}
+
+.searchbar-input.sc-ion-searchbar-md{
+  height: 10vw !important;
+  font-size: 12px;
+}
+
 .searchbar-search-icon{
 	color: #FFFFFF !important;
 }
@@ -46,7 +55,12 @@
 }
 
 .content-prod-segmento{
-	padding: 3% 1% !important;
+	padding: 1% 0 3% !important;
+}
+
+.segs-inner{
+  --inner-padding-end: 0px;
+  --padding-start:0px
 }
 
 .btn-base{
@@ -83,7 +97,7 @@
 }
 
 .tab-selected{
-	color: #8011CC;
+	color: #0AE28F !important;
 }
 
 .progress{
@@ -111,31 +125,16 @@
 }
 
 @font-face{
-  font-family: Poppins-Bold;
-  src: url('assets/fonts/Poppins-Bold.ttf') format('ttf');
-  font-weight: 200;
+  font-family: 'Hero-Bold';
+  src: url('assets/fonts/Hero-Bold.ttf') format('truetype');
 }
 
 @font-face{
-  font-family: Poppins-Medium;
-  src: url('assets/fonts/Poppins-Medium.ttf') format('ttf');
-  font-weight: 200;
+  font-family: 'Hero-Regular';
+  src: url('assets/fonts/Hero-Regular.ttf') format('truetype');
 }
 
 @font-face{
-  font-family: Hero-Bold;
-  src: url('assets/fonts/Hero-Bold.ttf') format('ttf');
-  font-weight: 200;
-}
-
-@font-face{
-  font-family: Hero-Regular;
-  src: url('assets/fonts/Hero-Regular.ttf') format('ttf');
-  font-weight: 200;
-}
-
-@font-face{
-  font-family: Hero-Light;
-  src: url('assets/fonts/Hero-Light.ttf') format('ttf');
-  font-weight: 200;
+  font-family: 'Hero-Light';
+  src: url('assets/fonts/Hero-Light.ttf') format('truetype');
 }
