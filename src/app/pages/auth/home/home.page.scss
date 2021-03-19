@@ -2,6 +2,11 @@ ion-content{
 	--background: rgb(72, 0, 141);
 }
 
+ion-card, ion-card-content{
+	--background: #FFFFFF;
+}
+
+
 ion-toolbar {
   	padding-top: 15% !important;
   	--background: transparent no-repeat fixed center;
@@ -16,7 +21,7 @@ ion-toolbar {
 
 .pontosIniciais{
 	color: #FFFFFF;
-	font-family: 'Hero-Regular';
+	font-family: 'Hero-Bold';
 	margin-right: 5%;
 	font-size: 14px;
 }
@@ -148,7 +153,7 @@ ion-avatar{
 }
 
 .ofertas{
-	height: 95%;     
+	height: 88%;     
 	text-align: center;     
 	min-width: 40%;
   	margin-bottom: 2rem;
@@ -181,7 +186,7 @@ ion-slides{
 }
 
 .quantPontos{
-	color: orange;
+	color: #FFA700;
 	margin-right: 5%;
 }
 
@@ -191,7 +196,7 @@ ion-slides{
 }
 
 .quantPontosSegmento{
-	color: orange;
+	color: #FFA700;
     font-size: 13px;
     margin-right: 10%;
     margin-top: 2%;
@@ -279,7 +284,222 @@ ion-slides{
 }
 
 .btn-ver-mais{
-	width: 24%;
-	height: 10vw;
+	width: 20%;
+    height: 11vw;
 	margin: 0;
+}
+
+@media (min-width: 1025px) {
+	.btn-ver-mais{
+	    width: 9%;
+	    height: 5vw;
+	    margin: 0;
+	}
+    
+    ion-toolbar {
+    	padding-top: 3% !important;
+	  	--background: transparent no-repeat fixed center;
+	  	position: absolute;
+	  	top: 0;
+	}
+
+	.pontos{
+	    width: 100%;
+	    margin-right: 1%;
+	    border-radius: 1.5em;
+	    min-width: 25%;
+	    height: 4vw;
+	    text-align: center;
+	    padding: 1%;
+	    background-color: rgba(255, 255, 255, 0.4);
+	    font-size: 5.5vw;
+	    color: white;
+	    margin-top: 4%;
+	}
+
+	ion-buttons{
+	    min-width: 15%;
+	    margin-left: 3%;
+	}
+
+	.logo{
+	    width: 30%;
+	    margin: auto;
+    	padding-top: 2%;
+	}
+
+	ion-avatar{
+	    width: 8vw;
+	    height: 8vw;
+	    border: 2px solid #FFFFFF;
+	    margin-right: 10%;
+	    margin-top: 1%;
+	}
+
+	.search-ofertas{
+	    width: 90%;
+	    margin: 15% auto 0;
+	    --background: rgba(255, 255, 255, 0.4);
+	    color: #FFFFFF;
+	    text-align: center;
+	    font-family: "Hero-Regular";
+	}
+
+	.bar{
+	    height: 17vw;
+	    align-items: stretch;
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap: nowrap;
+	    overflow-x: auto;
+	    overflow-y: hidden;
+	    margin: 0 2%;
+	}
+
+	.cupom{
+	    background-position: center;
+	    background-size: cover;
+	    min-width: 25%;
+	    padding: 0.75rem;
+	    margin-bottom: 2rem;
+	    border: 0;
+	    flex-basis: 30%;
+	    flex-grow: 0;
+	    flex-shrink: 0;
+	    border-radius: 10px;
+	}
+
+	.cupons-recentes{
+	    color: #FFFFFF;
+    	font-size: 25px;
+    	font-family: "Hero-Regular";
+    	margin: 4% 0% 0% 2.7%;
+	}
+
+	.bar-oferta{
+	    height: 20vw;
+	    align-items: stretch;
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap: nowrap;
+	    overflow-x: auto;
+	    overflow-y: hidden;
+	    margin: 0 2%;
+	}
+
+	.ofertas{
+	    height: 95%;
+	    text-align: center;
+	    min-width: 20%;
+	    margin-bottom: 2rem;
+	    border-radius: 10px;
+	    flex-basis: 20%;
+	    flex-grow: 0;
+	    flex-shrink: 0;
+	}
+
+	.oferta-nome{
+		font-size: 20px;
+    	color: #7410cb;
+    	font-family: 'Hero-Bold';
+	}
+
+	.btn-ofertas-star{
+	    font-size: 16px;
+	    color: #ff9500;
+	    float: left;
+	    margin: 0;
+	}
+
+	.btn-ofertas-plus{
+	    font-size: 16px;
+	    color: #03cf70;
+	    float: right;
+	    margin: 0;
+	}
+
+	.moeda-img{
+    	width: 5%;
+    }	
+
+    .buttons-ofertas{
+    	padding: 5% 10% 0;
+	}
+
+	.quantPontos{
+	    color: #FFA700;
+	    margin-right: 5%;
+	    font-size: 16px;
+	    font-family: 'Hero-Regular';
+	}
+
+	.desk-moeda{
+		width: 15%;
+	}
+
+	.icons-btns{
+    	width: 10%;
+    	height: 10vw;
+    	margin: 2% 5% 0;
+	}
+
+	.segs{
+    	margin: 2% auto;
+    	width: 70%;
+	}
+
+	.img-prod{
+	    border-radius: 15px;
+	    width: 10em;
+	    height: 8vw;
+	    background-position: center;
+	    background-size: cover;
+	    margin-right: 2%;
+	    margin-left: 3%;
+	}
+
+	::-webkit-scrollbar{
+		height: 5px;
+	}
+
+	::-webkit-scrollbar-thumb{
+		background: #0AE28F;
+		border-radius: 1.5em;
+	}
+
+	.quantPontosSegmento{
+	    color: #FFA700;
+	    font-size: 25px;
+	    margin-top: 0;
+	    margin-right: 10%;
+	    float: right;
+	    font-family: "Hero-Bold";
+	}
+
+	.buttons-prods{
+	    margin: 0;
+	    position: absolute;
+	    right: 3%;
+    }
+
+    .btn-ofertas-star{
+	    font-size: 25px;
+	    color: #ff9500;
+	    float: left;
+	    margin: 0;
+	}
+
+	.btn-ofertas-plus{
+	    font-size: 25px;
+	    color: #03cf70;
+	    float: right;
+	    margin: 0;
+	}
+
+	.pontosIniciais {
+	    color: #FFFFFF;
+	    font-family: "Hero-Bold";
+	    margin-right: 5%;
+	    font-size: 16px;
+	}
 }

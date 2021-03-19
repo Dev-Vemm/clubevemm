@@ -69,6 +69,8 @@ ion-item{
 
 .logo-principal{
 	margin: auto;
+	margin-top: 18%;
+    width: 75%;
 }
 
 .body{
@@ -85,11 +87,69 @@ ion-item{
 .titulo{
 	color: #D4C2FF;
 	font-size: 4vw; 
-	font-family: Hero-Bold;
+	font-family: 'Hero-Bold';
 }
 
 .footer{
 	font-size: 3.5vw;
 	color: #D4C2FF;
-	font-family: Hero-Regular;
+	font-family: 'Hero-Regular';
+}
+
+ion-label{
+	font-family: 'Hero-Regular';
+}
+
+
+@media (min-width: 800px) {
+  	.logo-principal{
+		width: 30%;
+		margin: auto;
+	}
+
+	.btn-enviar{
+		width: 20%;
+    	margin: 3% auto;
+    	height: 4vw;
+	}
+
+	.img-dots{
+		width: 23%;
+	}
+
+	.id2{
+		float: right;
+	}
+
+	.titulo{
+		color: #FFFFFF;
+		font-size: 15px; 
+		font-family: 'Hero-Bold';
+	}
+
+	.returnBtn{
+		margin: 0% 5%;
+	}
+
+	.btns{
+		height: 6vw;
+		margin: 5% 5%;
+		white-space: normal;
+		font-size: 0.8vw;
+	}
+
+	.body{
+		width: 35%;
+		margin: auto;
+	}
+
+	.footer{
+		font-size: 1vw;
+		color: #FFFFFF;
+		font-family: 'Hero-Regular';
+	}
+
+	a:hover{
+		cursor: pointer;
+	}
 }

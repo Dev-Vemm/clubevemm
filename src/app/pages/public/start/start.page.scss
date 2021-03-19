@@ -35,6 +35,8 @@ ion-content{
 
 .logo-principal{
 	margin: auto;
+	margin-top: 18%;
+    width: 75%;
 }
 
 .titulo{
@@ -79,29 +81,42 @@ a{
 @media (min-width: 800px) {
   	.logo-principal{
 		width: 30%;
+		margin: auto;
+	}
+
+	.img-dots{
+		width: 23%;
+	}
+
+	.id2{
+		float: right;
 	}
 
 	.titulo{
 		color: #FFFFFF;
-		font-size: 2vw; 
-		font-family: Hero-Bold;
+		font-size: 15px; 
+		font-family: 'Hero-Bold';
 	}
 
 	.btns{
-		height: 3.5vw;
-		margin: 5% 5%;
+		height: 6vw;
+		margin: 0 5%;
 		white-space: normal;
 		font-size: 0.8vw;
 	}
 
 	.body{
-		width: 35%;
+		width: 30%;
 		margin: auto;
 	}
 
 	.footer{
 		font-size: 1vw;
 		color: #FFFFFF;
-		font-family: Hero-Regular;
+		font-family: 'Hero-Regular';
+	}
+
+	a:hover{
+		cursor: pointer;
 	}
 }

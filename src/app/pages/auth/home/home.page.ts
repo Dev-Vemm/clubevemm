@@ -32,6 +32,12 @@ export class HomePage implements OnInit {
   },{
   	img: "url('assets/imgs/img3.jpg')",
   	desc: 40
+  },{
+    img: "url('assets/imgs/img3.jpg')",
+    desc: 40
+  },{
+    img: "url('assets/imgs/img3.jpg')",
+    desc: 40
   }];
 
   public melhoresOfertas = [{
@@ -46,6 +52,14 @@ export class HomePage implements OnInit {
   	nome: 'oferta 3',
   	img: "url('assets/imgs/img3.jpg')",
   	price: 40
+  },{
+    nome: 'oferta 2',
+    img: "url('assets/imgs/img2.jpg')",
+    price: 30
+  },{
+    nome: 'oferta 3',
+    img: "url('assets/imgs/img3.jpg')",
+    price: 40
   }];
   public user: any;
   public pontos: any = 0;
@@ -111,7 +125,8 @@ export class HomePage implements OnInit {
       this.modalOpen = true;
       this.modal = await this.modaCtrl.create({
         component: DetalhesOfertasComponent,
-        componentProps: { modal: this.modal, detalhes: oferta }
+        componentProps: { modal: this.modal, detalhes: oferta },
+        cssClass: 'modal-oferta'
       });
       this.modal.onDidDismiss().then((data: any)=>{
         if(this.modal){

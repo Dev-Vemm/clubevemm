@@ -138,3 +138,14 @@
   font-family: 'Hero-Light';
   src: url('assets/fonts/Hero-Light.ttf') format('truetype');
 }
+
+@media (min-width: 1025px){
+  .searchbar-input.sc-ion-searchbar-md {
+    height: 45px !important;
+    font-size: 12px;
+  }
+
+  .modal-oferta{
+    --width: 100%;
+  }
+}
