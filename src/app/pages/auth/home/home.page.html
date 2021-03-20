@@ -24,34 +24,34 @@
 		<label>Ofertas em destaque</label>
 	</div>
 	<div class="bar">
-		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [ngStyle]="{'background-image': cupom.img}">
+		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [style.background-image]="'url(' + requestImg(cupom.dimg) + ')'" (click)="abrirDetalhes(cupom)">
 			<!-- <label>{{cupom.desc}}% de Desconto</label> -->
 		</ion-card>
 	</div>
 	<div class="cupons-recentes">
 		<label slot="start">Melhores Ofertas</label>
-		<a href="/" slot="end" class="ver-mais">Ver mais +</a>
+		<ion-button fill="clear" class="ver-mais" (click)="verMaisOfertas(1)">Ver mais +</ion-button>
 	</div>
 	<div class="bar-oferta">
 		<ion-card class="ofertas" *ngFor="let offer of melhoresOfertas">
-	 		<ion-card-title [ngStyle]="{'background-image': offer.img}" class="card-oferta-title ion-text-center"></ion-card-title>
+	 		<ion-card-title [ngStyle]="{'background-image': bgImage(offer.img)}" class="card-oferta-title ion-text-center" (click)="abrirDetalhes(offer)"></ion-card-title>
 			<ion-card-content class="content-card-offer">
-				<ion-label class="ion-text-center oferta-nome">{{offer.nome}}</ion-label>
-				<div class="offer-custo ion-text-center">
+				<ion-label class="ion-text-center oferta-nome"  (click)="abrirDetalhes(offer)">{{offer.produto}}</ion-label>
+				<div class="offer-custo ion-text-center" (click)="abrirDetalhes(offer)">
 					<ion-label>
-						<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">{{offer.price}}</span>
+						<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">{{offer.custo}}</span>
 					</ion-label>	
 				</div>
 				<div class="buttons-ofertas">
-					<ion-button fill="clear" class="btn-ofertas-star"><ion-icon name="star-outline" mode="ios"></ion-icon></ion-button>
-					<ion-button fill="clear" class="btn-ofertas-plus"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+					<ion-button fill="clear" class="btn-ofertas-star" (click)="favoritar(offer)"><ion-icon [name]="(offer.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
+					<ion-button fill="clear" class="btn-ofertas-plus" (click)="abrirDetalhes(offer)"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
 				</div>
 			</ion-card-content>
 		</ion-card>
 	</div>
 
 	<div class="btns-softs ion-text-center">
-		<ion-button *ngFor="let btn of btnsMenus;" shape="round" fill="clear" (click)="conteudo(btn.content)" class="icons-btns">
+		<ion-button *ngFor="let btn of btnsMenus;" shape="round" fill="clear" (click)="verMais(btn)" class="icons-btns">
 			<ion-img [src]="btn.icon"></ion-img>
 		</ion-button>
 	</div>
@@ -62,7 +62,7 @@
 		</div>
 		<div class="bar-segmentos">
 			<ion-card *ngFor="let prod of seg.prods">
-				<ion-card-title class="title-card">
+				<ion-card-title class="title-card" (click)="abrirDetalhes(prod)">
 					<ion-label class="nome-prod">{{prod.nome}}</ion-label>
 					<div class="quantPontosSegmento" *ngIf="prod.custo">
 						<ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>
@@ -71,8 +71,8 @@
 				</ion-card-title>
 				<ion-card-content class="content-prod-segmento">
 					<ion-item lines="none" class="segs-inner ion-no-padding">
-						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }"></div>
-						<div class="desc-prod">
+						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }" (click)="abrirDetalhes(prod)"></div>
+						<div class="desc-prod" (click)="abrirDetalhes(prod)">
 							<ion-label class="prod-produto">{{prod.produto}}</ion-label>
 							<ion-label class="lbl-desc">{{prod.descricao}}</ion-label>
 						</div>

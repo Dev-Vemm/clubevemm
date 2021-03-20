@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border toolbarVerde" no-border>
+		<ion-toolbar lines="none">
+			<ion-buttons slot="start">
+				<ion-button fill="clear" (click)="voltar()" class="btn-voltar">
+					<ion-img src="assets/imgs/icons/Vector.png"></ion-img>
+				</ion-button>
+			</ion-buttons>
+		</ion-toolbar>
+	</ion-header>
+<ion-content>
+	<div class="content">
+		<div class="header">
+			<ion-label class="segmento-title">{{detalhes.content}}</ion-label>
+		</div>
+		<div class="spinner" *ngIf="load">
+			<ion-spinner class="spin" name="bubbles"></ion-spinner>
+		</div>
+		<div class="bar-oferta" *ngIf="ofertas.length > 0"> 
+			<ion-card *ngFor="let prod of ofertas">
+				<ion-card-title class="title-card">
+					<ion-label class="nome-prod">{{prod.nome}}</ion-label>
+					<div class="quantPontosSegmento" *ngIf="prod.custo">
+						<ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>
+						<ion-label class="lblCusto">{{prod.custo}}</ion-label>	
+					</div>
+				</ion-card-title>
+				<ion-card-content class="content-prod-segmento">
+					<ion-item lines="none" class="segs-inner ion-no-padding">
+						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }"></div>
+						<div class="desc-prod">
+							<ion-label class="prod-produto">{{prod.produto}}</ion-label>
+							<ion-label class="lbl-desc">{{prod.descricao}}</ion-label>
+						</div>
+						<div class="buttons-prods" slot="end">
+							<ion-button fill="clear" class="btn-ofertas-star btn-off" (click)="favoritar(prod)"><ion-icon [name]="(prod.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
+							<ion-button fill="clear" class="btn-ofertas-plus btn-off" (click)="abrirDetalhes(prod)"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+						</div>
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+			<div class="verMais ion-text-center">
+				<ion-button fill="clear" class="btn-ver-mais"><ion-img src="assets/imgs/icons/ver-mais.png" class="img-ver-mais"></ion-img></ion-button>
+			</div>
+		</div>
+	</div>
+</ion-content>

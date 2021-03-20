@@ -18,6 +18,7 @@ import { DetalhesCuponsComponent } from './components/detalhes-cupons/detalhes-c
 import { DetalhesOfertasComponent } from './components/detalhes-ofertas/detalhes-ofertas.component';
 import { DetalhesPlanosComponent } from './components/detalhes-planos/detalhes-planos.component';
 import { DetalhesComentariosComponent } from './components/detalhes-comentarios/detalhes-comentarios.component';
+import { OfertasSegmentosComponent } from './components/ofertas-segmentos/ofertas-segmentos.component';
 import { ShareComponent } from './components/share/share.component';
 import { ShareEmailComponent } from './components/share-email/share-email.component';
 
@@ -49,6 +50,7 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     DetalhesPlanosComponent, 
     DetalhesOfertasComponent,
     DetalhesComentariosComponent,
+    OfertasSegmentosComponent,
     ShareComponent,
     ShareEmailComponent
   ],
@@ -58,6 +60,7 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     DetalhesPlanosComponent, 
     DetalhesOfertasComponent,
     DetalhesComentariosComponent,
+    OfertasSegmentosComponent,
     ShareComponent,
     ShareEmailComponent
   ],

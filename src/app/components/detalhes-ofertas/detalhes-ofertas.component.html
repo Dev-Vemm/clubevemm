@@ -3,7 +3,7 @@
 		<ion-icon name="close-circle-outline" class="close-modal"></ion-icon>
 	</ion-button>
 	<div class="content">
-		<div class="img-fundo" [ngStyle]="{'background-image': returnImg(detalhes.img)}"></div>
+		<div class="img-fundo"[style.background-image]="'url(' + returnImg(detalhes.img) + ')'"></div>
 		<div class="detalhes">
 			<div class="prod ion-text-center">
 				<p class="produto">{{detalhes.produto}}</p>

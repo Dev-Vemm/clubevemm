@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { Platform, ModalController } from '@ionic/angular';
 import { DetalhesOfertasComponent } from '../../../components/detalhes-ofertas/detalhes-ofertas.component';
+import { OfertasSegmentosComponent } from '../../../components/ofertas-segmentos/ofertas-segmentos.component';
 import { Socket } from 'ngx-socket-io';
 
 @Component({
@@ -13,54 +14,24 @@ import { Socket } from 'ngx-socket-io';
 export class HomePage implements OnInit {
   public lorem = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letr';
   public bg = "url('assets/imgs/cover.png')";
+  
   public btnsMenus = [{
     icon: 'assets/imgs/icons/hospedagem_btn.png',
-    content: 'Hospedagem'
+    content: 'Hospedagem',
+    id: 2
   },{
     icon: 'assets/imgs/icons/saude_btn.png',
-    content: 'Saúde'
+    content: 'Saúde',
+    id: 1
   },{
     icon: 'assets/imgs/icons/exp_btn.png',
-    content: 'Experiências'
-  }];
-  public cupons = [{
-  	img: "url('assets/imgs/img1.jpg')",
-  	desc: 20
-  },{
-  	img: "url('assets/imgs/img2.jpg')",
-  	desc: 30
-  },{
-  	img: "url('assets/imgs/img3.jpg')",
-  	desc: 40
-  },{
-    img: "url('assets/imgs/img3.jpg')",
-    desc: 40
-  },{
-    img: "url('assets/imgs/img3.jpg')",
-    desc: 40
+    content: 'Experiências',
+    id: 3
   }];
 
-  public melhoresOfertas = [{
-  	nome: 'oferta 1',
-  	img: "url('assets/imgs/img1.jpg')",
-  	price: 20
-  },{
-  	nome: 'oferta 2',
-  	img: "url('assets/imgs/img2.jpg')",
-  	price: 30
-  },{
-  	nome: 'oferta 3',
-  	img: "url('assets/imgs/img3.jpg')",
-  	price: 40
-  },{
-    nome: 'oferta 2',
-    img: "url('assets/imgs/img2.jpg')",
-    price: 30
-  },{
-    nome: 'oferta 3',
-    img: "url('assets/imgs/img3.jpg')",
-    price: 40
-  }];
+  public cupons:any = [];
+
+  public melhoresOfertas: any;
   public user: any;
   public pontos: any = 0;
   public segmentos: any; 
@@ -101,8 +72,14 @@ export class HomePage implements OnInit {
 
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
-      this.segmentos = APIres;
+      this.segmentos = APIres.segmentos;
+      this.melhoresOfertas = APIres.melhores;
+      this.cupons = APIres.destaques;
     });
+  }
+
+  requestImg(img){
+    return (img)? 'https://painel.clubevemm.com.br/storage/app/' + img : '';
   }
 
   navigate(url){
@@ -138,6 +115,24 @@ export class HomePage implements OnInit {
       });
       return await this.modal.present();
     }
+  }
+
+  async verMais(btn){
+    this.modal = await this.modaCtrl.create({
+      component: OfertasSegmentosComponent,
+      componentProps: { modal: this.modal, detalhes: btn, uid: this.user[0].UID },
+      cssClass: 'modal-oferta'
+    });
+    return await this.modal.present();
+  }
+
+  async verMaisOfertas(tipo){
+    this.modal = await this.modaCtrl.create({
+      component: OfertasSegmentosComponent,
+      componentProps: { modal: this.modal, detalhes: tipo, uid: this.user[0].UID },
+      cssClass: 'modal-oferta'
+    });
+    return await this.modal.present();
   }
 
   async adquirirOferta(oferta_id, UID, valor, produto){

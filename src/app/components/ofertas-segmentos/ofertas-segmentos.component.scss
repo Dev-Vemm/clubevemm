@@ -1,0 +1,118 @@
+ion-content{
+	--background: rgb(72, 0, 141);
+}
+
+ion-card, ion-card-content{
+	--background: #FFFFFF;
+}
+
+ion-toolbar {
+  	--background: transparent no-repeat fixed center;
+  	position: absolute;
+  	top: 0;
+}
+
+ion-spinner{
+	transform: scale(7,7);
+    --color: #FFFFFF;
+    margin-top: 90%;
+    width: 100%;
+}
+
+ion-label{
+	font-family: 'Hero-Regular';
+}
+
+.header{
+	margin-top: 18%;
+    text-align: center;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.bar-oferta{
+	margin-top: 10%;
+}
+
+
+.title-card{
+	padding-top: 1%;
+}
+
+.desc-prod{
+	height: 100%;
+    width: 100%;
+}
+
+.quantPontosSegmento{
+	color: #FFA700;
+    font-size: 13px;
+    margin-right: 10%;
+    margin-top: 2%;
+    float: right;
+    font-family: 'Hero-Bold';
+}
+
+.lblCusto{
+	position: absolute;
+	margin-left: 1%;
+}
+
+.nome-prod{
+	font-size: 12px;
+	margin-left: 3%;
+    color: #48008D;
+    font-family: 'Hero-Bold';
+}
+
+.btn-ofertas-star{
+	font-size: 4vw;
+	color: #ff9500;
+	float: left;
+	margin: 0;
+}
+
+.prod-produto{
+	font-size: 13px;
+	font-family: 'Hero-Bold';	
+}
+
+.btn-ofertas-plus{
+	font-size: 4vw;
+	color: #03cf70;
+	float: right;
+	margin: 0;
+}
+
+.img-prod{
+	border-radius: 15px;
+	width: 20vw;
+	height: 15vw;
+	background-position: center;    
+	background-size: cover;
+	margin-right: 2%;
+	margin-left: 3%;
+}
+
+.lbl-desc{
+	white-space: normal;
+	font-size: 12px;
+	font-family: 'Hero-Regular'
+}
+
+.buttons-prods{
+	margin: 0;
+}
+
+
+.img-ver-mais{
+	width: 100%;
+	margin: auto;
+}
+
+
+.btn-ver-mais{
+	width: 20%;
+    height: 11vw;
+	margin: 0;
+}

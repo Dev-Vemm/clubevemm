@@ -174,11 +174,14 @@ ion-slides{
 }
 
 .ver-mais{
-	float: right;
 	text-decoration: none;
 	color: rgb(255, 255, 255, 0.6);
-	margin-right: 5%;
 	font-size: 12px;
+	margin: 0;
+    position: absolute;
+    right: 0;
+    padding-bottom: 2%;
+    font-family: 'Hero-Regular';
 }
 
 .oferta-nome{
@@ -388,7 +391,7 @@ ion-slides{
 	}
 
 	.ofertas{
-	    height: 95%;
+	    height: 90%;
 	    text-align: center;
 	    min-width: 20%;
 	    margin-bottom: 2rem;
@@ -423,7 +426,7 @@ ion-slides{
     }	
 
     .buttons-ofertas{
-    	padding: 5% 10% 0;
+    	padding: 0% 10% 0;
 	}
 
 	.quantPontos{

@@ -50,10 +50,13 @@ export class DetalhesOfertasComponent implements OnInit {
   }
 
   returnImg(img){
+    if(this.detalhes.dimg){
+      return 'https://painel.clubevemm.com.br/storage/app/' + this.detalhes.dimg;
+    }
     if(img){
       return img;
     }else{
-      return "url('assets/imgs/img3.jpg')";
+      return "assets/imgs/img3.jpg";
     }
   }
 
