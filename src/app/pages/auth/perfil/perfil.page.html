@@ -1,40 +1,62 @@
-<ion-content [ngStyle]="{'background-image': bg}">
-	<div class="principal">
-		<div class="header">
-			<div class="avatar">
-	    		<ion-avatar>
-		    		<ion-img src="assets/imgs/img-a.jpg"></ion-img>
-		    	</ion-avatar>
-	    	</div>
-	    	<div class="pontuacao">
-				<label class="ponto-label">Minha Pontuação</label>
-			</div>
-			<div class="pontos-header">
-				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span>
-			</div>
+<ion-header class="ion-no-border" no-border>
+	<ion-toolbar lines="none">
+		<div class="logo">
+		    <ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
 		</div>
-		<div class="content">
-			<ion-item>
-				<ion-label class="label-perfil">Nome: <span class="user-span">{{usuario.nome}}</span></ion-label>
-			</ion-item>
-			<ion-item>
-				<ion-label class="label-perfil">E-mail: <span class="user-span">{{usuario.email}}</span></ion-label>
-			</ion-item>
-			<ion-item>
-				<ion-label class="label-perfil">Plano: <span class="user-span">{{usuario.plano}}</span></ion-label>
-			</ion-item>
-			<ion-item>
-				<ion-label class="label-perfil">Data de Entrada: <span class="user-span">{{usuario.data_entrada}}</span></ion-label>
-			</ion-item>
-		</div>	
+		<div class="intro ion-text-center">
+		    <ion-label>Bem vindo(a), {{usuario.nome}}</ion-label>
+		    <br>
+		    <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label>
+		</div>
+		<div class="avatar">
+			<ion-avatar slot="end">
+			    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+			</ion-avatar>
+		</div>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="menu">
+		<div class="meus-pontos">
+			<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [style.background-color]="btnStatus? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnStatus? '#FFFFFF': '#48008D'}">Status</ion-button>
+		</div>
+		<div class="meus-favoritos">
+			<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(1)" [style.background-color]="btnHistorico? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnHistorico? '#FFFFFF': '#48008D'}">Histórico</ion-button>
+		</div>
 	</div>
-	<div class="share ion-text-center">
-		<ion-button shape="round" (click)="share()">
-			Indicar amigos: 
-			<ion-icon name="share-social-outline"></ion-icon>
-		</ion-button>
+
+	<div class="status" *ngIf="btnStatus">
+		<ion-label class="status-titulo">Informações da Conta</ion-label>
+		<div class="conta">
+			<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+			<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+			<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+		</div>
+		<div class="logout ion-text-center">
+			<ion-button class="btn-logout" (click)="logout()" expand="block" shape="round">Log out</ion-button>
+		</div>
 	</div>
-	<div class="logout ion-text-center">
-		<ion-button color="danger" (click)="logout()" expand="block">Log out</ion-button>
+
+	<div class="historico" *ngIf="btnHistorico">
+		<div class="spinner" *ngIf="load">
+			<ion-spinner class="spin" name="bubbles"></ion-spinner>
+		</div>
+		<div *ngFor="let prod of historico">
+			<ion-card  class="card-pontos">
+				<ion-item lines="none">
+					<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
+					<div class="desc-prod">
+						<ion-label class="empresa">{{prod.TITULO}}</ion-label>
+						<ion-label class="lbl-produto" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
+					</div>
+					<div slot="end" class="div-pontos">
+						<div class="pontos">
+							<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><span class="ponto-gasto">{{prod.VALOR}}</span>
+						</div>
+					</div>
+				</ion-item>
+			</ion-card>
+		</div>
 	</div>
 </ion-content>

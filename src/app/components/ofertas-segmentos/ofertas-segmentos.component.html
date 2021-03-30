@@ -2,7 +2,7 @@
 		<ion-toolbar lines="none">
 			<ion-buttons slot="start">
 				<ion-button fill="clear" (click)="voltar()" class="btn-voltar">
-					<ion-img src="assets/imgs/icons/Vector.png"></ion-img>
+					<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
 				</ion-button>
 			</ion-buttons>
 		</ion-toolbar>
@@ -17,7 +17,7 @@
 		</div>
 		<div class="bar-oferta" *ngIf="ofertas.length > 0"> 
 			<ion-card *ngFor="let prod of ofertas">
-				<ion-card-title class="title-card">
+				<ion-card-title class="title-card" (click)="abrirDetalhes(prod)">
 					<ion-label class="nome-prod">{{prod.nome}}</ion-label>
 					<div class="quantPontosSegmento" *ngIf="prod.custo">
 						<ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>
@@ -26,8 +26,8 @@
 				</ion-card-title>
 				<ion-card-content class="content-prod-segmento">
 					<ion-item lines="none" class="segs-inner ion-no-padding">
-						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }"></div>
-						<div class="desc-prod">
+						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }" (click)="abrirDetalhes(prod)"></div>
+						<div class="desc-prod" (click)="abrirDetalhes(prod)">
 							<ion-label class="prod-produto">{{prod.produto}}</ion-label>
 							<ion-label class="lbl-desc">{{prod.descricao}}</ion-label>
 						</div>

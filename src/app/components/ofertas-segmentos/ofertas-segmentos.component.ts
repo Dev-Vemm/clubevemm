@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { NavParams } from '@ionic/angular';
+import { Platform, ModalController } from '@ionic/angular';
+import { DetalhesOfertasComponent } from '../detalhes-ofertas/detalhes-ofertas.component';
 
 @Component({
   selector: 'app-ofertas-segmentos',
@@ -13,8 +15,12 @@ export class OfertasSegmentosComponent implements OnInit {
   public detalhes: any = this.navParam.data.detalhes;	
   private uid: any = this.navParam.data.uid;
   public ofertas: any = [];
-  
-  constructor(private navParam: NavParams, private data: DataService) { }
+  private modalOpen = false;
+  constructor(
+    private modaCtrl: ModalController,
+    private navParam: NavParams, 
+    private data: DataService
+  ) { }
 
   ngOnInit() {
   	let request = (this.detalhes == 1)? true : false;
@@ -60,6 +66,43 @@ export class OfertasSegmentosComponent implements OnInit {
     }
     this.data.requestPost(vals, endpoint);
     seg.favorito = fav;
+  }
+
+  async abrirDetalhes(oferta){
+    let mod = await this.modaCtrl.create({
+      component: DetalhesOfertasComponent,
+      componentProps: { modal: this.modal, detalhes: oferta },
+      cssClass: 'modal-oferta'
+    });
+    mod.onDidDismiss().then((data: any)=>{
+      if(data.data){
+          this.adquirirOferta(data.data.oferta_id, this.uid, data.data.valor, data.data.produto);
+      }
+    });
+    return await mod.present();
+  }
+
+  async adquirirOferta(oferta_id, UID, valor, produto){
+    this.load = true;
+    try{
+      this.data.requestPost({oferta: oferta_id, uid: UID, valor: valor}, 'adquirir').then((res: any)=>{
+        if(res){
+          if(res['block']){
+            console.log('Você não tem pontos o suficiente para adquirir essa oferta.');
+          }else{
+            this.data.setStorage('USER', res).then(()=>{
+              //this.pontos = res[0].PONTOS;
+              console.log(res);
+              this.load = false;
+              //this.route.navigate(['menu/pontos']);
+            });
+          }
+        }
+      });
+    }catch(err){
+      console.log(err);
+      this.load = false;
+    }
   }
 
 }

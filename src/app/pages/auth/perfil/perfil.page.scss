@@ -1,3 +1,72 @@
+ion-toolbar{
+    --background: #48008D;
+    border-radius: 100px / 30px;
+    height: 68vw;
+    position: absolute;
+    top: -43px;
+}
+
+ion-spinner{
+	transform: scale(2,7);
+    --color: #FFFFFF;
+    margin-top: 90%;
+    width: 100%;
+}
+
+.card-pontos{
+	height: 27vw;
+    border-radius: 10px;
+}
+
+.img-prod{
+	background-position: center;
+    background-size: cover;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 10px;
+    margin: 5% 4% 5% 0;
+}
+
+.desc-prod{
+	height: 100%;
+    font-size: 15px;
+    padding-top: 5vw;
+}
+
+.empresa{
+	font-family: 'Hero-Bold';
+    color: #48008D;
+}
+
+.lbl-produto{
+	font-family: 'Hero-Bold';
+    margin-top: 10%;
+}
+
+
+.logo{
+	width: 40%;
+    margin: 15% auto 5%;
+}
+
+.intro{
+	float: left;
+    font-size: 15px;
+    color: #FFF;
+    padding: 10%;
+}
+
+.avatar{
+	float: right;
+    padding: 6%;
+}
+
+ion-avatar{
+	width: 20vw;
+    height: 20vw;
+    border: 2px solid #FFF;
+}
+
 .principal{
 	padding: 2%;
 	margin: 3%;
@@ -9,25 +78,43 @@
 	margin: 3%;
 }
 
-ion-content{
-	--background: no-repeat center center / cover !important;  
+.icon-moeda{
+    margin-top: 5%;
+}
+
+.btn-menu-header{
+	font-size: 15px;
+    color: #FFFFFF;
+	border-radius: 1.5em;
+    height: 7vw;
+}
+
+.menu{
+	margin-top: 65%;
+    padding: 0 10%;
+}
+
+.meus-pontos{
+	float: left;
 }
 
 .pontuacao{
 	margin-top: 5%;
-	font-family: Poppins-Bold;
 	color: #FFFFFF;
 	font-size: 5.5vw;
 }
 
-.pontos-header{
-	margin-top: 10%;
-    font-size: 9vw;
-    color: #FFFFFF;
-    font-family: Poppins-Medium;
-}
 .pontos-quant{
-	margin-left: 3%;
+	margin-left: 5%;
+}
+
+.ponto-gasto{
+	color: #FFA700;
+	font-family: 'Hero-Bold';
+}
+
+.lblMoeda{
+	font-size: 35px;
 }
 
 .label-perfil{
@@ -41,11 +128,45 @@ ion-content{
 }
 
 .logout{
-	position: absolute;
-	bottom: 0;
 	width: 100%;
+    margin: auto;
+    margin-top: 10%;
 }
 
 .share{
 	margin: auto;
+}
+
+.btn-favoritos{
+	margin-left: 5%;
+}
+
+.conta-span{
+	color: #000000;
+    font-family: 'Hero-Regular';
+}
+
+.conta-lbl{
+	color: #48008D;
+    font-size: 16px;
+    font-family: 'Hero-Bold';
+}
+
+.conta{
+	padding: 5%;
+}
+
+.status{
+	padding: 10%;
+}
+
+.status-titulo{
+	color: #48008D;
+    font-size: 16px;
+    font-family: 'Hero-Bold';
+}
+
+.btn-logout{
+	--background: #FF5400;
+    height: 15vw;
 }

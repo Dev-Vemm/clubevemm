@@ -2,6 +2,26 @@ ion-content{
 	--background: no-repeat center center / cover !important;  
 }
 
+ion-toolbar{
+    --background: #48008D;
+    border-radius: 100px / 50px;
+    height: 80vw;
+    position: absolute;
+    top: -43px;
+}
+
+.logo{
+    width: 40%;
+    margin: 20% auto 5%;
+}
+
+p{
+    text-align: center;
+    color: white;
+    font-family: 'Hero-Regular';
+    margin: 0;
+}
+
 .background{
 	position: absolute;
     top: 0;
@@ -22,7 +42,7 @@ ion-spinner{
 
 .principal{
 	padding: 2%;
-	margin: 3%;
+	margin: 67% 3% 0;
 }
 
 .header{
@@ -38,11 +58,12 @@ ion-spinner{
 }
 
 .titulo{
-	font-size: 5vw;
+	font-size: 18px;
 }
 
 .escolha{
-	font-size: 7vw;
+    font-size: 22px;
+	margin-top: 2%;
 }
 
 .slide-txt{
@@ -61,10 +82,16 @@ ion-spinner{
     color: #8011CC;
     font-weight: bold;
     float: left;
+    font-family: 'Hero-Bold';
 }
 
 .plano-valor{
 	font-size: 8vw;
     font-weight: bold;
     float: right;
+    font-family: 'Hero-Regular';
+}
+
+ion-slides{
+    height: 22vw;
 }

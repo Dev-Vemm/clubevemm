@@ -14,6 +14,10 @@ ion-toolbar {
   	top: 0;
 }
 
+.segmento-img-moeda{
+	font-family: 'Hero-Regular';
+}
+
 .principal{
 	padding: 2%;
 	margin: 3%;
@@ -153,9 +157,9 @@ ion-avatar{
 }
 
 .ofertas{
-	height: 88%;     
+	height: 95%;     
 	text-align: center;     
-	min-width: 40%;
+	min-width: 45%;
   	margin-bottom: 2rem;
   	border-radius: 10px;
   	flex-basis: 33.333%;
@@ -186,11 +190,13 @@ ion-slides{
 
 .oferta-nome{
 	color: #7410cb;
+	font-family: 'Hero-Regular';
 }
 
 .quantPontos{
 	color: #FFA700;
 	margin-right: 5%;
+	font-family: 'Hero-Bold';
 }
 
 .desc-prod{
@@ -201,7 +207,7 @@ ion-slides{
 .quantPontosSegmento{
 	color: #FFA700;
     font-size: 13px;
-    margin-right: 10%;
+    margin-right: 18%;
     margin-top: 2%;
     float: right;
     font-family: 'Hero-Bold';
@@ -287,7 +293,7 @@ ion-slides{
 }
 
 .btn-ver-mais{
-	width: 20%;
+	width: 25%;
     height: 11vw;
 	margin: 0;
 }

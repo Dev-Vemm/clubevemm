@@ -1,51 +1,117 @@
+ion-content{
+    --background: #48008D;
+}
+
+.content{
+	background: transparent;
+}
+
 .img-fundo{
-	height: 75vw;
+    height: 90vw;
     background-position: center;
     background-size: 100% 100%;
     width: 100%;
 }
 
-.btn-voltar{
-	position: absolute;
-    top: 1%;
-    left: -6%;
-    font-size: 7vw;
-    color: #8011CC;
+.sobre{
+    margin-top: 35%;
+    padding: 2% 5%;
+    color: #FFFFFF;
+    font-family: 'Hero-Regular';
+}
+
+.nome-empresa{
+	font-family: 'Hero-Bold';
+    color: #FFFFFF;
+    font-size: 17px;
+}
+
+.img-empresa{
+    width: 20vw;
+    height: 20vw;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    float: left;
+    margin: 5%;
+    background-position: center;
+    background-size: cover;
+}
+
+.det{
+	height: 100%;
+    float: left;
+    margin: 0% 0%;
+    padding-top: 5%;
+}
+
+.lbl-empresa{
+	font-size: 18px;
+    color: #FFFFFF;
+    font-family: 'Hero-Bold';
+}
+
+.pontos-div{
+	margin-top: 10%;
+    background: rgba(255,255,255, 0.5);
+    border-radius: 1.5em;
+    font-size: 20px;
+    font-family: 'Hero-Regular';
+    padding-bottom: 0%;
 }
 
 .moeda{
+	font-size: 8vw;
 	margin-left: 2%;
 }
 
 .custo{
-	color: #8011CC;
+	color: #FFFFFF;
+    position: absolute;
+    margin-left: 1%;
+    font-family: "Hero-Bold";
+    margin-top: 0.7%;
 }
 
-.empresa-produto{
-	padding: 5%;
-    margin-top: 10%;
-}
-
-.produto{
-	font-family: Poppins-Bold;
-}
-
-.desc{
-	font-family: Poppins-Bold;
-}
-
-.nome{
-	font-family: Poppins-Bold;
-	float: left;
-}
-
-.coments{
-	font-family: Poppins-Bold;
+.logo-mapa{
 	float: right;
-	color: #8011CC;
+    font-size: 12vw;
+    color: #FFFFFF;
+    margin-top: 6.5%;
 }
 
-.end{
-	font-family: Poppins-Medium;
-	margin-top: 15%;
+.sobre{
+	margin-top: 35%;
+    padding: 2% 5%;
+    color: #FFFFFF;
+    font-family: 'Hero-Regular';
+}
+
+.lbl-sobre{
+	font-family: 'Hero-Bold';
+    color: #0AE28F;
+}
+
+.detalhes{
+	padding: 2% 5%;
+    font-family: 'Hero-Regular';
+    color: #FFFFFF;
+}
+
+.det-title{
+	font-family: 'Hero-Bold';
+    color: #FFA700;
+}
+
+hr{
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.btn-consumir{
+	margin: auto;
+	width: 80%;
+}
+
+.btn1{
+	height: 15vw;
+    font-size: 12px;
 }

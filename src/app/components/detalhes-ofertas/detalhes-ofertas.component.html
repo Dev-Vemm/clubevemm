@@ -1,28 +1,67 @@
 <ion-content>
-	<ion-button fill="clear" class="btn-voltar" (click)="voltar()">
-		<ion-icon name="close-circle-outline" class="close-modal"></ion-icon>
-	</ion-button>
+	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
+      	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+      </ion-button>
 	<div class="content">
-		<div class="img-fundo"[style.background-image]="'url(' + returnImg(detalhes.img) + ')'"></div>
+		<div class="img-fundo" [style.background-image]="'url(' + returnImg(detalhes.img) + ')'"></div>
+		<div>
+			<div class="img-empresa" [style.background-image]="'url(' + returnImg(detalhes.img) + ')'"></div>
+			<div class="det">
+				<ion-label class="nome-empresa">{{detalhes.nome}}</ion-label>
+				<div class="pontos-div">
+					<ion-icon src="assets/imgs/icons/moeda1.svg" class="moeda"></ion-icon> <span class="custo">{{detalhes.custo}}</span>
+				</div>
+			</div>
+			<div class="logo-mapa">
+				<ion-button fill="clear">
+					<ion-img src="assets/imgs/icons/mapa.png" class="map-icon"></ion-img>	
+				</ion-button>
+			</div>
+		</div>
+		<div class="sobre">
+			<ion-label class="lbl-sobre">Sobre</ion-label>
+			<hr>
+			<p class="sobre-desc">
+				{{detalhes.descricao}}
+			</p>
+		</div>
 		<div class="detalhes">
-			<div class="prod ion-text-center">
+			<ion-label class="lbl-sobre">Detalhes</ion-label>
+			<hr>
+			<p class="det-title">Suíte Superior</p>
+			<p class="add-det">1 cama de casal</p>
+			<p class="add-det">27m²</p>
+			<p class="add-det">Vista do pátio interno</p>
+			<p class="add-det">Ar-condicionado</p>
+			<p class="add-det">Banheiro privado</p>
+			<p class="add-det">TV de tela plana</p>
+			<p class="add-det">Terraço</p>
+			<p class="add-det">Frigobar</p>
+			<p class="add-det">Cofre</p>
+			<p class="add-det">WiFi Gratuito</p>
+			<p class="add-det">Entrada privativa TV</p>
+			<p class="add-det">Acesso ao Lounge Executivo</p>
+			<p class="add-det">Toda a unidade localizada no térreo</p>
+			<p class="add-det">Andares superiores acessíveis por elevador</p>
+			<p class="add-det">A unidade é totalmente acessível para cadeira de rodas</p>
+			<!--<div class="prod ion-text-center">
 				<p class="produto">{{detalhes.produto}}</p>
 				<p class="desc">{{detalhes.descricao}}</p>
 			</div>
 			<div class="custo">
-				<!--<ion-icon name="star-outline"></ion-icon>
-				<ion-icon name="star"></ion-icon> -->
-			</div>
+				<ion-icon name="star-outline"></ion-icon>
+				<ion-icon name="star"></ion-icon> 
+			</div> 
 			<div class="empresa-produto">
 				<div class="div_empresa">
 					<span class="nome" slot="start">{{detalhes.nome}}</span>		
 					<span slot="end" class="coments" (click)="abrirComentarios(detalhes.oferta_id, detalhes.produto)">Comentários <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></span>
 				</div>
 				<p class="end">{{detalhes.endereco}}, {{detalhes.numero}}<span *ngIf="detalhes.complemento">, {{detalhes.complemento}}</span> - {{detalhes.cidade}} - {{detalhes.estado}} - CEP: {{detalhes.cep}}</p>
-			</div>
+			</div>-->
 		</div>
 		<div class="btn-consumir ion-text-center">
-			<ion-button class="btn-base" shape="round" (click)="confirmar(detalhes.oferta_id, detalhes.custo, detalhes.produto)">Adquira por <ion-icon src="assets/imgs/icons/moeda.svg" class="moeda"></ion-icon> <span class="custo">{{detalhes.custo}}</span></ion-button>
+			<ion-button class="btn-base btn1" shape="round" expand="block" (click)="confirmar(detalhes.oferta_id, detalhes.custo, detalhes.produto)">Continue</ion-button>
 		</div>
 	</div>
 </ion-content>
