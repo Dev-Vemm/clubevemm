@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../../services/firebase.service';
 import { DataService } from '../../../services/data.service';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,17 @@ export class LoginPage implements OnInit {
   email: string;
   senha: string;
   cadastrando: boolean = false;
+  plat: any;
+  url = 'assets/web/web-p.png';
   constructor(
     private firebase: FirebaseService, 
     private data: DataService, 
-    private router: Router
+    private router: Router,
+    private platform: Platform
     ) { }
 
   ngOnInit() {
+    this.plat = (this.platform.width() >= 800)? true : false;
   }
 
   navigate(url){

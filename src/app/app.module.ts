@@ -19,8 +19,11 @@ import { DetalhesOfertasComponent } from './components/detalhes-ofertas/detalhes
 import { DetalhesPlanosComponent } from './components/detalhes-planos/detalhes-planos.component';
 import { DetalhesComentariosComponent } from './components/detalhes-comentarios/detalhes-comentarios.component';
 import { OfertasSegmentosComponent } from './components/ofertas-segmentos/ofertas-segmentos.component';
-import { ShareComponent } from './components/share/share.component';
+import { OfertaCompraComponent } from './components/oferta-compra/oferta-compra.component';
+import { OfertaCompraFinalComponent } from './components/oferta-compra-final/oferta-compra-final.component';
+import { OfertaMapaComponent } from './components/oferta-mapa/oferta-mapa.component';
 import { ShareEmailComponent } from './components/share-email/share-email.component';
+import { ShareComponent } from './components/share/share.component';
 
 import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClientModule } from '@angular/common/http';
@@ -51,6 +54,9 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     DetalhesOfertasComponent,
     DetalhesComentariosComponent,
     OfertasSegmentosComponent,
+    OfertaMapaComponent,
+    OfertaCompraComponent,
+    OfertaCompraFinalComponent,
     ShareComponent,
     ShareEmailComponent
   ],
@@ -59,8 +65,11 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     DetalhesCuponsComponent, 
     DetalhesPlanosComponent, 
     DetalhesOfertasComponent,
+    OfertaMapaComponent,
     DetalhesComentariosComponent,
     OfertasSegmentosComponent,
+    OfertaCompraComponent,
+    OfertaCompraFinalComponent,
     ShareComponent,
     ShareEmailComponent
   ],

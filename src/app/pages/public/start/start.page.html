@@ -1,4 +1,4 @@
-<ion-content [scrollY]="!mobile">
+<ion-content *ngIf="!plat" id="cM">
 	<div class="principal">
 		<div class="header ion-text-center">
 			<ion-grid>
@@ -27,3 +27,42 @@
 		</div>
 	</div>
 </ion-content>
+
+<ion-content *ngIf="plat">
+	<div class="web-principal">
+		<div class="web-left">
+			<div class="header-web">
+				<ion-grid>
+					<ion-row>
+						<ion-col class="ion-align-self-start group g1" size="1">
+							<ion-img src="assets/web/Group1.png" class="img-dots id1"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-center" size="12">
+							<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-end group g2" size="1">
+							<ion-img src="assets/web/Group2.png" class="img-dots id2"></ion-img>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+			<div class="web-bg" [style.background-image]="'url('+ url +')'">
+				
+			</div>
+		</div>
+		<div class="web-right">
+			<div class="form-web">
+				<p class="titulo">Seja Bem vindo(a)</p>
+				<ion-button expand="block" fill="clear" class="btn-login btns" (click)="navigate('login')"><ion-img src="assets/imgs/icons/email-login.png" class="btn-img"></ion-img></ion-button>
+				<ion-button expand="block" fill="clear" class="btn-visitante btns" (click)="navigate('menu')"><ion-img src="assets/imgs/icons/gmail-login.png" class="btn-img"></ion-img></ion-button>
+				<ion-button expand="block" fill="clear" class="btn-facebook btns" (click)="navigate('planos')"><ion-img src="assets/imgs/icons/facebook-login.png" class="btn-img"></ion-img></ion-button>
+				<ion-button expand="block" fill="clear" class="btn-apple btns" (click)="navigate('planos')" *ngIf="mobile"><ion-img src="assets/imgs/icons/apple-login.png" class="btn-img"></ion-img></ion-button>
+				<div class="footer ion-text-center">
+					<p class="senhaReset"><a (click)="navigate('cadastro')" class="aSenha">Crie conta</a></p>
+					<p class="senhaReset"><a (click)="navigate('menu')" class="aSenha">Entrar como visitante</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>
+

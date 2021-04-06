@@ -11,6 +11,9 @@ import { Platform } from '@ionic/angular';
 export class StartPage implements OnInit {
   loading: any;
   mobile: any;
+  plat: any;
+  url = 'assets/web/web-p.png';
+  form = 'assets/web/form.png';
   constructor(
   	private route: Router,
     private data: DataService,
@@ -19,6 +22,7 @@ export class StartPage implements OnInit {
 
   ngOnInit() {
     this.mobile = (this.platform.is('cordova'))? true : false;
+    this.plat = (this.platform.width() >= 800)? true : false;
   }
 
   navigate(url){

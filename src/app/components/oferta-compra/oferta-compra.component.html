@@ -1,0 +1,52 @@
+<ion-content>
+	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
+      	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+      </ion-button>
+	<div class="content">
+		<p class="empresa">Hotel</p>
+		<p class="oferta">Quarto para duas pessoas</p>
+
+		<ion-list>
+			<ion-radio-group (ionChange)="setOferta()" [(ngModel)]="oferta">
+				<ion-list-header>
+					Selecione a oferta
+				</ion-list-header>
+				<div class="radiosOffer">
+					<ion-radio value="1"></ion-radio>
+					<ion-label class="lbl-radio">Check-In: 20/04/2021 - Check-out: 25/04/2021</ion-label>
+					<ion-radio value="2"></ion-radio>
+					<ion-label class="lbl-radio">Check-In: 20/04/2021 - Check-out: 25/04/2021</ion-label>
+					<ion-radio value="3"></ion-radio>
+					<ion-label class="lbl-radio">Check-In: 20/04/2021 - Check-out: 25/04/2021</ion-label>
+					<ion-radio value="4"></ion-radio>
+					<ion-label class="lbl-radio">Check-In: 20/04/2021 - Check-out: 25/04/2021</ion-label>
+					<ion-radio value="5"></ion-radio>
+					<ion-label class="lbl-radio">Check-In: 20/04/2021 - Check-out: 25/04/2021</ion-label>
+					<ion-radio value="6"></ion-radio>
+					<ion-label class="lbl-radio">Check-In: 20/04/2021 - Check-out: 25/04/2021</ion-label>
+				</div>
+				<div class="radioCheck">
+					<ion-radio value="0"></ion-radio>
+					<ion-label class="lbl-radio">ou insira o check-in e check-out</ion-label>
+				</div>
+			</ion-radio-group>	
+		</ion-list>
+
+		<ion-list>
+			<div class="check" *ngIf="check">
+				<ion-item class="item-cadastro">
+					<ion-label class="lbl-radio" position=stacked>Check-In</ion-label>
+					<ion-input type="date" class="check-in" [(ngModel)]="in"></ion-input>
+				</ion-item>
+				<ion-item class="item-cadastro">
+					<ion-label class="lbl-radio" position=stacked>Check-out</ion-label>
+					<ion-input type="date" class="check-out" [(ngModel)]="out"></ion-input>
+				</ion-item>
+			</div>	
+		</ion-list>
+
+		<div class="btn-consumir ion-text-center">
+			<ion-button class="btn-base btn1" shape="round" expand="block" (click)="finalizar(detalhes.oferta)">Finalizar</ion-button>
+		</div>
+	</div>
+</ion-content>
