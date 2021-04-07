@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
+import { UtilsService } from '../../../services/utils.service';
 import { Platform, ModalController } from '@ionic/angular';
 import { DetalhesOfertasComponent } from '../../../components/detalhes-ofertas/detalhes-ofertas.component';
 import { OfertasSegmentosComponent } from '../../../components/ofertas-segmentos/ofertas-segmentos.component';
@@ -39,16 +40,19 @@ export class HomePage implements OnInit {
   private modalOpen: boolean = false;
   load: boolean = false;
   visitante: boolean = false;
+  plat: any;
   constructor(
     private modaCtrl: ModalController,
     private route: Router, 
     private data: DataService, 
+    private util: UtilsService,
     private platform: Platform,
     private socket: Socket
   ) { }
 
   ngOnInit() {
     this.platform.ready().then(async ()=>{
+      this.plat = (this.platform.width() >= 1025)? true : false;
       this.user = await this.data.getStorage('USER');
       this.loadContent();
       if(this.user.vistante){
@@ -94,7 +98,11 @@ export class HomePage implements OnInit {
   	}
   }
 
-  async abrirDetalhes(oferta){
+  async abrirDetalhes(oferta, seg){
+    if(seg != 1){
+      await this.util.alertOpen('Em breve!');
+      return false;
+    }
     if(this.modalOpen){
       this.modal.dismiss();
       this.modalOpen = false;
@@ -118,6 +126,10 @@ export class HomePage implements OnInit {
   }
 
   async verMais(btn){
+    if(btn.id != 1){
+      await this.util.alertOpen('Em breve!');
+      return false;
+    }
     this.modal = await this.modaCtrl.create({
       component: OfertasSegmentosComponent,
       componentProps: { modal: this.modal, detalhes: btn, uid: this.user[0].UID },

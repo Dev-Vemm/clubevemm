@@ -3,6 +3,8 @@ import { NavParams, AlertController, ModalController } from '@ionic/angular';
 import { DetalhesComentariosComponent } from '../detalhes-comentarios/detalhes-comentarios.component';
 import { OfertaCompraComponent } from '../oferta-compra/oferta-compra.component';
 import { OfertaMapaComponent } from '../oferta-mapa/oferta-mapa.component';
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalhes-ofertas',
@@ -13,13 +15,44 @@ export class DetalhesOfertasComponent implements OnInit {
   private modal: any = this.navParam.data.modal;
   public detalhes: any = this.navParam.data.detalhes;	
   private mod: any;
+  public n1 = '2137069608';
+  public n2 = '21995884587';
+  public n3 = '21995884587'; 
   constructor(
     private navParam: NavParams, 
     private alertCtrl: AlertController, 
-    private modaCtrl: ModalController
+    private modaCtrl: ModalController,
+    private callNumber: CallNumber,
+    private route: Router
   ) { }
 
   ngOnInit() {}
+
+  whats(num){
+    window.open('https://api.whatsapp.com/send?phone='+num);
+  }
+
+  call(num){
+    this.callNumber.callNumber(num, true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
+  }
+
+  separa(str){
+    var len = str.length;
+    var ddd = str.substring(0, 2);
+    if(len > 10){
+      var set1 = str.substring(2, 3);
+      var set2 = str.substring(3, 7);
+      var set3 = str.substring(7, 11);
+      var n = '('+ ddd +')' + ' ' + set1 + ' ' + set2 + '-' + set3;  
+    }else{
+      var set1 = str.substring(2, 6);
+      var set2 = str.substring(6, 10);
+      var n = '('+ ddd +')' + ' ' + set1 + '-' + set2;
+    }
+    return n;
+  }
 
   voltar(){
   	this.modal.dismiss();

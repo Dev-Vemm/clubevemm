@@ -75,24 +75,26 @@
 	      				<ion-img src="assets/web/Vector.png"></ion-img>
 	      			</ion-button>
       			</ion-buttons>
-				<p class="titulo">Login</p>
-				<p class="subtitulo">Conecte-se à sua conta</p>
-				<p class="fala">Obrigado por voltar a plataforma Vemm. <br />
-					Temos as melhores vantagens para você.
-				</p>
-				<div class="body">
-					<ion-item class="item-cadastro">
-						<ion-label position=stacked class="lblForm">E-mail</ion-label>
-						<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
-					</ion-item>
-					<ion-item class="item-cadastro">
-						<ion-label position=stacked class="lblForm">Senha</ion-label>
-						<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
-					</ion-item>
-				</div>
-				<ion-button class="btn-enviar btn-base" (click)="login(email, senha)" shape="round" expand="block">Acessar</ion-button>
-				<div class="footer ion-text-center">
-					<p class="senhaReset">Esqueceu a senha? <a (click)="navigate('reset-senha')" class="aSenha">Clique aqui.</a></p>
+      			<div class="inner-form">
+					<p class="titulo">Login</p>
+					<p class="subtitulo">Conecte-se à sua conta</p>
+					<p class="fala">Obrigado por voltar a plataforma Vemm. <br />
+						Temos as melhores vantagens para você.
+					</p>
+					<div class="body">
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">E-mail</ion-label>
+							<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
+						</ion-item>
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">Senha</ion-label>
+							<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
+						</ion-item>
+					</div>
+					<ion-button class="btn-enviar btn-base" (click)="login(email, senha)" shape="round" expand="block">Acessar</ion-button>
+					<div class="footer ion-text-center">
+						<p class="senhaReset">Esqueceu a senha? <a (click)="navigate('reset-senha')" class="aSenha">Clique aqui.</a></p>
+					</div>
 				</div>
 			</div>
 		</div>

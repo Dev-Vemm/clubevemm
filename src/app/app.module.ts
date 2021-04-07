@@ -37,6 +37,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
+import { CallNumber } from '@ionic-native/call-number/ngx';
+
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -89,6 +91,7 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
   providers: [
     StatusBar,
     OneSignal,
+    CallNumber,
     //Facebook,
     SocialSharing,
     NativeStorage,

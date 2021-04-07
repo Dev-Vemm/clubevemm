@@ -134,14 +134,14 @@ ion-label{
 
 	.web-left{
 		height: 100%;
-		width: 35%;
+		width: 27%;
 		float: left;
 		background: rgb(72, 0, 141);
 	}
 
 	.web-bg{
 		width: inherit;
-    	height: 80%;
+    	height: 84%;
     	position: absolute;
     	background-position: center;
     	background-size: 100% 100%;
@@ -202,9 +202,14 @@ ion-label{
 	}
 
 	.footer{
-		font-size: 1vw;
+		font-size: 12px;
 		color: #FFFFFF;
 		font-family: 'Hero-Regular';
+	}
+
+	ion-input{
+		color: #48008D;
+    	font-size: 12px;
 	}
 
 	.fala{
@@ -214,20 +219,24 @@ ion-label{
 	    margin-bottom: 20%;
 	}
 
-
+	.inner-form{
+		padding: 5%;
+	}
 
 	a:hover{
 		cursor: pointer;
 	}
 
 	.return{
-		width: 13%;
+		width: 11%;
 	}
 
 	.btn-enviar{
 		width: 100%;
 		margin: 5% auto;
 		height: 3vw;
+		margin-top: 11%;
+		text-transform: none;
 	}
 
 	a{

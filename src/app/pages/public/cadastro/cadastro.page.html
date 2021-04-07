@@ -79,25 +79,27 @@
 	      				<ion-img src="assets/web/Vector.png"></ion-img>
 	      			</ion-button>
       			</ion-buttons>
-				<p class="titulo">Registro</p>
-				<p class="subtitulo">Crie uma conta e Vemm com a gente.</p>
-				<div class="body">
-					<ion-item class="item-cadastro">
-						<ion-label position=stacked class="lblForm">Nome</ion-label>
-						<ion-input type="text" class="nomeInput" [(ngModel)]="nome"></ion-input>
-					</ion-item>
-					<ion-item class="item-cadastro">
-						<ion-label position=stacked class="lblForm">E-mail</ion-label>
-						<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
-					</ion-item>
-					<ion-item class="item-cadastro">
-						<ion-label position=stacked class="lblForm">Senha</ion-label>
-						<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
-					</ion-item>
-				</div>
-				<ion-button class="btn-enviar btn-base" (click)="login(email, senha)" shape="round" expand="block">Acessar</ion-button>
-				<div class="footer">
-					<p class="terms">Ao registrar você concorda com os nossos <a>Termos de Serviços</a> e nossa <a>Política de Privacidade</a>.</p>
+				<div class="inner-form">
+					<p class="titulo">Registro</p>
+					<p class="subtitulo">Crie uma conta e Vemm com a gente.</p>
+					<div class="body">
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">Nome</ion-label>
+							<ion-input type="text" class="nomeInput" [(ngModel)]="nome"></ion-input>
+						</ion-item>
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">E-mail</ion-label>
+							<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
+						</ion-item>
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">Senha</ion-label>
+							<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
+						</ion-item>
+					</div>
+					<ion-button class="btn-enviar btn-base" (click)="login(email, senha)" shape="round" expand="block">Acessar</ion-button>
+					<div class="footer">
+						<p class="terms">Ao registrar você concorda com os nossos <a>Termos de Serviços</a> e nossa <a>Política de Privacidade</a>.</p>
+					</div>
 				</div>
 			</div>
 		</div>

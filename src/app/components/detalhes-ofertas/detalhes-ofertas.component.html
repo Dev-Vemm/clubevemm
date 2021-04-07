@@ -1,7 +1,28 @@
 <ion-content>
 	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
       	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
-      </ion-button>
+    </ion-button>
+	<div class="content ion-text-center" style="font-family: 'Hero-Regular'; color: #FFFFFF; padding: 13%;">
+		<p class="tit">Para saber o localidades próximas, entre em contato com os números abaixo</p>
+		<div class="btnNum ion-text-center">
+			<p>Número convencional</p>
+			<ion-button shape="round" class="btn-num" (click)="call(n1)"><ion-icon name="call-outline" class="iNum"></ion-icon> {{separa(n1)}} </ion-button>
+		</div>
+		<div class="btnNum ion-text-center">
+			<p>Número do Celular</p>
+			<ion-button shape="round" class="btn-num" (click)="call(n2)"><ion-icon name="phone-portrait-outline" class="iNum"></ion-icon> {{separa(n2)}}</ion-button>
+		</div>
+		<div class="btnNum ion-text-center">
+			<p>Whatsapp</p>
+			<ion-button shape="round" class="btn-num" (click)="whats(n3)"><ion-icon name="logo-whatsapp" class="iNum"></ion-icon> {{separa(n3)}}</ion-button>
+		</div>
+	</div>
+</ion-content>
+<!--
+<ion-content>
+	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
+      	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+    </ion-button>
 	<div class="content">
 		<div class="img-fundo" [style.background-image]="'url(' + returnImg(detalhes.img) + ')'"></div>
 		<div>
@@ -59,9 +80,9 @@
 				</div>
 				<p class="end">{{detalhes.endereco}}, {{detalhes.numero}}<span *ngIf="detalhes.complemento">, {{detalhes.complemento}}</span> - {{detalhes.cidade}} - {{detalhes.estado}} - CEP: {{detalhes.cep}}</p>
 			</div>-->
-		</div>
+		<!--</div>
 		<div class="btn-consumir ion-text-center">
 			<ion-button class="btn-base btn1" shape="round" expand="block" (click)="continuar(detalhes.oferta_id, detalhes.custo, detalhes.produto)">Continue</ion-button>
 		</div>
 	</div>
-</ion-content>
+</ion-content> -->
