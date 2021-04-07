@@ -71,7 +71,7 @@ export class OfertasSegmentosComponent implements OnInit {
   async abrirDetalhes(oferta){
     let mod = await this.modaCtrl.create({
       component: DetalhesOfertasComponent,
-      componentProps: { modal: this.modal, detalhes: oferta },
+      componentProps: { modal: this.modal, detalhes: oferta, temp: 1 },
       cssClass: 'modal-oferta'
     });
     mod.onDidDismiss().then((data: any)=>{

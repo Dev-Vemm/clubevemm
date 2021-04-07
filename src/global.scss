@@ -40,6 +40,7 @@
 .searchbar-input.sc-ion-searchbar-md{
   height: 10vw !important;
   font-size: 12px;
+  font-family: 'Hero-Regular';
 }
 
 .searchbar-search-icon{
@@ -153,23 +154,23 @@
     --width: 100%;
   }
 
-  .tabs-inner{
-    width: 94%;
-    height: 100%;
-    position: absolute !important;
-    left: 7%;
-  }
+  // .tabs-inner{
+  //   width: 94%;
+  //   height: 100%;
+  //   position: absolute !important;
+  //   left: 7%;
+  // }
 
-  ion-tab-button {
-    width: 7%;
-    display: inline-block;
-    height: 50px;
-  }
+  // ion-tab-button {
+  //   width: 7%;
+  //   display: inline-block;
+  //   height: 50px;
+  // }
 
-  ion-tab-bar {
-    --background: #48008D !important;
-      border: none;
-      padding: 0;
-      display: contents;
-  }
+  // ion-tab-bar {
+  //   --background: #48008D !important;
+  //     border: none;
+  //     padding: 0;
+  //     display: contents;
+  // }
 }

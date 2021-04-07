@@ -82,6 +82,10 @@ export class HomePage implements OnInit {
     });
   }
 
+  limitar(str){
+    return (str.length > 16)? str.substring(0, 15) + '...' : str;
+  }
+
   requestImg(img){
     return (img)? 'https://painel.clubevemm.com.br/storage/app/' + img : '';
   }
@@ -99,7 +103,7 @@ export class HomePage implements OnInit {
   }
 
   async abrirDetalhes(oferta, seg){
-    if(seg != 1){
+    if(seg != 1 && seg != 0){
       await this.util.alertOpen('Em breve!');
       return false;
     }
@@ -110,7 +114,7 @@ export class HomePage implements OnInit {
       this.modalOpen = true;
       this.modal = await this.modaCtrl.create({
         component: DetalhesOfertasComponent,
-        componentProps: { modal: this.modal, detalhes: oferta },
+        componentProps: { modal: this.modal, detalhes: oferta, temp: seg },
         cssClass: 'modal-oferta'
       });
       this.modal.onDidDismiss().then((data: any)=>{
@@ -157,7 +161,6 @@ export class HomePage implements OnInit {
           }else{
             this.data.setStorage('USER', res).then(()=>{
               this.pontos = res[0].PONTOS;
-              console.log(res);
               this.load = false;
               this.route.navigate(['menu/pontos']);
             });

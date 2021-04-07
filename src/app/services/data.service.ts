@@ -47,7 +47,6 @@ export class DataService {
         return new Promise((resolve, reject) =>{
           this.client.get(this.url + endpoint, vals).subscribe((data)=>{
             let parsedData = data;
-            console.log(parsedData);
             resolve(parsedData);
           },
           (err) =>{
@@ -74,7 +73,6 @@ export class DataService {
         return new Promise((resolve, reject) =>{
           this.client.post(this.url + endpoint, vals).subscribe((data)=>{
             let parsedData = data;
-            console.log(parsedData);
             resolve(parsedData);
           },
           (err) =>{

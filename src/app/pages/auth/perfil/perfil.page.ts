@@ -83,7 +83,6 @@ export class PerfilPage implements OnInit {
     try{
       this.data.requestPost({uid: this.user[0].UID}, 'consumos').then((res:any) =>{
         if(res.historico){
-          console.log(res.historico);
           this.historico = res.historico;   
         }
         this.load = false;

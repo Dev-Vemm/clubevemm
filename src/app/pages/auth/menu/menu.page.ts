@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../../../services/utils.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private util: UtilsService
+   ) { }
 
   ngOnInit() {
+  }
+
+  alert(){
+  	this.util.alertOpen('Em breve!');
   }
 
 }

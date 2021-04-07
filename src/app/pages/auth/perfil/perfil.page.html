@@ -6,7 +6,7 @@
 		<div class="intro ion-text-center">
 		    <ion-label>Bem vindo(a), {{usuario.nome}}</ion-label>
 		    <br>
-		    <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label>
+		    <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda1.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label>
 		</div>
 		<div class="avatar">
 			<ion-avatar slot="end">
@@ -21,9 +21,9 @@
 		<div class="meus-pontos">
 			<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [style.background-color]="btnStatus? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnStatus? '#FFFFFF': '#48008D'}">Status</ion-button>
 		</div>
-		<div class="meus-favoritos">
+		<!-- <div class="meus-favoritos">
 			<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(1)" [style.background-color]="btnHistorico? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnHistorico? '#FFFFFF': '#48008D'}">Histórico</ion-button>
-		</div>
+		</div> -->
 	</div>
 
 	<div class="status" *ngIf="btnStatus">
@@ -34,7 +34,7 @@
 			<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
 		</div>
 		<div class="logout ion-text-center">
-			<ion-button class="btn-logout" (click)="logout()" expand="block" shape="round">Log out</ion-button>
+			<ion-button class="btn-logout" (click)="logout()" expand="block" shape="round">Log Out</ion-button>
 		</div>
 	</div>
 

@@ -13,11 +13,13 @@ import { Router } from '@angular/router';
 })
 export class DetalhesOfertasComponent implements OnInit {
   private modal: any = this.navParam.data.modal;
-  public detalhes: any = this.navParam.data.detalhes;	
+  public detalhes: any = this.navParam.data.detalhes;
+  public temp: any = this.navParam.data.temp;	
   private mod: any;
   public n1 = '2137069608';
   public n2 = '21995884587';
   public n3 = '21995884587'; 
+  txt = (this.temp == 1)? 'Para saber o localidades próximas, entre em contato com os números abaixo' : 'Para saber mais sobre as opções de pacote viagem, com até 60% de desconto:';
   constructor(
     private navParam: NavParams, 
     private alertCtrl: AlertController, 
@@ -26,7 +28,8 @@ export class DetalhesOfertasComponent implements OnInit {
     private route: Router
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  console.log(this.temp);}
 
   whats(num){
     window.open('https://api.whatsapp.com/send?phone='+num);

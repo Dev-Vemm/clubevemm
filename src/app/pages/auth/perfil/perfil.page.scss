@@ -1,7 +1,7 @@
 ion-toolbar{
     --background: #48008D;
     border-radius: 100px / 30px;
-    height: 68vw;
+    height: 75vw;
     position: absolute;
     top: -43px;
 }
@@ -45,8 +45,8 @@ ion-spinner{
 
 
 .logo{
-	width: 40%;
-    margin: 15% auto 5%;
+	width: 30%;
+    margin: 25% auto 0;
 }
 
 .intro{
@@ -54,16 +54,18 @@ ion-spinner{
     font-size: 15px;
     color: #FFF;
     padding: 10%;
+    font-family: 'Hero-Bold';
 }
 
 .avatar{
 	float: right;
     padding: 6%;
+    margin-right: 3%;
 }
 
 ion-avatar{
-	width: 20vw;
-    height: 20vw;
+	width: 22vw;
+    height: 22vw;
     border: 2px solid #FFF;
 }
 
@@ -83,10 +85,12 @@ ion-avatar{
 }
 
 .btn-menu-header{
-	font-size: 15px;
+	font-size: 12px;
     color: #FFFFFF;
 	border-radius: 1.5em;
     height: 7vw;
+    text-transform: none;
+    font-family: 'Hero-Bold'
 }
 
 .menu{
@@ -96,6 +100,7 @@ ion-avatar{
 
 .meus-pontos{
 	float: left;
+	margin-top: 4%;
 }
 
 .pontuacao{
@@ -157,7 +162,7 @@ ion-avatar{
 }
 
 .status{
-	padding: 10%;
+	padding: 22% 10% 10%;
 }
 
 .status-titulo{
@@ -169,4 +174,6 @@ ion-avatar{
 .btn-logout{
 	--background: #FF5400;
     height: 15vw;
+    font-family: 'Hero-Regular';
+    text-transform: none;
 }

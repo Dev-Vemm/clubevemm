@@ -3,7 +3,7 @@
 </div>
 
 
-<ion-content class="cM" *ngIf="!plat">
+<ion-content class="cM">
 	<ion-header class="ion-no-border toolbarVerde" no-border>
 	  	<ion-toolbar lines="none">
 		  	<ion-buttons slot="start">
@@ -24,7 +24,7 @@
 		<label>Ofertas em destaque</label>
 	</div>
 	<div class="bar">
-		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [style.background-image]="'url(' + requestImg(cupom.dimg) + ')'" (click)="abrirDetalhes(cupom)">
+		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [style.background-image]="'url(' + requestImg(cupom.dimg) + ')'" (click)="abrirDetalhes(cupom, 0)">
 			<!-- <label>{{cupom.desc}}% de Desconto</label> -->
 		</ion-card>
 	</div>
@@ -36,7 +36,7 @@
 		<ion-card class="ofertas" *ngFor="let offer of melhoresOfertas">
 	 		<ion-card-title [ngStyle]="{'background-image': bgImage(offer.img)}" class="card-oferta-title ion-text-center" (click)="abrirDetalhes(offer)"></ion-card-title>
 			<ion-card-content class="content-card-offer">
-				<ion-label class="ion-text-center oferta-nome"  (click)="abrirDetalhes(offer)">{{offer.produto}}</ion-label>
+				<ion-label class="ion-text-center oferta-nome"  (click)="abrirDetalhes(offer)">{{limitar(offer.produto)}}</ion-label>
 				<div class="offer-custo ion-text-center" (click)="abrirDetalhes(offer)">
 					<ion-label>
 						<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">{{offer.custo}}</span>
@@ -89,5 +89,3 @@
 		</div>
 	</div>	
 </ion-content>
-
-<ion-content *ngIf="plat"></ion-content>
