@@ -39,7 +39,6 @@ export class LoginPage implements OnInit {
             uid: fireLogin['user'].uid
           };
           this.data.requestPost(vals, 'logar').then((APIres) =>{
-            console.log(APIres);
             if(APIres['status']){
               this.data.setStorage('USER', APIres['dados']);
               this.cadastrando = false;
@@ -52,15 +51,13 @@ export class LoginPage implements OnInit {
           if(err['code'] == 'auth/user-not-found'){
             console.log('Usuário não encontrado.');
           }
+          if(err['code'] == 'auth/wrong-password'){
+            console.log('Senha incorreta');
+          }
         }
       });
       this.cadastrando = false;
     }catch(err){
-      if(err['code']){
-        if(err['code'] == 'auth/user-not-found'){
-          console.log('Usuário não encontrado.');
-        }
-      }
       console.log(err);
       this.cadastrando = false;
     }
