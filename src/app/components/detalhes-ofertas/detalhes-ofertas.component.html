@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content *ngIf="temp < 4">
 	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
       	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
     </ion-button>
@@ -18,8 +18,8 @@
 		</div>
 	</div>
 </ion-content>
-<!--
-<ion-content>
+
+<ion-content *ngIf="temp == 4">
 	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
       	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
     </ion-button>
@@ -80,9 +80,12 @@
 				</div>
 				<p class="end">{{detalhes.endereco}}, {{detalhes.numero}}<span *ngIf="detalhes.complemento">, {{detalhes.complemento}}</span> - {{detalhes.cidade}} - {{detalhes.estado}} - CEP: {{detalhes.cep}}</p>
 			</div>-->
-		<!--</div>
-		<div class="btn-consumir ion-text-center">
+		</div>
+		<div class="btn-consumir ion-text-center" *ngIf="temp != 4">
 			<ion-button class="btn-base btn1" shape="round" expand="block" (click)="continuar(detalhes.oferta_id, detalhes.custo, detalhes.produto)">Continue</ion-button>
 		</div>
+		<div class="btn-consumir ion-text-center" *ngIf="temp == 4">
+			<ion-button class="btn-base btn1" shape="round" expand="block" (click)="destaque(detalhes.oferta_id)">Continue</ion-button>
+		</div>
 	</div>
-</ion-content> -->
+</ion-content> 

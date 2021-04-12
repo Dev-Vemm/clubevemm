@@ -38,6 +38,7 @@ export class HomePage implements OnInit {
   public segmentos: any; 
   private modal: any;
   private modalOpen: boolean = false;
+  mobile: any;
   load: boolean = false;
   visitante: boolean = false;
   plat: any;
@@ -53,6 +54,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.platform.ready().then(async ()=>{
       this.plat = (this.platform.width() >= 1025)? true : false;
+      this.mobile = (this.platform.is('cordova'))? true : false;
       this.user = await this.data.getStorage('USER');
       this.loadContent();
       if(this.user.vistante){
@@ -103,7 +105,7 @@ export class HomePage implements OnInit {
   }
 
   async abrirDetalhes(oferta, seg){
-    if(seg != 1 && seg != 0){
+    if(seg != 1 && seg != 0 && seg != 4){
       await this.util.alertOpen('Em breve!');
       return false;
     }

@@ -1,0 +1,45 @@
+<ion-content>
+	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
+      	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+    </ion-button>
+    <div class="content">
+    	<div class="origem ion-text-center">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione o ponto de origem</ion-label>
+	    		<ion-select [(ngModel)]="origem">
+	    			<ion-select-option *ngFor="let origem of estados" value="{{origem.uf}}">{{origem.nome}}</ion-select-option>
+	    		</ion-select>
+	    	</ion-item>
+    	</div>
+    	<div class="destino ion-text-center">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione o ponto de destino</ion-label>
+	    		<ion-select [(ngModel)]="destino">
+	    			<ion-select-option *ngFor="let destino of estados" value="{{destino.uf}}">{{destino.nome}}</ion-select-option>
+	    		</ion-select>
+	    	</ion-item>
+    	</div>
+    	<div class="datasIn">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione a data inicial</ion-label>
+	    		<ion-input type="date" class="dateInput" [(ngModel)]="dataInicial"></ion-input>
+	    	</ion-item>
+    	</div>
+    	<div class="datasFim">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione a data final</ion-label>
+	    		<ion-input type="date" class="dateInput" [(ngModel)]="dataFinal"></ion-input>
+	    	</ion-item>
+    	</div>
+    	<div class="opicionais">
+    		<p class="p-oferta">Opicionais</p>
+    		<ion-item *ngFor="let op of opcionais">
+    			<ion-checkbox mode="ios" (ionChange)="options(op.valor)"></ion-checkbox>
+    			<ion-label>{{op.valor}}</ion-label>
+    		</ion-item>
+    	</div>
+    	<div class="hotel">
+    		<ion-button shape="round" class="btn-base btnHotel" (click)="finalizar(origem, destino, dataInicial, dataFinal, opcoes)">Finalizar</ion-button>
+    	</div>
+    </div>
+</ion-content>

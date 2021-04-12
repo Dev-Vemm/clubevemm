@@ -47,7 +47,14 @@ export class LoginPage implements OnInit {
             }
           });
         }
+      }).catch((err) =>{
+        if(err['code']){
+          if(err['code'] == 'auth/user-not-found'){
+            console.log('Usuário não encontrado.');
+          }
+        }
       });
+      this.cadastrando = false;
     }catch(err){
       if(err['code']){
         if(err['code'] == 'auth/user-not-found'){
@@ -55,6 +62,7 @@ export class LoginPage implements OnInit {
         }
       }
       console.log(err);
+      this.cadastrando = false;
     }
   }
 

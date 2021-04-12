@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, AlertController, ModalController } from '@ionic/angular';
 import { DetalhesComentariosComponent } from '../detalhes-comentarios/detalhes-comentarios.component';
+import { OfertaDestaqueComponent } from '../oferta-destaque/oferta-destaque.component';
 import { OfertaCompraComponent } from '../oferta-compra/oferta-compra.component';
 import { OfertaMapaComponent } from '../oferta-mapa/oferta-mapa.component';
 import { CallNumber } from '@ionic-native/call-number/ngx';
@@ -33,6 +34,14 @@ export class DetalhesOfertasComponent implements OnInit {
 
   whats(num){
     window.open('https://api.whatsapp.com/send?phone='+num);
+  }
+
+  async destaque(id){
+    this.mod = await this.modaCtrl.create({
+      component: OfertaDestaqueComponent,
+      componentProps: { modal: this.mod, detalhes: {id: id} }
+    });
+    return await this.mod.present();
   }
 
   call(num){
