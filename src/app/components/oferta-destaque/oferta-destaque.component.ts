@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { UtilsService } from '../../services/utils.service';
 import { NavParams, AlertController, Platform } from '@ionic/angular';
 
 @Component({
@@ -10,7 +9,7 @@ import { NavParams, AlertController, Platform } from '@ionic/angular';
 })
 export class OfertaDestaqueComponent implements OnInit {
   public detalhes: any = this.navParam.data.detalhes;
-  
+  public modal: any = this.navParam.data.modal;
   public origem;
   public destino;
   public dataInicial;
@@ -56,8 +55,8 @@ export class OfertaDestaqueComponent implements OnInit {
   constructor(
     private navParam: NavParams,
   	private data: DataService,
-  	private util: UtilsService,
-    private platform: Platform
+    private platform: Platform,
+    private alert: AlertController
   ) { }
 
   ngOnInit() {
@@ -80,7 +79,7 @@ export class OfertaDestaqueComponent implements OnInit {
   async finalizar(origem, destino, dataInicial, dataFinal, opcoes){
   	let vals = {
   		uid: this.user[0].UID,
-  		oferta_id: this.detalhes.oferta,
+  		oferta_id: this.detalhes.id,
   		origem: origem,
   		destino: destino,
   		dataInicial: dataInicial,
@@ -89,11 +88,28 @@ export class OfertaDestaqueComponent implements OnInit {
   	};
   	try{
   		await this.data.requestPost(vals, 'reservar').then(async ()=>{
-  			await this.util.alertOpen('Seu pedido foi efetuado com sucesso! Em breve entraremos em contato.');
+  			await this.alertOpen('Seu pedido foi efetuado com sucesso! Em breve entraremos em contato.');
   		});
   	}catch(err){
   		console.log(err);
   	}
+  }
+
+  voltar(){
+      this.modal.dismiss({cond: 0});
+  }
+
+  async alertOpen(msg){
+    const alert = await this.alert.create({
+      message: msg,
+      buttons: [{
+        text: 'OK',
+        handler: ()=>{
+          this.modal.dismiss({cond: 1});
+        }      
+      }]
+     });
+     await alert.present(); 
   }
 
 }

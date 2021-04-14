@@ -61,7 +61,17 @@ export class CadastroPage implements OnInit {
   					}
   				});
   			}
-  		});
+  		}).catch((err) =>{
+        if(err['code'] == 'auth/invalid-email'){          
+          console.log('Formato de email inválido.');         
+        }         
+        if(err['code'] == 'auth/weak-password'){           
+          console.log('Senha fraca');         
+        }         
+        if(err['code'] == 'auth/email-already-in-use'){           
+          console.log("E-mail já cadastrado");         
+        }
+      });
   	}catch(err){
   		console.log(err);
   	}

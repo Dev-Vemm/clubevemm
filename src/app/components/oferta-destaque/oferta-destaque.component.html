@@ -1,8 +1,21 @@
+<ion-header class="ion-no-border toolbarVerde" no-border>
+    <ion-toolbar lines="none">
+        <ion-buttons slot="start">
+            <ion-button  fill="clear" class="primary-text" (click)="voltar()">
+                <ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+            </ion-button>
+        </ion-buttons>
+        <div class="logo">
+            <ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
 <ion-content>
-	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
-      	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
-    </ion-button>
-    <div class="content">
+	<div class="content">
+        <div class="titulo ion-text-center">
+            <p>Agende sua viagem e aproveite!</p>
+        </div>
     	<div class="origem ion-text-center">
     		<ion-item>
 	    		<ion-label position="stacked">Selecione o ponto de origem</ion-label>
@@ -33,10 +46,41 @@
     	</div>
     	<div class="opicionais">
     		<p class="p-oferta">Opicionais</p>
-    		<ion-item *ngFor="let op of opcionais">
-    			<ion-checkbox mode="ios" (ionChange)="options(op.valor)"></ion-checkbox>
-    			<ion-label>{{op.valor}}</ion-label>
-    		</ion-item>
+    		<ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Transfer</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Transfer')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Voo</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Voo')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Passeio</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Passeio')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Ingressos</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Ingressos')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>      
+            </ion-grid>
+
+            <!--<ion-item *ngFor="let op of opcionais; let i = index;">
+                <ion-label>{{op.valor}}</ion-label>
+    			<ion-checkbox mode="md" (ionChange)="options(op.valor)"></ion-checkbox>
+    		</ion-item> -->
     	</div>
     	<div class="hotel">
     		<ion-button shape="round" class="btn-base btnHotel" (click)="finalizar(origem, destino, dataInicial, dataFinal, opcoes)">Finalizar</ion-button>

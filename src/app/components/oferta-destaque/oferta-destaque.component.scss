@@ -2,13 +2,36 @@ ion-content{
 	--background: #48008D;
 }
 
+ion-toolbar {
+  	--background: transparent no-repeat fixed center;
+  	position: absolute;
+  	top: 0;
+  	padding-top: 10% !important;
+}
+
+ion-buttons{
+	margin-left: 8%;
+}
+
 ion-item{
 	--background: transparent;
 	color: #FFFFFF;
 }
 
+.titulo{
+	font-size: 14px;
+	font-family: 'Hero-Regular';
+	color: #FFFFFF;
+}
+
+.logo{
+	width: 40%;
+    margin-left: 20%;
+}
+
 .content{
 	padding: 3%;
+	margin-top: 25%;
 }
 
 .hotel{
@@ -24,5 +47,10 @@ ion-item{
 }
 
 .p-oferta{
+	font-family: 'Hero-Regular';
 	color: #FFFFFF;
+}
+
+.lblOp{
+	font-family: 'Hero-Bold';
 }

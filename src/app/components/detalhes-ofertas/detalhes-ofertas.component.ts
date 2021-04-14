@@ -5,7 +5,7 @@ import { OfertaDestaqueComponent } from '../oferta-destaque/oferta-destaque.comp
 import { OfertaCompraComponent } from '../oferta-compra/oferta-compra.component';
 import { OfertaMapaComponent } from '../oferta-mapa/oferta-mapa.component';
 import { CallNumber } from '@ionic-native/call-number/ngx';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-detalhes-ofertas',
@@ -16,6 +16,7 @@ export class DetalhesOfertasComponent implements OnInit {
   private modal: any = this.navParam.data.modal;
   public detalhes: any = this.navParam.data.detalhes;
   public temp: any = this.navParam.data.temp;	
+  cond = 'assets/imgs/destaque.png';
   private mod: any;
   public n1 = '2137069608';
   public n2 = '21995884587';
@@ -27,10 +28,12 @@ export class DetalhesOfertasComponent implements OnInit {
     private modaCtrl: ModalController,
     private callNumber: CallNumber,
     private route: Router
-  ) { }
+  ) { 
+    console.log(this.temp);
+  }
 
   ngOnInit() {
-  console.log(this.temp);}
+  }
 
   whats(num){
     window.open('https://api.whatsapp.com/send?phone='+num);
@@ -41,7 +44,22 @@ export class DetalhesOfertasComponent implements OnInit {
       component: OfertaDestaqueComponent,
       componentProps: { modal: this.mod, detalhes: {id: id} }
     });
+    this.mod.onDidDismiss().then((data: any)=>{
+        if(data.data.cond == 1){
+          this.temp = 5;
+        }
+      });
     return await this.mod.present();
+  }
+
+  encerrar(){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        pacotes: true
+      }
+    };
+    this.modal.dismiss();
+    this.route.navigate(['menu/pontos'], navigationExtras);
   }
 
   call(num){

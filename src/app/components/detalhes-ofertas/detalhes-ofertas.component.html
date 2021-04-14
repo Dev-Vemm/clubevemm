@@ -89,3 +89,21 @@
 		</div>
 	</div>
 </ion-content> 
+
+<ion-content id="content-des" *ngIf="temp == 5">
+	<div class="img5">
+		<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+	</div>
+	<div class="img-cond5">
+		<ion-img [src]="cond" class="img-cond"></ion-img>
+	</div>
+	<div class="titulo5">
+		<p class="t">Obrigado por vir com a gente!</p>
+	</div>
+	<div class="texto5">
+		<p class="p-t">Boa escolha! <br /> Você receberá um email com os detalhes da viagem.</p>
+	</div>
+	<div class="btnDiv ion-text-center">
+		<ion-button class="btn-base btn1" shape="round" (click)="encerrar()">Ver status do pedido</ion-button>
+	</div>
+</ion-content>

@@ -3,6 +3,7 @@ import { ModalController, Platform } from '@ionic/angular';
 import { DetalhesPontosComponent } from '../../../components/detalhes-pontos/detalhes-pontos.component';
 import { DataService } from '../../../services/data.service';
 import { Socket } from 'ngx-socket-io';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pontos',
@@ -15,21 +16,30 @@ export class PontosPage implements OnInit {
   public dataFav: any;
   public btnPontos: boolean = true;
   public btnFavoritos: boolean = false;
+  public btnPacotes: boolean = false;
   public bg = "url('assets/imgs/cover.png')";
   public detalhesImg: any;
   public detalhesEmpresa: any;
   public detalhesProduto: any;
   public detalhesData: any;
   public detalhesPontos: any;
-
+  public usuario:any = {
+    nome: '',
+    email: '',
+    pontos: 0,
+    plano: '',
+    data_entrada: ''
+  };
   private modal: any;
   private modalOpen: boolean = false;
   public historico: any;
+  public pacotes: any;
   public load: boolean = false;
   public user: any;
   public uid: any;
   public index: any;
   constructor(
+    private activatedRoute: ActivatedRoute,
   	private modaCtrl: ModalController,
     private platform: Platform,
     private data: DataService,
@@ -55,10 +65,27 @@ export class PontosPage implements OnInit {
   }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.pacotes) {
+        this.btnPontos = false;
+        this.btnPacotes = true;
+      }
+    });
     this.platform.ready().then(async ()=>{
+      this.user = await this.data.getStorage('USER');
+      var a = this.user[0].DATA_HORA_ENTRADA.split(/[- :]/);
+      // Apply each element to the Date function
+      var d = new Date(a[0], a[1]-1, a[2], a[3], a[4], a[5]);
+      var t = new Date(d);
+      this.usuario = {
+        nome: this.user[0].NOME,
+        email: this.user[0].EMAIL,
+        pontos: this.user[0].PONTOS,
+        plano: this.user[0].TITULO,
+        data_entrada: t.toLocaleString().split(' ').join(' - ')
+      };
       this.socket.fromEvent('offer').subscribe((data: any) =>{
         if(data){
-          console.log(data);
           let i = this.dataArr.findIndex(x => x.ID == data.oferta);
           if(i !== -1){
             let a = {
@@ -113,12 +140,15 @@ export class PontosPage implements OnInit {
       this.data.requestPost({uid: this.user[0].UID}, 'consumos').then((res:any) =>{
         if(res.consumos){
           this.dataArr = res.consumos;
-        }  
+        }
+        console.log(this.dataArr);  
         if(res.historico){
           this.historico = res.historico;   
         }
+        if(res.pacotes){
+          this.pacotes = res.pacotes;
+        }
         this.load = false;
-        console.log(this.dataArr);
       });
     }catch(err){
       console.log(err);
@@ -158,10 +188,16 @@ export class PontosPage implements OnInit {
   	if(btn == 0){
   		this.btnFavoritos = false;
   		this.btnPontos = true;
+      this.btnPacotes = false;
   	}else if(btn == 1){
   		this.btnFavoritos = true;
   		this.btnPontos = false;
-  	}
+      this.btnPacotes = false;
+  	}else if(btn == 2){
+      this.btnFavoritos = false;
+      this.btnPontos = false;
+      this.btnPacotes = true;
+    }
   }
 
   async abrirDetalhes(img, empresa, produto, pontos, data_hora, status, nota, comentario, favorito, oferta, index){
