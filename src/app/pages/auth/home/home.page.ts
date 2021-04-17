@@ -28,6 +28,10 @@ export class HomePage implements OnInit {
     icon: 'assets/imgs/icons/exp_btn.png',
     content: 'Experiências',
     id: 3
+  },{
+    icon: 'assets/imgs/icons/pacote_btn.png',
+    content: 'Pacotes',
+    id: 4
   }];
 
   public cupons:any = [];
