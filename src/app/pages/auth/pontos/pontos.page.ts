@@ -134,6 +134,21 @@ export class PontosPage implements OnInit {
     });
   }
 
+  status(status){
+    if(status == 0){
+      return "Em análise";
+    }
+    if(status == 1){
+      return "Aguardando pagamento";
+    }
+    if(status == 2){
+      return "Finalizado";
+    }
+    if(status == 3){
+      return "Cancelado";
+    }
+  }
+
   async loadContent(){
     this.load = true;
     try{

@@ -34,18 +34,24 @@
     	</div>
     	<div class="datasIn">
     		<ion-item>
-	    		<ion-label position="stacked">Selecione a data inicial</ion-label>
+	    		<ion-label position="stacked">Selecione a data de partida</ion-label>
 	    		<ion-input type="date" class="dateInput" [(ngModel)]="dataInicial"></ion-input>
 	    	</ion-item>
     	</div>
     	<div class="datasFim">
     		<ion-item>
-	    		<ion-label position="stacked">Selecione a data final</ion-label>
+	    		<ion-label position="stacked">Selecione a data de retorno</ion-label>
 	    		<ion-input type="date" class="dateInput" [(ngModel)]="dataFinal"></ion-input>
 	    	</ion-item>
     	</div>
+        <div class="areaDesc">
+            <ion-item>
+                <ion-label position="stacked">Descrição da viagem (opcional)</ion-label>
+                <ion-textarea [(ngModel)]="descricao"></ion-textarea>
+            </ion-item>
+        </div>
     	<div class="opicionais">
-    		<p class="p-oferta">Opicionais</p>
+    		<p class="p-oferta">Opcionais</p>
     		<ion-grid>
                 <ion-row>
                     <ion-col>
@@ -83,7 +89,7 @@
     		</ion-item> -->
     	</div>
     	<div class="hotel">
-    		<ion-button shape="round" class="btn-base btnHotel" (click)="finalizar(origem, destino, dataInicial, dataFinal, opcoes)">Finalizar</ion-button>
+    		<ion-button shape="round" class="btn-base btnHotel" (click)="finalizar(origem, destino, dataInicial, dataFinal, opcoes, descricao)">Finalizar</ion-button>
     	</div>
     </div>
 </ion-content>

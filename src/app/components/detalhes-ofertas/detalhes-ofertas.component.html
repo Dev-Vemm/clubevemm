@@ -19,6 +19,24 @@
 	</div>
 </ion-content>
 
+<ion-content *ngIf="temp == 6">
+	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
+      	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+    </ion-button>
+	<div class="content ion-text-center" style="font-family: 'Hero-Regular'; color: #FFFFFF; padding: 13%;">
+		<p class="tit">{{txt}}</p>
+		<div class="btnNum ion-text-center">
+			<p>Ligue para nossa central de reservas</p>
+			<ion-button shape="round" class="btn-num" (click)="call(n1)"><ion-icon name="call-outline" class="iNum"></ion-icon> {{separa(n1)}} </ion-button>
+		</div>
+		<div class="btnNum ion-text-center">
+			<p>Ou</p>
+			<p>Preencha o formulário e entraremos em contato em até 24h</p>
+			<ion-button shape="round" class="btn-num" (click)="destaque(detalhes.oferta_id)">Preencher formulário</ion-button>
+		</div>
+	</div>
+</ion-content>
+
 <ion-content *ngIf="temp == 4">
 	<ion-button  fill="clear" class="primary-text" (click)="voltar()">
       	<ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
@@ -84,9 +102,9 @@
 		<div class="btn-consumir ion-text-center" *ngIf="temp != 4">
 			<ion-button class="btn-base btn1" shape="round" expand="block" (click)="continuar(detalhes.oferta_id, detalhes.custo, detalhes.produto)">Continue</ion-button>
 		</div>
-		<div class="btn-consumir ion-text-center" *ngIf="temp == 4">
+		<!--<div class="btn-consumir ion-text-center" *ngIf="temp == 4">
 			<ion-button class="btn-base btn1" shape="round" expand="block" (click)="destaque(detalhes.oferta_id)">Continue</ion-button>
-		</div>
+		</div> -->
 	</div>
 </ion-content> 
 

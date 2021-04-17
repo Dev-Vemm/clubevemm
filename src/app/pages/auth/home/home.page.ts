@@ -105,7 +105,7 @@ export class HomePage implements OnInit {
   }
 
   async abrirDetalhes(oferta, seg){
-    if(seg != 1 && seg != 0 && seg != 4){
+    if(seg != 1 && seg != 0 && seg != 4 && seg != 6){
       await this.util.alertOpen('Em breve!');
       return false;
     }

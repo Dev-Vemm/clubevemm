@@ -21,7 +21,7 @@ export class DetalhesOfertasComponent implements OnInit {
   public n1 = '2137069608';
   public n2 = '21995884587';
   public n3 = '21995884587'; 
-  txt = (this.temp == 1)? 'Para saber o localidades próximas, entre em contato com os números abaixo' : 'Para saber mais sobre as opções de pacote viagem, com até 60% de desconto:';
+  txt = (this.temp == 1)? 'Para saber o localidades próximas, entre em contato com os números abaixo' : 'Monte o seu pacote viagem personalizado com até 60% de desconto!';
   constructor(
     private navParam: NavParams, 
     private alertCtrl: AlertController, 

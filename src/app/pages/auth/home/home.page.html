@@ -24,7 +24,7 @@
 		<label>Ofertas em destaque</label>
 	</div>
 	<div class="bar">
-		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [style.background-image]="'url(' + requestImg(cupom.dimg) + ')'" (click)="abrirDetalhes(cupom, 4)">
+		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [style.background-image]="'url(' + requestImg(cupom.dimg) + ')'" (click)="abrirDetalhes(cupom, 6)">
 			<!-- <label>{{cupom.desc}}% de Desconto</label> -->
 		</ion-card>
 	</div>

@@ -14,6 +14,7 @@ export class OfertaDestaqueComponent implements OnInit {
   public destino;
   public dataInicial;
   public dataFinal;
+  public descricao;
   public opcoes = [];
   public user;
   public opcionais = [
@@ -76,7 +77,7 @@ export class OfertaDestaqueComponent implements OnInit {
   	}
   }
 
-  async finalizar(origem, destino, dataInicial, dataFinal, opcoes){
+  async finalizar(origem, destino, dataInicial, dataFinal, opcoes, descricao){
   	let vals = {
   		uid: this.user[0].UID,
   		oferta_id: this.detalhes.id,
@@ -84,6 +85,7 @@ export class OfertaDestaqueComponent implements OnInit {
   		destino: destino,
   		dataInicial: dataInicial,
   		dataFinal: dataFinal,
+      descricao: descricao,
   		opcoes: opcoes.join(', ')
   	};
   	try{

@@ -154,6 +154,7 @@
 						<ion-label class="empresa">Data Inicial: {{prod.DATA_INICIAL | date: 'dd/MM/yyyy'}} - Data Final: {{prod.DATA_FINAL | date: 'dd/MM/yyyy'}}</ion-label>
 						<ion-label class="empresa">Opcionais: {{prod.OPCIONAIS}}</ion-label>
 						<ion-label class="empresa">Data e Hora gerada: {{prod.DATA_HORA | date: 'dd/MM/yyyy HH:mm'}}</ion-label>
+						<ion-label>Status: {{status(prod.STATUS)}}</ion-label>
 					</div>
 					<!--<div slot="end" class="div-pontos">
 						<div class="pontos">
