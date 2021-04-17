@@ -1,17 +1,16 @@
-<ion-header class="ion-no-border toolbarVerde" no-border>
-    <ion-toolbar lines="none">
-        <ion-buttons slot="start">
-            <ion-button  fill="clear" class="primary-text" (click)="voltar()">
-                <ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
-            </ion-button>
-        </ion-buttons>
-        <div class="logo">
-            <ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
-        </div>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <ion-header class="ion-no-border toolbarVerde" no-border>
+        <ion-toolbar lines="none">
+            <ion-buttons slot="start">
+                <ion-button  fill="clear" class="primary-text" (click)="voltar()">
+                    <ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+                </ion-button>
+            </ion-buttons>
+            <div class="logo">
+                <ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+            </div>
+        </ion-toolbar>
+    </ion-header>
 	<div class="content">
         <div class="titulo ion-text-center">
             <p>Agende sua viagem e aproveite!</p>
@@ -47,7 +46,7 @@
         <div class="areaDesc">
             <ion-item>
                 <ion-label position="stacked">Descrição da viagem (opcional)</ion-label>
-                <ion-textarea [(ngModel)]="descricao"></ion-textarea>
+                <ion-textarea [(ngModel)]="descricao" placeholder="Ex: Ingressos para shows, parques, alguma necessecidade especial, etc." id="desc-pedido"></ion-textarea>
             </ion-item>
         </div>
     	<div class="opicionais">
