@@ -16,6 +16,7 @@ export class OfertasSegmentosComponent implements OnInit {
   private uid: any = this.navParam.data.uid;
   public ofertas: any = [];
   private modalOpen = false;
+  public destaque: any;
   constructor(
     private modaCtrl: ModalController,
     private navParam: NavParams, 
@@ -33,7 +34,18 @@ export class OfertasSegmentosComponent implements OnInit {
 
   async loadData(request){
   	this.load = true;
-  	let endpoint = (request)? 'melhores/ofertas' : 'segmentos/ofertas';
+  	if(this.detalhes.id == 4){
+      try{
+        this.data.requestPost({uid: this.uid}, 'principal').then((APIres:any)=>{
+          this.destaque = APIres.destaques;
+        });
+        this.load = false;
+      }catch(err){
+        this.load = false;
+      }
+      return false;
+    }
+    let endpoint = (request)? 'melhores/ofertas' : 'segmentos/ofertas';
   	let vals = (request)? {uid: this.uid} : {segmento: this.detalhes.id, uid: this.uid};
   	try{
   		this.data.requestPost(vals, endpoint).then((res) =>{
@@ -47,6 +59,25 @@ export class OfertasSegmentosComponent implements OnInit {
   		console.log(err);
   		this.load = false;
   	}
+  }
+
+  requestImg(img){
+    return (img)? 'https://painel.clubevemm.com.br/storage/app/' + img : '';
+  }
+
+  async abrirDestaque(oferta, seg){
+    if(this.modalOpen){
+      this.modal.dismiss();
+      this.modalOpen = false;
+    }else{
+      this.modalOpen = true;
+      this.modal = await this.modaCtrl.create({
+        component: DetalhesOfertasComponent,
+        componentProps: { modal: this.modal, detalhes: oferta, temp: seg },
+        cssClass: 'modal-oferta'
+      });
+      return await this.modal.present();
+    }
   }
 
   bgImage(img){

@@ -8,8 +8,6 @@ ion-card, ion-card-content{
 
 ion-toolbar {
   	--background: transparent no-repeat fixed center;
-  	position: absolute;
-  	top: 0;
 }
 
 ion-spinner{
@@ -24,10 +22,11 @@ ion-label{
 }
 
 .header{
-	margin-top: 18%;
+	margin-top: 2%;
     text-align: center;
     font-size: 25px;
     color: #FFFFFF;
+    margin-bottom: 10%;
 }
 
 .bar-oferta{
@@ -115,4 +114,18 @@ ion-label{
 	width: 20%;
     height: 11vw;
 	margin: 0;
+}
+
+.cupom{
+	background-position: center;
+    background-size: 100%;
+    min-width: 50%;
+    padding: 0.75rem;
+    margin-bottom: 2rem;
+    border: 0;
+    flex-basis: 33.333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 10px;
+    height: 45vw;
 }

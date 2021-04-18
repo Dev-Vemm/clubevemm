@@ -136,7 +136,7 @@ export class HomePage implements OnInit {
   }
 
   async verMais(btn){
-    if(btn.id != 1){
+    if(btn.id != 1 && btn.id != 4){
       await this.util.alertOpen('Em breve!');
       return false;
     }
