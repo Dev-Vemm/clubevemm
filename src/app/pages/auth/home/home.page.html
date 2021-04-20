@@ -3,7 +3,7 @@
 </div>
 
 
-<ion-content class="cM">
+<ion-content class="cM" *ngIf="!plat">
 	<ion-header class="ion-no-border toolbarVerde" no-border>
 	  	<ion-toolbar lines="none">
 		  	<ion-buttons slot="start">
@@ -89,3 +89,5 @@
 		</div>
 	</div>	
 </ion-content>
+
+<ion-content *ngIf="plat"></ion-content>
