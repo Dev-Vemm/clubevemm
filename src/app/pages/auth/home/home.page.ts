@@ -42,6 +42,7 @@ export class HomePage implements OnInit {
   public segmentos: any; 
   private modal: any;
   private modalOpen: boolean = false;
+  public asset = 'assets/imgs/success.png';
   mobile: any;
   load: boolean = false;
   visitante: boolean = false;
@@ -83,6 +84,7 @@ export class HomePage implements OnInit {
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
       this.segmentos = APIres.segmentos;
+      console.log(this.segmentos);
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;
     });
