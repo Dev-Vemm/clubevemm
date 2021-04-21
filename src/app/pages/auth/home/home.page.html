@@ -93,10 +93,8 @@
 <ion-content *ngIf="plat">
 	<div class="content-centro">
 		<div class="desk-header">
-			<div class="txt-header">
-				<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
-			</div>
-			<div class="img-header" [style.background-image]="'url('+ asset +')'"></div>
+			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
+			<ion-img [src]="asset" class="img-desk"></ion-img>
 		</div>
 	</div>
 	<div class="content-left"></div>
