@@ -47,6 +47,41 @@ export class HomePage implements OnInit {
   load: boolean = false;
   visitante: boolean = false;
   plat: any;
+
+  public usuario = {
+    email: 'victorbr321@gmail.com',
+    plano: 'Platina',
+    data_entrada: '15/03/2021 13:05:40'
+  };
+
+  public historico = [
+    {
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    }
+  ];
+
   constructor(
     private modaCtrl: ModalController,
     private route: Router, 
@@ -96,6 +131,10 @@ export class HomePage implements OnInit {
 
   requestImg(img){
     return (img)? 'https://painel.clubevemm.com.br/storage/app/' + img : '';
+  }
+
+  returnImg(img){
+    return (img)? img : "url('assets/imgs/img1.jpg')";
   }
 
   navigate(url){

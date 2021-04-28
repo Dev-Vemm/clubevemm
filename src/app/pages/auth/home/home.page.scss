@@ -326,8 +326,7 @@ ion-slides{
 	}
 
 	.content-right{
-		border: 1px solid;
-	    width: 25%;
+		width: 25%;
 	    height: 100%;
 	    float: left;
 	}
@@ -550,6 +549,92 @@ ion-slides{
 
 	.img-desk-footer{
 		width: 10%;
+	}
+
+	.status{
+		padding: 12% 10% 10%;
+	}
+
+	.status-titulo{
+		color: #48008D;
+	    font-size: 16px;
+	    font-family: 'Hero-Bold';
+	}
+
+	.conta-lbl{
+		color: #48008D;
+	    font-size: 13px;
+	    font-family: 'Hero-Bold';
+	}
+
+	.conta-span{
+		color: #000000;
+	    font-family: 'Hero-Regular';
+	}
+
+	ion-spinner{
+		transform: scale(2,7);
+	    --color: #FFFFFF;
+	    margin-top: 90%;
+	    width: 100%;
+	}
+
+	.card-ponto-desk{
+		border-radius: 10px;
+	}
+
+	.img-prod-desk{
+		background-position: center;
+	    background-size: cover;
+	    width: 3vw;
+    	height: 3vw;
+	    border-radius: 10px;
+	    margin: 5% 4% 5% 0;
+	}
+
+	.desc-prod-desk{
+		height: 100%;
+	    font-size: 15px;
+	    padding-top: 5%;
+	}
+
+	.empresa-desk{
+		font-family: 'Hero-Bold';
+    	color: #0AE28F;
+    	font-size: 12px;
+	}
+
+	.lbl-produto-desk{
+		font-family: 'Hero-Bold';
+	    margin-top: 3%;
+    	font-size: 14px;
+	}
+
+	.ponto-gasto-desk{
+		color: #FFA700;
+		font-family: 'Hero-Bold';
+	}
+
+	.desk-avatar{
+		width: 6vw;
+	    height: 6vw;
+	    border: 2px solid #FFFFFF;
+	    margin: 8% auto;
+	}
+
+	.ponto-gasto-desk-header{
+		color: #48008D;
+	    font-family: "Hero-Bold";
+	    font-size: 20px;
+	}
+
+	.num-desk{
+		margin-top: 6%;
+	}
+
+	.historico{
+		height: 40vw;
+    	overflow: hidden;
 	}
 
 	/* .btn-ver-mais{

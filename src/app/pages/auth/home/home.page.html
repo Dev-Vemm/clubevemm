@@ -221,5 +221,53 @@
 			<ion-img [src]="asset" class="img-desk-footer"></ion-img>
 		</div>
 	</div>
-	<div class="content-right"></div>
+	<div class="content-right">
+		<div class="header-right">
+			<div>
+				<ion-avatar slot="end" class="desk-avatar">
+				    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+				</ion-avatar>
+			</div>
+			<div class="ponto-desk-header ion-text-center">
+				<ion-label class="status-titulo">Minha Pontuação</ion-label>
+			</div>
+			<div class="num-desk ion-text-center">
+				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk-header">12000</span>
+			</div>
+		</div>
+		<div class="status">
+			<div class="title-status ion-text-center">
+				<ion-label class="status-titulo">Informações da Conta</ion-label>	
+			</div>
+			<div class="conta">
+				<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+				<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+			</div>
+		</div>
+		<div class="historico">
+			<div class="spinner" *ngIf="load">
+				<ion-spinner class="spin" name="bubbles"></ion-spinner>
+			</div>
+			<div class="title-historico ion-text-center">
+				<ion-label class="status-titulo">Histórico Recente</ion-label>
+			</div>
+			<div *ngFor="let prod of historico">
+				<ion-card  class="card-ponto-desk">
+					<ion-item lines="none">
+						<div class="img-prod-desk" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
+						<div class="desc-prod-desk">
+							<ion-label class="empresa-desk">{{prod.TITULO}}</ion-label>
+							<ion-label class="lbl-produto-desk" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
+						</div>
+						<div slot="end" class="div-pontos-desk">
+							<div class="pontos-desk">
+								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk">{{prod.VALOR}}</span>
+							</div>
+						</div>
+					</ion-item>
+				</ion-card>
+			</div>
+		</div>
+	</div>
 </ion-content>
