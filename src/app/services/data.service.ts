@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { config } from '../configs/config';
 import { HTTP } from '@ionic-native/http/ngx';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Storage } from '@ionic/storage';
 
@@ -15,6 +15,13 @@ export class DataService {
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Methods':'POST, GET, PUT, OPTIONS, DELETE, PATCH',
         'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+    };
+    private httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Methods':'POST, GET, PUT, OPTIONS, DELETE, PATCH',
+        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With'
+      })
     };
 
   	constructor(
@@ -71,7 +78,8 @@ export class DataService {
         });
       }else{
         return new Promise((resolve, reject) =>{
-          this.client.post(this.url + endpoint, vals).subscribe((data)=>{
+          this.client.post(this.url + endpoint, vals, this.httpOptions).subscribe((data)=>{
+            console.log(data);
             let parsedData = data;
             resolve(parsedData);
           },

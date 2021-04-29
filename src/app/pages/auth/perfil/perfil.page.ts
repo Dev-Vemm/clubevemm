@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
+import { UtilsService } from '../../../services/utils.service';
 import { Platform, ModalController } from '@ionic/angular';
 import { FirebaseService } from '../../../services/firebase.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ShareComponent } from '../../../components/share/share.component';
 
 @Component({
@@ -24,17 +25,43 @@ export class PerfilPage implements OnInit {
   public user: any;
   public btnStatus: boolean = true;
   public btnHistorico: boolean = false;
+  public btnSenha: boolean = false;
   public historico:any = [];
+
+  public senhaAntiga: string;
+  public senha: string;
+  public rSenha: string;
+  public senhaSec: boolean = true;
+  public plat: boolean;
+  public asset = 'assets/imgs/success.png';
+
+  public btnsMenus = [{
+    icon: 'assets/imgs/icons/hospedagem_btn.png',
+    val: 6000
+  },{
+    icon: 'assets/imgs/icons/saude_btn.png',
+    val: 3000
+  },{
+    icon: 'assets/imgs/icons/exp_btn.png',
+    val: 2000
+  },{
+    icon: 'assets/imgs/icons/pacote_btn.png',
+    val: 3500
+  }];
+
   constructor(
     private data: DataService, 
     private platform: Platform, 
     private firebase: FirebaseService,
     private router: Router,
-    private modaCtrl: ModalController
+    private modaCtrl: ModalController,
+    private activatedRoute: ActivatedRoute,
+    private utils: UtilsService
   ) { }
 
   ngOnInit() {
     this.platform.ready().then(async ()=>{
+      this.plat = (this.platform.width() >= 1025)? true : false;
       this.user = await this.data.getStorage('USER');
       var a = this.user[0].DATA_HORA_ENTRADA.split(/[- :]/);
       // Apply each element to the Date function
@@ -47,6 +74,14 @@ export class PerfilPage implements OnInit {
         plano: this.user[0].TITULO,
         data_entrada: t.toLocaleString().split(' ').join(' - ')
       };
+      this.activatedRoute.queryParams.subscribe(async params => {
+      if (params.primeiro_acesso) {
+          this.btnStatus = false;
+          this.btnSenha = true;
+          await this.utils.alertOpen('É recomendado trocar de senha após no primeiro acesso');
+          this.data.requestPost({uid: this.user[0].UID}, 'primeira_senha');
+        }
+      });
       this.loadContent(); 
     });
   }
@@ -72,9 +107,15 @@ export class PerfilPage implements OnInit {
     if(btn == 1){
       this.btnStatus = false;
       this.btnHistorico = true;
+      this.btnSenha = false;
     }else if(btn == 0){
       this.btnStatus = true;
       this.btnHistorico = false;
+      this.btnSenha = false;
+    }else if(btn == 2){
+      this.btnStatus = false;
+      this.btnHistorico = false;
+      this.btnSenha = true;
     }
   }
 
@@ -95,6 +136,27 @@ export class PerfilPage implements OnInit {
 
   returnImg(img){
     return (img)? img : "url('assets/imgs/img1.jpg')";
+  }
+
+  checarSenha(){
+    this.senhaSec = true;
+    if(!this.senhaAntiga || this.senhaAntiga.length < 6){
+      return false;
+    }
+    if(this.senha && this.rSenha){
+      if(this.senha === this.rSenha){
+        this.senhaSec = false;
+      }
+    }
+  }
+
+  async alterarSenha(senhaAntiga, senha, email){
+    const result: any = await this.firebase.resetUserPassword(senhaAntiga, email, senha);
+    if(!result){
+      await this.utils.presentToast("Não foi possível alterar sua senha.");
+      return false;
+    }
+    await this.utils.presentToast("Sua senha foi alterada com sucesso.");
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../../services/firebase.service';
 import { DataService } from '../../../services/data.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Platform } from '@ionic/angular';
 
 @Component({
@@ -42,6 +42,16 @@ export class LoginPage implements OnInit {
             if(APIres['status']){
               this.data.setStorage('USER', APIres['dados']);
               this.cadastrando = false;
+              console.log(APIres)
+              if(APIres['dados'][0]['VERIFY'] == 0){
+                let navigationExtras: NavigationExtras = {
+                  queryParams: {
+                    primeiro_acesso: true
+                  }
+                };
+                this.router.navigate(['menu/perfil'], navigationExtras);
+                return false;
+              }
               this.router.navigate(['menu']);
             }
           });

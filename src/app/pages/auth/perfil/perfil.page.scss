@@ -161,7 +161,7 @@ ion-avatar{
 	padding: 5%;
 }
 
-.status{
+.status, .senha{
 	padding: 22% 10% 10%;
 }
 
@@ -176,4 +176,245 @@ ion-avatar{
     height: 15vw;
     font-family: 'Hero-Regular';
     text-transform: none;
+}
+
+.senha-btn{
+    margin-top: 5%;
+}
+
+@media (min-width: 1025px) {
+    ion-content{
+        --background: #FFFFFF;
+    }
+
+    .content-centro{
+        width: 74%;
+        height: 100%;
+        float: left;
+        margin: 0;
+        padding: 2%;
+    }
+
+    .content-right{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+
+    .label-desk-header{
+        font-size: 20px;
+        color: #FFFFFF;
+        font-family: 'Hero-Bold';
+        padding: 3% 7%;
+    }
+
+    .desk-header{
+        border-radius: 15px;
+        background: #FFA700;
+        display: flex;
+        margin-bottom: 2%;
+    }
+
+    .desk-footer{
+        border-radius: 19px;
+        background: #FF5400;
+        display: flex;
+        margin-top: 4%;
+    }
+
+    .label-desk-footer{
+        width: 80%;
+        padding: 3% 10%;
+        font-family: 'Hero-Bold';
+    }
+
+    .img-desk{
+        width: 15%;
+        margin-left: 50%;
+    }
+
+    .img-desk-footer{
+        width: 10%;
+    }
+
+    .status{
+        padding: 12% 10% 10%;
+    }
+
+    .status-titulo{
+        color: #48008D;
+        font-size: 16px;
+        font-family: 'Hero-Bold';
+    }
+
+    .conta-lbl{
+        color: #48008D;
+        font-size: 13px;
+        font-family: 'Hero-Bold';
+    }
+
+    .conta-span{
+        color: #000000;
+        font-family: 'Hero-Regular';
+    }
+
+    ion-spinner{
+        transform: scale(2,7);
+        --color: #FFFFFF;
+        margin-top: 90%;
+        width: 100%;
+    }
+
+    .card-ponto-desk{
+        border-radius: 10px;
+    }
+
+    .img-prod-desk{
+        background-position: center;
+        background-size: cover;
+        width: 3vw;
+        height: 3vw;
+        border-radius: 10px;
+        margin: 5% 4% 5% 0;
+    }
+
+    .desc-prod-desk{
+        height: 100%;
+        font-size: 15px;
+        padding-top: 5%;
+    }
+
+    .empresa-desk{
+        font-family: 'Hero-Bold';
+        color: #0AE28F;
+        font-size: 12px;
+    }
+
+    .lbl-produto-desk{
+        font-family: 'Hero-Bold';
+        margin-top: 3%;
+        font-size: 14px;
+    }
+
+    .ponto-gasto-desk{
+        color: #FFA700;
+        font-family: 'Hero-Bold';
+    }
+
+    .desk-avatar{
+        width: 6vw;
+        height: 6vw;
+        border: 2px solid #FFFFFF;
+        margin: 8% auto;
+    }
+
+    .ponto-gasto-desk-header{
+        color: #48008D;
+        font-family: "Hero-Bold";
+        font-size: 20px;
+    }
+
+    .num-desk{
+        margin-top: 6%;
+    }
+
+    .historico{
+        height: 40vw;
+        overflow: hidden;
+    }
+
+    .content-body {
+        display: flex;
+    }
+
+    .dados {
+        width: 65%;
+        padding: 5%;
+    }
+
+    .info-pessoal{
+        font-size: 18px;
+        font-family: 'Hero-Bold';
+        color: #48008D;
+    }
+
+    .form-perfil{
+        margin-top: 5%;
+        display: block;
+    }
+
+    .alterar-plano{
+        font-size: 14px;
+        color: #C4C4C4;
+        font-family: 'Hero-Regular';
+        float: right;
+    }
+
+    .alterar-plano:hover{
+        cursor: pointer;
+    }
+
+    .btn-perfil{
+        text-transform: none;
+        width: 40%;
+        font-size: 15px;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+
+    .btn-cancelar{
+        --background: #FFA700;
+    }
+
+    .btns-perfil{
+        margin-top: 5%;
+    }
+
+    .hist-foto{
+        width: 35%;
+    }
+
+    .perfil-avatar{
+        width: 8vw;
+        height: 8vw;
+        margin: auto;
+        margin-top: 15%;    
+    }
+
+    .img-ponto{
+        width: 20%;
+    }    
+
+    .card-hist{
+        display: flex;
+        padding: 5% 0% 5% 22%;
+    }
+
+    .txt-ponto{
+        width: 80%;
+        padding: 2% 20% 5% 0%;
+    }
+
+    .pontosIniciais{
+        font-size: 20px;
+        font-family: 'Hero-Bold';
+        color: #48008D;
+    }
+
+    .box-hist{
+        padding: 5%;
+        margin-top: 10%;
+    }
+
+    .lbl-hist-gastos{
+        font-size: 12px;
+        font-family: 'Hero-Bold';
+        color: #48008D;
+    }
+
+    .lbl-img{
+        font-size: 14px;
+        color: #2F2E41;
+        font-family: 'Hero-Regular';
+    }
 }

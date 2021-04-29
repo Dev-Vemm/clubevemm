@@ -30,4 +30,12 @@ export class UtilsService {
    	});
    	await alert.present(); 
   }
+
+  async presentToast(msg: string){
+    const toast = await this.toast.create({
+      message: msg,
+      duration: 3500
+    });
+    toast.present();
+  }
 }

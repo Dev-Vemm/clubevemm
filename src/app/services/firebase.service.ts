@@ -35,6 +35,21 @@ export class FirebaseService {
   	});
   }
 
+  async resetUserPassword(senhaAntiga, email, senha) {
+    return new Promise(async (resolve, reject) =>{
+      const cpUser: any = await this.afa.currentUser;
+      const credentials = firebase.default.auth.EmailAuthProvider.credential(
+      cpUser.email, senhaAntiga);
+      cpUser.reauthenticateWithCredential(credentials).then((success) => {
+        cpUser.updatePassword(senha).then((data) =>{
+          resolve(true);
+        }).catch((err) =>{
+          reject(false);
+        })
+      });
+    });
+  }
+
   /*async facebook(){
     return new Promise((resolve, reject)=>{
       this.fb.login(['email']).then((response: FacebookLoginResponse) =>{
