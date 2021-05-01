@@ -129,6 +129,43 @@
     margin: auto;
 }
 
+.event-detail-container{
+  display: none !important;
+}
+
+.monthview-datetable{
+  border: none !important;
+  thead{
+    border: none !important;
+    tr{
+      border: none !important;
+      th{
+        border: none !important;
+        color: #FFA700;
+        font-family: 'Hero-Bold';
+        font-size: 15px;
+      }
+    }
+  }
+  tbody{
+    border: none !important;
+    tr{
+      border: none !important;
+      td{
+        border: none !important;
+        font-family: 'Hero-Regular';
+        font-size: 14px;
+        padding: 1% !important;
+      }
+    }
+  }
+}
+
+.monthview-selected{
+  background: #0AE28F !important;
+  border-radius: 1.5em !important;
+}
+
 @font-face{
   font-family: 'Hero-Bold';
   src: url('assets/fonts/Hero-Bold.ttf') format('truetype');

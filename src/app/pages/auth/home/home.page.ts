@@ -119,7 +119,6 @@ export class HomePage implements OnInit {
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
       this.segmentos = APIres.segmentos;
-      console.log(this.segmentos);
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;
     });

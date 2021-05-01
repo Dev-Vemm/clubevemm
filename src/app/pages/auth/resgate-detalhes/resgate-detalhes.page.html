@@ -1,0 +1,79 @@
+<ion-content>
+	<div class="content-centro">
+		<div class="desk-header">
+			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
+			<ion-img [src]="asset" class="img-desk"></ion-img>
+		</div>
+		<ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar>
+		<div class="body-left">
+			
+
+
+		</div>
+		<div class="desk-footer">
+			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
+			<ion-img [src]="asset" class="img-desk-footer"></ion-img>
+		</div>
+	</div>
+	<div class="content-right">
+		<div class="header-right">
+			<div>
+				<ion-avatar slot="end" class="desk-avatar">
+				    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+				</ion-avatar>
+			</div>
+			<div class="ponto-desk-header ion-text-center">
+				<ion-label class="status-titulo">Minha Pontuação</ion-label>
+			</div>
+			<div class="num-desk ion-text-center">
+				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk-header">12000</span>
+			</div>
+		</div>
+		<div class="calendario">
+			<div class="calendario-header ion-text-center">
+				<ion-label class="lbl-calendario">Escolha a data entre as disponíveis</ion-label>
+			</div>
+			<div class="calendario-mes ion-text-center">
+				<ion-icon name="chevron-back-outline" class="icon-calendario-left ic" slot="start" (click)="anterior()"></ion-icon>
+				<ion-label class="mes-select">{{mes_atual}}</ion-label>
+				<ion-icon name="chevron-forward-outline" class="icon-calendario-right ic" slot="end" (click)="proximo()"></ion-icon>
+			</div>
+			<calendar #calendario class="calendario"
+	    		[eventSource]="eventSource"
+	    		[calendarMode]="calendar.mode"
+	    		[currentDate]="calendar.currentDate"
+	    		[dateFormatter]="calendar.dateFormatter"
+	    		(onCurrentDateChanged)="onEventSelected($event)"
+	    		(onTitleChanged)="onViewTitleChanged($event)"
+	    		startHour="6"
+	    		endHour="20"
+	    		step="30"
+	    		startingDayWeek="1"
+  			>
+  			</calendar>
+		</div>
+		<div class="detalhes">
+			<div class="detalhes-header ion-text-center">
+				<ion-label>Informações Adicionais</ion-label>
+			</div>
+			<div class="detalhes-body">
+				<p class="det-title">Suíte Superior</p>
+				<p class="add-det">1 cama de casal</p>
+				<p class="add-det">27m²</p>
+				<p class="add-det">Vista do pátio interno</p>
+				<p class="add-det">Ar-condicionado</p>
+				<p class="add-det">Banheiro privado</p>
+				<p class="add-det">TV de tela plana</p>
+				<p class="add-det">Terraço</p>
+				<p class="add-det">Frigobar</p>
+				<p class="add-det">Cofre</p>
+				<p class="add-det">WiFi Gratuito</p>
+				<p class="add-det">Entrada privativa TV</p>
+				<p class="add-det">Acesso ao Lounge Executivo</p>
+				<p class="add-det">Toda a unidade localizada no térreo</p>
+				<p class="add-det">Andares superiores acessíveis por elevador</p>
+				<p class="add-det">A unidade é totalmente acessível para cadeira de rodas</p>
+			</div>
+		</div>
+	</div>
+</ion-content>

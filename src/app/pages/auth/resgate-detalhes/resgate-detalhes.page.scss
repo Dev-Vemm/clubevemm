@@ -1,0 +1,379 @@
+ion-content{
+		--background: #FFFFFF;
+	}
+
+	.content-centro{
+	    width: 74%;
+	    height: 100%;
+	    float: left;
+	    margin: 0;
+	    padding: 2%;
+	}
+
+	.content-right{
+		width: 25%;
+	    height: 100%;
+	    float: left;
+	}
+
+	.label-desk-header{
+		font-size: 20px;
+		color: #FFFFFF;
+		font-family: 'Hero-Bold';
+		padding: 3% 7%;
+	}
+
+	.desk-header{
+		border-radius: 15px;
+		background: #FFA700;
+		display: flex;
+		margin-bottom: 2%;
+	}
+
+	.desk-footer{
+		border-radius: 19px;
+    	background: #FF5400;
+    	display: flex;
+    	margin-top: 4%;
+	}
+
+	.label-desk-footer{
+		width: 80%;
+    	padding: 3% 10%;
+    	font-family: 'Hero-Bold';
+	}
+
+	.img-desk{
+		width: 15%;
+    	margin-left: 50%;
+	}
+
+	.vantagem-disponivel{
+		display: flex;
+	}
+
+	.back-img{
+		width: 50%;
+		height: 20vw;
+		background-position: center;    
+		background-size: cover;     
+	}
+
+	.vant-content{
+		width: 50%;
+	    background: #48008D;
+	    border-radius: 0 15px 15px 0;
+	    padding: 4%;
+	}
+
+	.barra-desk{
+		display: flex;
+	}
+
+	.lbl-header-cont{
+		font-size: 16px;
+    	color: #FFFFFF;
+    	font-family: 'Hero-Regular';
+	}
+
+	.cont-header{
+		margin-bottom: 2%;
+	}
+
+	.icon-desk{
+		font-size: 25px;
+		color: #FFA800;
+		float: right;
+		margin-right: 5%;
+	}
+
+	.desk-empresa{
+	    color: #FFFFFF;
+	    font-family: 'Hero-Regular';
+	}
+
+	.resgate-desk{
+		display: flex;
+	}
+
+	.barra-desk{
+		width: 50%;
+		display: block;
+		padding: 3% 0;
+	}
+
+	.vant-progress{
+		width: 100%;
+	}
+
+	.desk-moeda{
+		margin-right: 3%;
+	}
+
+	.pontos-desk-vant{
+		color: #FFFFFF;
+		font-size: 15px;
+		font-family: 'Hero-Bold';
+	}
+
+	.barra-btn-desk{
+		width: 50%;
+	}
+
+	.btn-desk{
+		text-transform: none;
+		font-family: 'Hero-Bold';
+    	width: 80%;
+	}
+
+	.vant-progress{
+		height: 0.6vw;
+    	border-radius: 1.5em;
+    	--progress-background: #FFA800;
+	}
+
+	.ofertas-recentes-card{
+		display: flex;
+	}
+
+	.off-img-desk{
+		width: 100%;
+		height: 100%;
+		background-position: center;    
+    	background-size: 100%;
+    	background-repeat: no-repeat;
+	}
+
+	.off-seg-title{
+		color: #ACB3BF;
+		font-family: 'Hero-Bold';
+		font-size: 20px;
+	}
+
+	.card-off-desk-cont{
+		overflow: hidden;
+		height: 20vw;
+	}
+
+	.card-off-desk:hover .off-seg-title{
+		color: #48008D;
+		text-decoration: underline;
+	}
+
+	.card-off-desk:hover .off-img-desk{
+		height: 11vw;
+	}
+
+	.ofertas-recentes-desk{
+		padding-top: 2%;
+	}
+
+	.ofertas-recentes-lbl{
+		color: #48008D;
+    	font-family: 'Hero-Bold';
+    	font-size: 13px;
+	}
+
+	.off-card-title{
+		margin-bottom: 10%;
+	}
+
+	.card-off-desk{
+		background: #FFFFFF;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+		border-radius: 10px;
+		margin-top: 3%;
+		width: 33%;
+    	margin-right: 2%;
+	}
+
+	.off-empresa-det{
+		font-size: 13px;
+	    font-family: 'Hero-Bold';
+	    color: #0AE28F;
+	}
+
+	.off-nome-det{
+		font-family: 'Hero-Bold';
+    	font-size: 13px;
+	}
+
+	.moeda-det-off{
+		padding: 3% 0% 3% 20%;
+    	width: 50%;
+	}
+
+	.moeda-off{
+		margin-right: 10%;
+	}
+
+	.pontos-off{
+		color: #FFA800;
+		font-family: 'Hero-Bold'; 
+	}
+
+	.det-top{
+		display: flex;
+    	padding: 5%;
+	}
+
+	.det-bottom{
+		display: flex;
+	}
+
+	.btn-det-bottom{
+		width: 60%;
+	}
+
+	.btn-off{
+		width: 90%;
+	    text-transform: none;
+	    font-family: 'Hero-Bold';
+	    --background: #FFA800;
+	}
+
+	.img-desk-footer{
+		width: 10%;
+	}
+
+	.status{
+		padding: 12% 10% 10%;
+	}
+
+	.status-titulo{
+		color: #48008D;
+	    font-size: 16px;
+	    font-family: 'Hero-Bold';
+	}
+
+	.conta-lbl{
+		color: #48008D;
+	    font-size: 13px;
+	    font-family: 'Hero-Bold';
+	}
+
+	.conta-span{
+		color: #000000;
+	    font-family: 'Hero-Regular';
+	}
+
+	ion-spinner{
+		transform: scale(2,7);
+	    --color: #FFFFFF;
+	    margin-top: 90%;
+	    width: 100%;
+	}
+
+	.card-ponto-desk{
+		border-radius: 10px;
+	}
+
+	.img-prod-desk{
+		background-position: center;
+	    background-size: cover;
+	    width: 3vw;
+    	height: 3vw;
+	    border-radius: 10px;
+	    margin: 5% 4% 5% 0;
+	}
+
+	.desc-prod-desk{
+		height: 100%;
+	    font-size: 15px;
+	    padding-top: 5%;
+	}
+
+	.empresa-desk{
+		font-family: 'Hero-Bold';
+    	color: #0AE28F;
+    	font-size: 12px;
+	}
+
+	.lbl-produto-desk{
+		font-family: 'Hero-Bold';
+	    margin-top: 3%;
+    	font-size: 14px;
+	}
+
+	.ponto-gasto-desk{
+		color: #FFA700;
+		font-family: 'Hero-Bold';
+	}
+
+	.desk-avatar{
+		width: 6vw;
+	    height: 6vw;
+	    border: 2px solid #FFFFFF;
+	    margin: 8% auto;
+	}
+
+	.ponto-gasto-desk-header{
+		color: #48008D;
+	    font-family: "Hero-Bold";
+	    font-size: 20px;
+	}
+
+	.num-desk{
+		margin-top: 6%;
+	}
+
+	.historico{
+		height: 40vw;
+    	overflow: hidden;
+	}
+
+
+////////////////////////////////////
+
+
+.calendario-header{
+	margin: 5% 0;
+	font-size: 16px;
+}
+
+.lbl-calendario{
+	color: #48008D;
+	font-family: 'Hero-Bold';
+}
+
+.calendario-mes{
+	margin: 2% 0;
+	font-size: 18px;
+}
+
+.mes-select{
+	color: #48008D;
+	font-family: 'Hero-Bold';	
+}
+
+.icon-calendario-left{
+	float: left;
+}
+
+.icon-calendario-right{
+	float: right;
+}
+
+.ic:hover{
+	cursor: pointer;
+}
+
+.detalhes-header{
+	font-family: 'Hero-Bold';
+	font-size: 18px;
+	color: #48008D;
+}
+
+.det-title{
+	font-family: 'Hero-Bold';
+    color: #FFA700;
+}
+
+.add-det{
+	font-family: 'Hero-Regular';
+	margin: 2% 0;
+}
+
+.detalhes{
+	margin-top: 5%;
+}

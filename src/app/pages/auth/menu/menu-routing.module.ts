@@ -45,6 +45,10 @@ const routes: Routes = [
 		    path: 'comprovante',
 		    loadChildren: () => import('../comprovante/comprovante.module').then( m => m.ComprovantePageModule)
 		},
+	  	{
+	    	path: 'resgate-detalhes',
+	    	loadChildren: () => import('../resgate-detalhes/resgate-detalhes.module').then( m => m.ResgateDetalhesPageModule)
+	  	},
     ]
   },
 ];
