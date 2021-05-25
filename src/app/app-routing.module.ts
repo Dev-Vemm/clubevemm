@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/menu/menu.module').then( m => m.MenuPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'pagamento',
+    loadChildren: () => import('./pages/auth/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
 ];
 
 @NgModule({

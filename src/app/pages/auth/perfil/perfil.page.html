@@ -7,7 +7,7 @@
 			<div class="intro ion-text-center">
 			    <ion-label>Bem vindo(a), {{usuario.nome}}</ion-label>
 			    <br>
-			    <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda1.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label>
+			    <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label>
 			</div>
 			<div class="avatar">
 				<ion-avatar slot="end">
@@ -22,9 +22,13 @@
 		</div>
 		<!-- <div class="meus-favoritos">
 			<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(1)" [style.background-color]="btnHistorico? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnHistorico? '#FFFFFF': '#48008D'}">Histórico</ion-button>
-		</div> --><div class="meus-pontos">
+		</div> -->
+		<div class="meus-pontos">
 			<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(2)" [style.background-color]="btnSenha? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnSenha? '#FFFFFF': '#48008D'}">Alterar senha</ion-button>
 		</div>
+		<ion-button shape="round" fill="clear" class="afiliado-btn" (click)="share()">
+			<ion-icon name="person-add-outline"></ion-icon>
+		</ion-button>
 	</div>
 
 	<div class="status" *ngIf="btnStatus">

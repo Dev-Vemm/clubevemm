@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DetalhesPlanosComponent } from '../../../components/detalhes-planos/detalhes-planos.component';
 import { ModalController, Platform } from '@ionic/angular';
 import { DataService } from '../../../services/data.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-planos',
@@ -64,7 +64,16 @@ export class PlanosPage implements OnInit {
           this.modalOpen = false;
         }
         if(data.data){
-          this.finalizaAssinatura(this.user[0].UID, data.data.plano_id);
+          let navigationExtras: NavigationExtras = {
+            queryParams: {
+              uid: this.user[0].UID,
+              email: this.user[0].EMAIL,
+              plano: data.data.plano_id,
+              valor: data.data.valor    
+            }
+          };
+          this.router.navigate(['pagamento'], navigationExtras);
+          //this.finalizaAssinatura(this.user[0].UID, data.data.plano_id);
         }
       });
       return await this.modal.present();

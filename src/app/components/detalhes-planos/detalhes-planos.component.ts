@@ -19,8 +19,8 @@ export class DetalhesPlanosComponent implements OnInit {
   	this.modal.dismiss();
   }
 
-  async assinar(plano_id){
-  	this.modal.dismiss({plano_id: plano_id});
+  async assinar(plano_id, valor){
+  	this.modal.dismiss({plano_id: plano_id, valor: valor});
   }
 
 }

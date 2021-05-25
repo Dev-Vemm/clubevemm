@@ -14,7 +14,7 @@
 			<p *ngIf="detalhes.DESC_ESPECIAL" class="desc">{{detalhes.DESC_ESPECIAL}}</p>
 		</div>
 		<div class="comprar">
-			<ion-button [ngClass]="(detalhes.TIPO == 1)? 'btn-comprar btn-base-plano' : 'btn-comprar btn-base'" (click)="assinar(detalhes.ID)" shape="round" expand="block">Assinar Plano</ion-button>
+			<ion-button [ngClass]="(detalhes.TIPO == 1)? 'btn-comprar btn-base-plano' : 'btn-comprar btn-base'" (click)="assinar(detalhes.ID, detalhes.VALOR)" shape="round" expand="block">Assinar Plano</ion-button>
 		</div>
 	</div>
 </ion-content>

@@ -1,0 +1,53 @@
+ion-content{
+	--background: rgb(72, 0, 141);
+}
+
+.returnBtn{
+	margin: 8% 10%;
+}
+
+ion-toolbar {
+  	--background: transparent no-repeat fixed center;
+  	position: absolute;
+  	top: 0;
+}
+
+.background{
+	position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    text-align: center;
+}
+
+ion-spinner{
+	transform: scale(2,7);
+    --color: #FFFFFF;
+    margin-top: 90%;
+    width: 100%;
+}
+
+.principal{
+	margin: 25% 5% 5%;
+	height: 95%;
+	padding: 2%;
+}
+
+ion-item{
+  --background: transparent !important;
+  color: #D4C2FF;
+  margin: 2% 0;
+}
+
+ion-label{
+  font-family: 'Hero-Regular';
+}
+
+.btn-pagamento{
+  width: 60%;
+  margin: 10% auto;
+  height: 50px;
+}
