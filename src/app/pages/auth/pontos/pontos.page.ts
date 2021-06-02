@@ -14,9 +14,9 @@ export class PontosPage implements OnInit {
   public pontos: number;
   public dataArr: any;
   public dataFav: any;
-  public btnPontos: boolean = true;
+  public btnPontos: boolean = false;
   public btnFavoritos: boolean = false;
-  public btnPacotes: boolean = false;
+  public btnPacotes: boolean = true;
   public bg = "url('assets/imgs/cover.png')";
   public detalhesImg: any;
   public detalhesEmpresa: any;

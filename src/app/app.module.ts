@@ -35,6 +35,8 @@ import { firebaseConfig } from './configs/firebase';
 
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
@@ -93,6 +95,8 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
   ],
   providers: [
     StatusBar,
+    File,
+    Camera,
     OneSignal,
     CallNumber,
     //Facebook,

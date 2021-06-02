@@ -6,11 +6,11 @@
 <ion-content class="cM" *ngIf="!plat">
 	<ion-header class="ion-no-border toolbarVerde" no-border>
 	  	<ion-toolbar lines="none">
-		  	<ion-buttons slot="start">
+		  	<!-- <ion-buttons slot="start">
 		      	<ion-button  fill="clear" class="pontos">
 		      		<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img desk-moeda"></ion-icon><span class="pontosIniciais">{{pontos}}</span>
 		      	</ion-button>
-		    </ion-buttons>
+		    </ion-buttons> -->
 		  	<div class="logo">
 		    	<ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
 		    </div>
@@ -38,9 +38,9 @@
 			<ion-card-content class="content-card-offer">
 				<ion-label class="ion-text-center oferta-nome"  (click)="abrirDetalhes(offer)">{{limitar(offer.produto)}}</ion-label>
 				<div class="offer-custo ion-text-center" (click)="abrirDetalhes(offer)">
-					<ion-label>
+					<!-- <ion-label>
 						<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">{{offer.custo}}</span>
-					</ion-label>	
+					</ion-label> -->	
 				</div>
 				<div class="buttons-ofertas">
 					<ion-button fill="clear" class="btn-ofertas-star" (click)="favoritar(offer)"><ion-icon [name]="(offer.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
@@ -64,10 +64,10 @@
 			<ion-card *ngFor="let prod of seg.prods">
 				<ion-card-title class="title-card" (click)="abrirDetalhes(prod, seg.id)">
 					<ion-label class="nome-prod">{{prod.nome}}</ion-label>
-					<div class="quantPontosSegmento" *ngIf="prod.custo">
+					<!-- <div class="quantPontosSegmento" *ngIf="prod.custo">
 						<ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>
-						<ion-label class="lblCusto">{{prod.custo}}</ion-label>	
-					</div>
+						<<ion-label class="lblCusto">{{prod.custo}}</ion-label>	
+					</div> -->
 				</ion-card-title>
 				<ion-card-content class="content-prod-segmento">
 					<ion-item lines="none" class="segs-inner ion-no-padding">

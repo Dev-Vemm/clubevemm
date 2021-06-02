@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { UtilsService } from '../../../services/utils.service';
-import { Platform, ModalController } from '@ionic/angular';
+import { Platform, ModalController, ToastController, LoadingController, PopoverController } from '@ionic/angular';
 import { FirebaseService } from '../../../services/firebase.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ShareComponent } from '../../../components/share/share.component';
+import { PerflFotoComponent } from '../../../components/perfl-foto/perfl-foto.component';
 
 @Component({
   selector: 'app-perfil',
@@ -18,7 +19,8 @@ export class PerfilPage implements OnInit {
   	email: '',
   	pontos: 0,
   	plano: '',
-  	data_entrada: ''
+  	data_entrada: '',
+    avatar: ''
   };
   public load: boolean = false;
   private modal: any;
@@ -55,6 +57,8 @@ export class PerfilPage implements OnInit {
     private firebase: FirebaseService,
     private router: Router,
     private modaCtrl: ModalController,
+    private popCtrl: PopoverController,
+    private toastCtrl: ToastController,
     private activatedRoute: ActivatedRoute,
     private utils: UtilsService
   ) { }
@@ -72,6 +76,7 @@ export class PerfilPage implements OnInit {
         email: this.user[0].EMAIL,
         pontos: this.user[0].PONTOS,
         plano: this.user[0].TITULO,
+        avatar: (this.user[0].AVATAR)? this.user[0].AVATAR : '',
         data_entrada: t.toLocaleString().split(' ').join(' - ')
       };
       this.activatedRoute.queryParams.subscribe(async params => {
@@ -84,6 +89,26 @@ export class PerfilPage implements OnInit {
       });
       this.loadContent(); 
     });
+  }
+
+  async open(){
+    let pop = await this.popCtrl.create({
+      component: PerflFotoComponent,
+      componentProps: {email: this.user[0].UID},
+      translucent: true,
+      mode: 'md'
+    });
+    pop.onDidDismiss().then((ds: any) =>{
+      if(ds['data'].img){
+        console.log(ds['data'].img);
+        this.usuario.avatar = ds['data'].img;
+      }
+    });
+    return await pop.present();
+  }
+
+  atualizaImg(){
+
   }
 
   async logout(){

@@ -96,7 +96,7 @@
 		<div class="intro ion-text-center">
 		    <ion-label>Bem vindo(a), {{usuario.nome}}</ion-label>
 		    <br>
-		    <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda1.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label>
+		    <!-- <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda1.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label> -->
 		</div>
 		<div class="avatar">
 			<ion-avatar slot="end">
@@ -108,15 +108,15 @@
 
 <ion-content>
 	<div class="menu">
-		<div class="meus-pontos">
+		<!-- <div class="meus-pontos">
 			<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [style.background-color]="btnPontos? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnPontos? '#FFFFFF': '#48008D'}">Status</ion-button>
-		</div>
+		</div> -->
 		<div class="meus-pontos">
 			<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(2)" [style.background-color]="btnPacotes? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnPacotes? '#FFFFFF': '#48008D'}">Pacotes</ion-button>
-		</div>
+		</div><!-- 
 		<div class="filtro">
 			<ion-button fill="clear" class="btn-menu-header btn-right btn-filtro">Hoje <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></ion-button>
-		</div>
+		</div> -->
 	</div>
 
 	<div class="historico" *ngIf="btnPontos">
@@ -132,9 +132,9 @@
 						<ion-label class="lbl-produto">{{prod.PRODUTO}}</ion-label>
 					</div>
 					<div slot="end" class="div-pontos">
-						<div class="pontos">
+						<!-- <div class="pontos">
 							<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><span class="ponto-gasto">{{prod.PONTO_GASTO}}</span>
-						</div>
+						</div> -->
 					</div>
 				</ion-item>
 			</ion-card>
