@@ -51,6 +51,34 @@ export class PerfilPage implements OnInit {
     val: 3500
   }];
 
+  public hist = [
+    {
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    }
+  ];
+
   constructor(
     private data: DataService, 
     private platform: Platform, 

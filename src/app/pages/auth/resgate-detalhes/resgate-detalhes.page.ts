@@ -10,6 +10,10 @@ import { formatDate } from '@angular/common';
 export class ResgateDetalhesPage implements OnInit {
   public asset = 'assets/imgs/success.png';
 
+  public star = 'star-outline';
+  public fav = true;
+  public mapa = false;
+
   public usuario = {
     email: 'victorbr321@gmail.com',
     plano: 'Platina',
@@ -186,6 +190,22 @@ export class ResgateDetalhesPage implements OnInit {
 
   anterior(){
   	this.calendario.slidePrev();
+  }
+
+  favoritar(){
+    if(this.fav){
+      this.fav = false;
+      return false;
+    }
+    this.fav = true;
+  }
+
+  abrirMapa(){
+    if(this.mapa){
+      this.mapa = false;
+      return false;
+    }
+    this.mapa = true;
   }
 
 }

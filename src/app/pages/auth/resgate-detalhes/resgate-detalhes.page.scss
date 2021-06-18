@@ -377,3 +377,51 @@ ion-content{
 .detalhes{
 	margin-top: 5%;
 }
+
+.img-oferta{
+	width: 100%;
+    height: 30vw;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.desc-oferta{
+	padding: 2% 5%;
+}
+
+.header-title{
+	font-family: 'Hero-Regular';
+	color: #48008D;
+	font-size: 125%;
+}
+
+.btn-icon-star{
+	padding-bottom: 1.8%;
+    color: #FFA700;
+}
+
+.btn-icon-map{
+	padding-bottom: 1.8%;
+    color: #0AE28F;
+}
+
+.btns-resgate{
+	display: flex;
+}
+
+.barra-desk-vant{
+	width: 20%;
+    display: block;
+    padding: 3% 0;
+    margin: auto 0 auto auto;
+}
+
+.barra-btn-desk-vant{
+	width: 20%;
+    margin: auto auto auto 10%;
+}
+
+.pontos-desk-vant{
+	font-family: 'Hero-Bold';
+	color: #48008D;
+}

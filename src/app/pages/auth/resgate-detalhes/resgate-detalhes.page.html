@@ -4,11 +4,35 @@
 			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
 			<ion-img [src]="asset" class="img-desk"></ion-img>
 		</div>
-		<ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar>
 		<div class="body-left">
-			
-
-
+			<div class="img-oferta" [style.background-image]="'url(' + asset + ')'"></div>
+			<div class="desc-oferta">
+				<div class="header-desc">
+					<span class="header-title">Hotel Costa Azul</span>
+					<ion-button class="btn-icon-star" fill="clear" (click)="favoritar()">
+						<ion-icon [name]="(fav)? 'star': 'star-outline'" class="star-icon"></ion-icon>
+					</ion-button>
+					<ion-button class="btn-icon-map" fill="clear" (click)="abrirMapa()">
+						<ion-icon [name]="(mapa)? 'map' : 'map-outline'" class="star-icon"></ion-icon>
+					</ion-button>
+				</div>
+				<div class="content-desc">
+					<ion-label class="detalhes-oferta">Diária / Quarto p/ Casal</ion-label>
+					<p class="desc-detalhes-oferta">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
+				</div>
+				<div class="btns-resgate">
+					<div class="barra-desk-vant">
+						<ion-label>
+							<ion-icon src="assets/imgs/icons/moeda.svg" class="desk-moeda"></ion-icon><span class="pontos-desk-vant">Resgatar por 3000</span>
+						</ion-label>
+						<br />
+						<ion-progress-bar value="0.5" class="vant-progress"></ion-progress-bar>
+					</div>
+					<div class="ion-text-center barra-btn-desk-vant">
+						<ion-button class="btn-base btn-desk" shape="round" (click)="navigate('menu/resgate-detalhes')">Resgatar</ion-button>
+					</div>
+				</div>
+			</div>			
 		</div>
 		<div class="desk-footer">
 			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
