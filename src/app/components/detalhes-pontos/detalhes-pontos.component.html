@@ -1,0 +1,89 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-button fill="clear" (click)="voltar()" class="btn-voltar">Voltar</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="header ion-text-center">
+		<div [ngStyle]="{'background-image': detalhes.img}" class="modal-img"></div>
+		<ion-label class="label-empresa">{{detalhes.empresa}}</ion-label>	
+	</div>
+	<div class="content">
+		<div *ngIf="detalhes.status < 3">
+			<ion-label class="detalhes-titulo">Detalhes</ion-label>
+			<div class="cont">
+				<ion-label><ion-icon name="cart" class="icon-det"></ion-icon><span class="span-det">Produto</span></ion-label>
+				<ion-label class="detalhes-cont">{{detalhes.produto}}</ion-label>
+			</div>
+			<div class="cont">
+				<ion-label><ion-icon name="calendar" class="icon-det"></ion-icon><span class="span-det">Data</span></ion-label>
+				<ion-label class="detalhes-cont">{{detalhes.data_hora | date: 'dd/MM/yyyy HH:mm'}}</ion-label>
+			</div>
+			<div class="cont">
+				<ion-label><ion-icon name="medal" class="icon-det"></ion-icon><span class="span-det">Pontos Gastos</span></ion-label>
+				<ion-label class="detalhes-cont"><ion-icon src="assets/imgs/icons/moeda.svg" class="moeda"></ion-icon> {{detalhes.pontos}}</ion-label>
+			</div>
+		</div>
+		<div *ngIf="detalhes.status == 3">
+			<div class="cont">
+				<ion-label><ion-icon name="cart" class="icon-det"></ion-icon><span class="span-det">Produto</span></ion-label>
+				<ion-label class="detalhes-cont">{{detalhes.produto}}</ion-label>
+			</div>
+			<div class="cont">
+				<ion-label><ion-icon name="medal" class="icon-det"></ion-icon><span class="span-det">Pontos Gastos</span></ion-label>
+				<ion-label class="detalhes-cont"><ion-icon src="assets/imgs/icons/moeda.svg" class="moeda"></ion-icon> {{detalhes.pontos}}</ion-label>
+			</div>
+			<div class="cont">
+				<ion-label>Sua compra foi finalizada. Dê uma avaliação</ion-label>
+			</div>
+			<div class="aval">
+				<div class="estrelas" *ngIf="!detalhes.nota">
+					<ion-label>Dê sua nota: </ion-label>
+					<ion-icon [name]="avalIcon1" (click)="avaliar(1)" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon2" (click)="avaliar(2)" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon3" (click)="avaliar(3)" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon4" (click)="avaliar(4)" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon5" (click)="avaliar(5)" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+				</div>
+				<div class="estrelas" *ngIf="detalhes.nota">
+					<ion-label>Dê sua nota: </ion-label>
+					<ion-icon [name]="avalIcon1" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon2" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon3" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon4" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+					<ion-icon [name]="avalIcon5" class="aval-icons" [ngStyle]="{'color': starColor.color, 'text-shadow': starColor.shadow}"></ion-icon>
+				</div>
+				<div class="coment">
+					<ion-label>Deixe um comentário (opcional)</ion-label>
+					<ion-textarea [(ngModel)]="comentario" class="comentario" rows='4' [readonly]="detalhes.nota"></ion-textarea>
+				</div>
+			</div>
+			<div class="btn ion-text-center" *ngIf="!detalhes.nota">
+				<ion-button (click)="finalizar(nota, comentario)" class="btnAvaliar" shape="round">Avaliar</ion-button>
+			</div>
+		</div>
+		<div *ngIf="detalhes.status == 4">
+			<div class="cont">
+				<ion-label><ion-icon name="cart" class="icon-det"></ion-icon><span class="span-det">Produto</span></ion-label>
+				<ion-label class="detalhes-cont">{{detalhes.produto}}</ion-label>
+			</div>
+			<div class="cont">
+				<ion-label>Infelizmente sua compra foi cancelada.</ion-label>
+			</div>
+			<div class="cont">
+				<ion-label><ion-icon name="medal" class="icon-det"></ion-icon><span class="span-det">Pontos Gastos</span></ion-label>
+				<ion-label class="detalhes-cont"><ion-icon src="assets/imgs/icons/moeda.svg" class="moeda"></ion-icon> {{detalhes.pontos}}</ion-label>
+			</div>
+		</div>
+		<div class="share">
+			<ion-button fill="clear" class="btn-share btn-fav" (click)="favoritar()"><ion-icon [name]="icon_favoritado"></ion-icon></ion-button>
+			<ion-button fill="clear" class="btn-share btn-shr"><ion-icon name="share-social-outline"></ion-icon></ion-button>
+		</div>
+		<div class="ajuda ion-text-center">
+			<ion-button class="btn-ajuda btn-base-ajuda" shape="round">Precisa de Ajuda?</ion-button>
+		</div>
+	</div>
+</ion-content>

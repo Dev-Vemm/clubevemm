@@ -1,0 +1,120 @@
+ion-content{
+	--background: rgb(72, 0, 141);
+}
+
+
+.group{
+	position: absolute;
+}
+
+.returnBtn{
+	margin: 8% 10%;
+}
+
+.g1{
+	top: 13%;
+	left: 0;
+}
+
+.g2{
+	top: 13%;
+	right: 0;
+}
+
+ion-toolbar {
+  	--background: transparent no-repeat fixed center;
+  	position: absolute;
+  	top: 0;
+}
+ion-spinner{
+	transform: scale(2,7);
+    --color: #FFFFFF;
+    margin-top: 90%;
+    width: 100%;
+}
+
+.principal{
+	margin: 5%;
+	height: 95%;
+	padding: 2%;
+}
+
+ion-item{
+	--background: transparent !important;
+	color: #D4C2FF;
+	margin: 2% 0;
+}
+
+.logo-principal{
+	margin: auto;
+	margin-top: 18%;
+    width: 75%;
+}
+
+.body{
+	margin-top: 20%;
+	margin-bottom: 5%;
+}
+
+.btn-enviar{
+	width: 80%;
+	margin: auto;
+	height: 15vw;
+}
+
+.titulo{
+	color: #D4C2FF;
+	font-size: 4vw; 
+	font-family: 'Hero-Bold';
+}
+
+
+@media (min-width: 800px) {
+  	.logo-principal{
+		width: 30%;
+		margin: auto;
+	}
+
+
+	.img-dots{
+		width: 23%;
+	}
+
+	.id2{
+		float: right;
+	}
+
+	.titulo{
+		color: #FFFFFF;
+		font-size: 15px; 
+		font-family: 'Hero-Bold';
+	}
+
+	.returnBtn{
+		margin: 0% 5%;
+	}
+
+	.btns{
+		height: 6vw;
+		margin: 5% 5%;
+		white-space: normal;
+		font-size: 0.8vw;
+	}
+
+	.body{
+		width: 35%;
+		margin: auto;
+	}
+
+	.footer{
+		font-size: 1vw;
+		color: #FFFFFF;
+		font-family: 'Hero-Regular';
+	}
+
+	.btn-enviar{
+		width: 20%;
+    	margin: 3% auto;
+    	height: 4vw;
+	}
+}

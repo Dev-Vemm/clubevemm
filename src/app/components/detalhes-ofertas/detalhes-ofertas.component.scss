@@ -1,0 +1,143 @@
+ion-content{
+    --background: #48008D;
+}
+
+.content{
+	background: transparent;
+}
+
+.img-fundo{
+    height: 90vw;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 100%;
+}
+
+.sobre{
+    margin-top: 35%;
+    padding: 2% 5%;
+    color: #FFFFFF;
+    font-family: 'Hero-Regular';
+}
+
+.nome-empresa{
+	font-family: 'Hero-Bold';
+    color: #FFFFFF;
+    font-size: 17px;
+}
+
+.img-empresa{
+    width: 20vw;
+    height: 20vw;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    float: left;
+    margin: 5%;
+    background-position: center;
+    background-size: cover;
+}
+
+.det{
+	height: 100%;
+    float: left;
+    margin: 0% 0%;
+    padding-top: 5%;
+}
+
+.lbl-empresa{
+	font-size: 18px;
+    color: #FFFFFF;
+    font-family: 'Hero-Bold';
+}
+
+.pontos-div{
+	margin-top: 10%;
+    background: rgba(255,255,255, 0.5);
+    border-radius: 1.5em;
+    font-size: 20px;
+    font-family: 'Hero-Regular';
+    padding-bottom: 0%;
+}
+
+.moeda{
+	font-size: 8vw;
+	margin-left: 2%;
+}
+
+.custo{
+	color: #FFFFFF;
+    position: absolute;
+    margin-left: 1%;
+    font-family: "Hero-Bold";
+    margin-top: 0.7%;
+}
+
+.logo-mapa{
+	float: right;
+    font-size: 12vw;
+    color: #FFFFFF;
+    margin-top: 6.5%;
+}
+
+.sobre{
+	margin-top: 35%;
+    padding: 2% 5%;
+    color: #FFFFFF;
+    font-family: 'Hero-Regular';
+}
+
+.lbl-sobre{
+	font-family: 'Hero-Bold';
+    color: #0AE28F;
+}
+
+.detalhes{
+	padding: 2% 5%;
+    font-family: 'Hero-Regular';
+    color: #FFFFFF;
+}
+
+.det-title{
+	font-family: 'Hero-Bold';
+    color: #FFA700;
+}
+
+hr{
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.btn-consumir{
+	margin: auto;
+	width: 80%;
+}
+
+.btn1{
+	height: 15vw;
+    font-size: 12px;
+}
+
+.img5{
+    margin: 21%;
+}
+
+.img-cond5{
+    margin: 0 15%;
+}
+
+.titulo5{
+    text-align: center;
+    font-size: 18px;
+    color: #48008D;
+    font-family: 'hero-bold';
+}
+
+.texto5{
+    font-size: 20px;
+    padding: 9% 10%;
+    font-family: "Hero-Regular";
+    text-align: center;
+}
+
+#content-des{
+    --background: #FFFFFF;
+}

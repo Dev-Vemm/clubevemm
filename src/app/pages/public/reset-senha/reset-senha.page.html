@@ -1,0 +1,40 @@
+<div class="background" *ngIf="cadastrando">
+	<ion-spinner name="dots"></ion-spinner>
+</div>
+<ion-header class="ion-no-border toolbarVerde" no-border>
+  <ion-toolbar lines="none">
+  	<ion-buttons slot="start" class="returnBtn">
+      <ion-button  fill="clear" class="primary-text" (click)="navigate()">
+      	<ion-img src="assets/imgs/icons/Vector.png"></ion-img>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="principal">
+		<div class="header ion-text-center">
+			<ion-grid>
+				<ion-row>
+					<ion-col class="ion-align-self-start group g1" size="1">
+						<ion-img src="assets/imgs/icons/Group1.png" class="img-dots id1"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-center" size="12">
+						<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-end group g2" size="1">
+						<ion-img src="assets/imgs/icons/Group2.png" class="img-dots id2"></ion-img>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<p class="titulo">Seja Bem vindo(a)</p>
+		</div>
+		<div class="body">
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>E-mail</ion-label>
+				<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
+			</ion-item>
+		</div>
+		<ion-button class="btn-enviar btn-base" (click)="enviarEmail(email)" shape="round" expand="block">Recuperar Senha</ion-button>
+	</div>
+</ion-content>

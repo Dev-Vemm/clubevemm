@@ -1,0 +1,107 @@
+<div class="background" *ngIf="cadastrando">
+	<ion-spinner name="dots"></ion-spinner>
+</div>
+<ion-header class="ion-no-border toolbarVerde" no-border *ngIf="!plat">
+  <ion-toolbar lines="none">
+  	<ion-buttons slot="start" class="returnBtn">
+      <ion-button  fill="clear" class="primary-text" (click)="navigate()">
+      	<ion-img src="assets/imgs/icons/Vector.png"></ion-img>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!plat" id="cM">
+	<div class="principal">
+		<div class="header ion-text-center">
+			<ion-grid>
+				<ion-row>
+					<ion-col class="ion-align-self-start group g1" size="1">
+						<ion-img src="assets/imgs/icons/Group1.png" class="img-dots id1"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-center" size="12">
+						<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+					</ion-col>
+					<ion-col class="ion-align-self-end group g2" size="1">
+						<ion-img src="assets/imgs/icons/Group2.png" class="img-dots id2"></ion-img>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<p class="titulo">Seja Bem vindo(a)</p>
+		</div>
+		<div class="body">
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>Nome</ion-label>
+				<ion-input type="text" class="nomeInput" [(ngModel)]="nome"></ion-input>
+			</ion-item>
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>E-mail</ion-label>
+				<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
+			</ion-item>
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>Senha</ion-label>
+				<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
+			</ion-item>
+		</div>
+		<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha)" shape="round" expand="block">Cadastrar</ion-button>
+		<div class="footer ion-text-center">
+			<p>Ao registrar você concorda com os nossos <a>Termos de Serviços</a> e nossa <a>Política de Privacidade</a>.</p>
+		</div>
+	</div>
+</ion-content>
+
+<ion-content *ngIf="plat">
+	<div class="web-principal">
+		<div class="web-left">
+			<div class="header-web">
+				<ion-grid>
+					<ion-row>
+						<ion-col class="ion-align-self-start group g1" size="1">
+							<ion-img src="assets/web/Group1.png" class="img-dots id1"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-center" size="12">
+							<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-end group g2" size="1">
+							<ion-img src="assets/web/Group2.png" class="img-dots id2"></ion-img>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+			<div class="web-bg" [style.background-image]="'url('+ url +')'">
+				
+			</div>
+		</div>
+		<div class="web-right">
+			<div class="form-web">
+				<ion-buttons class="return">
+					<ion-button  fill="clear" class="primary-text btnVoltar" (click)="navigate('/')">
+	      				<ion-img src="assets/web/Vector.png"></ion-img>
+	      			</ion-button>
+      			</ion-buttons>
+				<div class="inner-form">
+					<p class="titulo">Registro</p>
+					<p class="subtitulo">Crie uma conta e Vemm com a gente.</p>
+					<div class="body">
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">Nome</ion-label>
+							<ion-input type="text" class="nomeInput" [(ngModel)]="nome"></ion-input>
+						</ion-item>
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">E-mail</ion-label>
+							<ion-input type="email" class="emailInput" [(ngModel)]="email"></ion-input>
+						</ion-item>
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">Senha</ion-label>
+							<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
+						</ion-item>
+					</div>
+					<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha)" shape="round" expand="block">Acessar</ion-button>
+					<div class="footer">
+						<p class="terms">Ao registrar você concorda com os nossos <a>Termos de Serviços</a> e nossa <a>Política de Privacidade</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,40 @@
+.spinner{
+	margin-top: 50%;
+    text-align: center;
+}
+
+ion-spinner{
+	transform: scale(4);
+    --color: #8011CC;
+    width: 100%;
+}
+
+.oferta{
+	padding: 2%;
+}
+
+.nome, .usuario{
+	float: left;
+}
+
+.coments, .estrelas{
+	float: right;
+}
+
+ion-card-title{
+	padding: 2%;
+	font-size: 4vw;
+}
+
+ion-card-content{
+	padding: 2%;
+	margin-top: 10%;
+}
+
+ion-list{
+	width: 100%;
+}
+
+.btn-voltar{
+	color: #8011CC;
+}

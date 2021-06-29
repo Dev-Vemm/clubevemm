@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-button fill="clear" (click)="voltar()" class="btn-voltar">
+				<ion-icon name="close-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="header ion-text-center">
+		<ion-label>Insira o e-mail da pessoa que quer convidar.</ion-label>
+	</div>
+	<div class="body">
+		<ion-input type="text" class="emailInput" [(ngModel)]="email" placeholder="E-mail"></ion-input>
+		<div class="ion-text-center" *ngIf="error">
+			<ion-label class="err">*Endereço de e-mail incorreto.</ion-label>
+		</div>
+		<ion-button class="btnEmail" shape="round" expand="block" (click)="voltar(email)">Enviar</ion-button>
+	</div>
+</ion-content>

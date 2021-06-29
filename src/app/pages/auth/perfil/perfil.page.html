@@ -1,0 +1,194 @@
+<ion-content *ngIf="!plat">
+	<ion-header class="ion-no-border" no-border>
+		<ion-toolbar lines="none">
+			<div class="logo">
+			    <ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
+			</div>
+			<div class="intro ion-text-center">
+			    <ion-label>Bem vindo(a), {{usuario.nome}}</ion-label>
+			    <br>
+			    <!-- <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label> -->
+			</div>
+			<div class="avatar">
+				<ion-avatar slot="end">
+				    <ion-img src="https://painel.clubevemm.com.br/storage/app/public/avatars/{{usuario.avatar}}"></ion-img>
+				</ion-avatar>
+				<ion-button shape="round" fill="clear" class="camera-btn" (click)="open()">
+					<ion-icon name="camera-outline"></ion-icon>
+				</ion-button>
+			</div>
+		</ion-toolbar>
+	</ion-header>
+	<div class="menu">
+		<div class="meus-pontos">
+			<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [style.background-color]="btnStatus? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnStatus? '#FFFFFF': '#48008D'}">Status</ion-button>
+		</div>
+		<!-- <div class="meus-favoritos">
+			<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(1)" [style.background-color]="btnHistorico? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnHistorico? '#FFFFFF': '#48008D'}">Histórico</ion-button>
+		</div> -->
+		<div class="meus-pontos">
+			<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(2)" [style.background-color]="btnSenha? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnSenha? '#FFFFFF': '#48008D'}">Alterar senha</ion-button>
+		</div>
+		<ion-button shape="round" fill="clear" class="afiliado-btn" (click)="share()">
+			<ion-icon name="person-add-outline"></ion-icon>
+		</ion-button>
+	</div>
+
+	<div class="status" *ngIf="btnStatus">
+		<ion-label class="status-titulo">Informações da Conta</ion-label>
+		<div class="conta">
+			<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+			<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+			<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+		</div>
+		<div class="logout ion-text-center">
+			<ion-button class="btn-logout" (click)="logout()" expand="block" shape="round">Log Out</ion-button>
+		</div>
+	</div>
+
+	<div class="historico" *ngIf="btnHistorico">
+		<div class="spinner" *ngIf="load">
+			<ion-spinner class="spin" name="bubbles"></ion-spinner>
+		</div>
+		<div *ngFor="let prod of historico">
+			<ion-card  class="card-pontos">
+				<ion-item lines="none">
+					<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
+					<div class="desc-prod">
+						<ion-label class="empresa">{{prod.TITULO}}</ion-label>
+						<ion-label class="lbl-produto" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
+					</div>
+					<div slot="end" class="div-pontos">
+						<div class="pontos">
+							<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><span class="ponto-gasto">{{prod.VALOR}}</span>
+						</div>
+					</div>
+				</ion-item>
+			</ion-card>
+		</div>
+	</div>
+
+	<div class="senha" *ngIf="btnSenha">
+		<ion-item class="item-cadastro">
+			<ion-label position=stacked>Senha atual</ion-label>
+			<ion-input type="password" class="input-senha" [(ngModel)]="senhaAntiga"></ion-input>
+		</ion-item>
+		<ion-item class="item-cadastro">
+			<ion-label position=stacked>Nova Senha</ion-label>
+			<ion-input type="password" class="input-senha" [(ngModel)]="senha" (ionChange)="checarSenha()"></ion-input>
+		</ion-item>
+		<ion-item class="item-cadastro">
+			<ion-label position=stacked>Repitir a nova senha</ion-label>
+			<ion-input type="password" class="input-senha" [(ngModel)]="rSenha" (ionChange)="checarSenha()"></ion-input>
+		</ion-item>
+		<div class="senha-btn ion-text-center">
+			<ion-button class="btn-logout" (click)="alterarSenha(senhaAntiga, senha, usuario.email)" expand="block" shape="round" [disabled]="senhaSec">Alterar senha</ion-button>
+		</div>
+	</div>
+</ion-content>
+
+<ion-content *ngIf="plat">
+	<div class="content-centro">
+		<div class="desk-header">
+			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
+			<ion-img [src]="asset" class="img-desk"></ion-img>
+		</div>
+		<!-- <ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar> -->
+		<div class="content-body">
+			<div class="dados">
+				<ion-label class="info-pessoal">Informações Pessoais</ion-label>
+				<ion-item class="form-perfil">
+					<ion-label position="stacked" class="lbl-perfil">Nome do usuário</ion-label>
+					<ion-input type="text" class="input-perfil" value="{{usuario.nome}}"></ion-input>
+				</ion-item>
+				<ion-item class="form-perfil">
+					<ion-label position="stacked" class="lbl-perfil">E-mail</ion-label>
+					<ion-input type="email" class="input-perfil" value="{{usuario.email}}"></ion-input>
+				</ion-item>
+				<ion-item class="form-perfil">
+					<ion-label position="stacked" class="lbl-perfil">Plano</ion-label>
+					<ion-input type="text" class="input-perfil" value="{{usuario.plano}}" readonly></ion-input>		
+				</ion-item>
+				<ion-label class="alterar-plano">Alterar Plano</ion-label>
+				<ion-item class="form-perfil">
+					<ion-label position="stacked" class="lbl-perfil">Data de Entrada</ion-label>
+					<ion-input type="text" class="input-perfil" value="{{usuario.data_entrada}}" readonly></ion-input>
+				</ion-item>
+				<div class="btns-perfil ion-text-center">
+					<ion-button shape="round" class="btn-base btn-perfil">Salvar Alterações</ion-button>
+					<ion-button shape="round" class="btn-cancelar btn-perfil">Cancelar</ion-button>
+				</div>
+			</div>
+			<div class="hist-foto">
+				<div class="avatar-perfil ion-text-center">
+					<ion-avatar slot="end" class="perfil-avatar">
+					    <ion-img src="assets/imgs/img-a.png"></ion-img>
+					</ion-avatar>
+					<ion-label class="lbl-img">Alterar imagem</ion-label>
+				</div>
+				<!-- <div class="box-hist ion-text-center">
+					<ion-label class="lbl-hist-gastos">Histórico de pontos gastos</ion-label>
+					<div class="card-hist" *ngFor="let gasto of btnsMenus">
+						<ion-img [src]="gasto.icon" class="img-ponto"></ion-img>
+						<div class="txt-ponto">
+							<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img desk-moeda"></ion-icon><span class="pontosIniciais">{{gasto.val}}</span>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<div class="desk-footer">
+			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
+			<ion-img [src]="asset" class="img-desk-footer"></ion-img>
+		</div>
+	</div>
+	<div class="content-right">
+		<div class="header-right">
+			<div>
+				<ion-avatar slot="end" class="desk-avatar">
+				    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+				</ion-avatar>
+			</div>
+			<!-- <div class="ponto-desk-header ion-text-center">
+				<ion-label class="status-titulo">Minha Pontuação</ion-label>
+			</div>
+			<div class="num-desk ion-text-center">
+				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk-header">12000</span>
+			</div> -->
+		</div>
+		<div class="status">
+			<div class="title-status ion-text-center">
+				<ion-label class="status-titulo">Informações da Conta</ion-label>	
+			</div>
+			<div class="conta">
+				<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+				<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+			</div>
+		</div>
+		<div class="historico">
+			<div class="spinner" *ngIf="load">
+				<ion-spinner class="spin" name="bubbles"></ion-spinner>
+			</div>
+			<div class="title-historico ion-text-center">
+				<ion-label class="status-titulo">Histórico Recente</ion-label>
+			</div>
+			<div *ngFor="let prod of historico">
+				<ion-card  class="card-ponto-desk">
+					<ion-item lines="none">
+						<div class="img-prod-desk" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
+						<div class="desc-prod-desk">
+							<ion-label class="empresa-desk">{{prod.TITULO}}</ion-label>
+							<ion-label class="lbl-produto-desk" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
+						</div>
+						<!-- <div slot="end" class="div-pontos-desk">
+							<div class="pontos-desk">
+								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk">{{prod.VALOR}}</span>
+							</div>
+						</div> -->
+					</ion-item>
+				</ion-card>
+			</div>
+		</div>
+	</div>
+</ion-content>

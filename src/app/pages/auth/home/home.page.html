@@ -1,0 +1,215 @@
+<div class="background" *ngIf="load">
+	<ion-spinner name="dots"></ion-spinner>
+</div>
+
+
+<ion-content class="cM" *ngIf="!plat">
+	<ion-header class="ion-no-border toolbarVerde" no-border>
+	  	<ion-toolbar lines="none">
+		  	<!-- <ion-buttons slot="start">
+		      	<ion-button  fill="clear" class="pontos">
+		      		<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img desk-moeda"></ion-icon><span class="pontosIniciais">{{pontos}}</span>
+		      	</ion-button>
+		    </ion-buttons> -->
+		  	<div class="logo">
+		    	<ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
+		    </div>
+		  	<ion-avatar slot="end">
+			    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+			</ion-avatar>
+	  	</ion-toolbar>
+	</ion-header>
+	<ion-searchbar placeholder="Pesquisar ofertas" class="search-ofertas"></ion-searchbar>
+	<div class="cupons-recentes">
+		<label>Ofertas em destaque</label>
+	</div>
+	<div class="bar">
+		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [style.background-image]="'url(' + requestImg(cupom.dimg) + ')'" (click)="abrirDetalhes(cupom, 6)">
+			<!-- <label>{{cupom.desc}}% de Desconto</label> -->
+		</ion-card>
+	</div>
+	<div class="cupons-recentes">
+		<label slot="start">Melhores Ofertas</label>
+		<ion-button fill="clear" class="ver-mais" (click)="verMaisOfertas(1)">Ver mais +</ion-button>
+	</div>
+	<div class="bar-oferta">
+		<ion-card class="ofertas" *ngFor="let offer of melhoresOfertas">
+	 		<ion-card-title [ngStyle]="{'background-image': bgImage(offer.img)}" class="card-oferta-title ion-text-center" (click)="abrirDetalhes(offer)"></ion-card-title>
+			<ion-card-content class="content-card-offer">
+				<ion-label class="ion-text-center oferta-nome"  (click)="abrirDetalhes(offer)">{{limitar(offer.produto)}}</ion-label>
+				<div class="offer-custo ion-text-center" (click)="abrirDetalhes(offer)">
+					<!-- <ion-label>
+						<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">{{offer.custo}}</span>
+					</ion-label> -->	
+				</div>
+				<div class="buttons-ofertas">
+					<ion-button fill="clear" class="btn-ofertas-star" (click)="favoritar(offer)"><ion-icon [name]="(offer.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
+					<ion-button fill="clear" class="btn-ofertas-plus" (click)="abrirDetalhes(offer)"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+				</div>
+			</ion-card-content>
+		</ion-card>
+	</div>
+
+	<div class="btns-softs ion-text-center">
+		<ion-button *ngFor="let btn of btnsMenus;" shape="round" fill="clear" (click)="verMais(btn)" class="icons-btns">
+			<ion-img [src]="btn.icon"></ion-img>
+		</ion-button>
+	</div>
+
+	<div *ngFor="let seg of segmentos" class="segs">
+		<div class="cupons-recentes">
+			<ion-label slot="start" class="label-segmento">{{seg.segmento}}</ion-label>
+		</div>
+		<div class="bar-segmentos">
+			<ion-card *ngFor="let prod of seg.prods">
+				<ion-card-title class="title-card" (click)="abrirDetalhes(prod, seg.id)">
+					<ion-label class="nome-prod">{{prod.nome}}</ion-label>
+					<!-- <div class="quantPontosSegmento" *ngIf="prod.custo">
+						<ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>
+						<<ion-label class="lblCusto">{{prod.custo}}</ion-label>	
+					</div> -->
+				</ion-card-title>
+				<ion-card-content class="content-prod-segmento">
+					<ion-item lines="none" class="segs-inner ion-no-padding">
+						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }" (click)="abrirDetalhes(prod, seg.id)"></div>
+						<div class="desc-prod" (click)="abrirDetalhes(prod, seg.id)">
+							<ion-label class="prod-produto">{{prod.produto}}</ion-label>
+							<ion-label class="lbl-desc">{{prod.descricao}}</ion-label>
+						</div>
+						<div class="buttons-prods" slot="end">
+							<ion-button fill="clear" class="btn-ofertas-star btn-off" (click)="favoritar(prod)"><ion-icon [name]="(prod.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
+							<ion-button fill="clear" class="btn-ofertas-plus btn-off" (click)="abrirDetalhes(prod, seg.id)"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+						</div>
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+			<div class="verMais ion-text-center">
+				<ion-button fill="clear" class="btn-ver-mais"><ion-img src="assets/imgs/icons/ver-mais.png" class="img-ver-mais"></ion-img></ion-button>
+			</div>
+		</div>
+	</div>	
+</ion-content>
+
+<ion-content *ngIf="plat">
+	<div class="content-centro">
+		<div class="desk-header">
+			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
+			<ion-img [src]="asset" class="img-desk"></ion-img>
+		</div>
+		<ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar>
+		<div class="vantagem-disponivel">
+			<div class="back-img" [style.background-image]="'url(' + asset + ')'"></div>
+			<div class="vant-content">
+				<div class="cont-header">
+					<ion-label class="lbl-header-cont" slot="start">VANTAGEM DISPONÍVEL</ion-label>
+					<ion-icon name="star" class="icon-desk" slot="end"></ion-icon>
+				</div>
+				<ion-label class="desk-empresa">Hotel Costa Azul</ion-label>
+				<div class="resgate-desk">
+					<div class="barra-desk">
+						<!-- <ion-label>
+							<ion-icon src="assets/imgs/icons/moeda.svg" class="desk-moeda"></ion-icon><span class="pontos-desk-vant">Resgatar por 3000</span>
+						</ion-label> -->
+						<br />
+						<ion-progress-bar value="0.5" class="vant-progress"></ion-progress-bar>
+					</div>
+					<div class="ion-text-center barra-btn-desk">
+						<ion-button class="btn-base btn-desk" shape="round" (click)="navigate('menu/resgate-detalhes')">Resgatar</ion-button>
+					</div>
+				</div>
+				<div class="detalhes-vantagem">
+					<p class="txt-det-vant">Fim de Semana / Quarto p/ Casal</p>
+					<p class="desc-det-vant">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+				</div>
+			</div>
+		</div>
+		<div class="ofertass-recentes-desk">
+			<ion-label class="ofertas-recentes-lbl">Ofertas Recentes</ion-label>
+		</div>
+		<div class="ofertas-recentes-card">
+			<div class="card-off-desk" *ngFor="let off of ofertas_recentes">
+				<div class="off-card-title ion-text-center">
+					<ion-label class="off-seg-title">{{off.segmento}}</ion-label>
+				</div>
+				<div class="card-off-desk-cont">
+					<div class="off-img-desk" [style.background-image]="'url(' + returnImgPadrao(off.img) + ')'"></div>
+					<div class="off-detalhes-desk">
+						<div class="det-top">
+							<div class="lbls-det-off">
+								<ion-label class="off-empresa-det">{{off.empresa}}</ion-label>
+								<br />
+								<ion-label class="off-nome-det">{{off.descricao}}</ion-label>
+							</div>
+							<!-- <div class="moeda-det-off">
+								<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-off"></ion-icon><span class="pontos-off">500</span>
+							</div> -->
+						</div>
+						<div class="det-bottom">
+							<div class="btn-det-bottom ion-text-center">
+								<ion-button class="btn-off" shape="round">Detalhes</ion-button>
+							</div>
+							<div class="icon-det-bottom">
+								<ion-button class="btn-icon-off" fill="clear">
+									<ion-img src="assets/imgs/icons/mapa.png" class="map-icon"></ion-img>
+								</ion-button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="desk-footer">
+			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
+			<ion-img [src]="asset" class="img-desk-footer"></ion-img>
+		</div>
+	</div>
+	<div class="content-right">
+		<div class="header-right">
+			<div>
+				<ion-avatar slot="end" class="desk-avatar">
+				    <ion-img src="assets/imgs/img-a.png"></ion-img>
+				</ion-avatar>
+			</div>
+			<!-- <div class="ponto-desk-header ion-text-center">
+				<ion-label class="status-titulo">Minha Pontuação</ion-label>
+			</div>
+			<div class="num-desk ion-text-center">
+				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk-header">12000</span>
+			</div> -->
+		</div>
+		<div class="status">
+			<div class="title-status ion-text-center">
+				<ion-label class="status-titulo">Informações da Conta</ion-label>	
+			</div>
+			<div class="conta">
+				<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+				<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+			</div>
+		</div>
+		<div class="historico">
+			<div class="spinner" *ngIf="load">
+				<ion-spinner class="spin" name="bubbles"></ion-spinner>
+			</div>
+			<div class="title-historico ion-text-center">
+				<ion-label class="status-titulo">Histórico Recente</ion-label>
+			</div>
+			<div *ngFor="let prod of historico">
+				<ion-card  class="card-ponto-desk">
+					<ion-item lines="none">
+						<div class="img-prod-desk" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
+						<div class="desc-prod-desk">
+							<ion-label class="empresa-desk">{{prod.TITULO}}</ion-label>
+							<ion-label class="lbl-produto-desk" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
+						</div>
+						<div slot="end" class="div-pontos-desk">
+							<!-- <div class="pontos-desk">
+								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk">{{prod.VALOR}}</span>
+							</div> -->
+						</div>
+					</ion-item>
+				</ion-card>
+			</div>
+		</div>
+	</div>
+</ion-content>

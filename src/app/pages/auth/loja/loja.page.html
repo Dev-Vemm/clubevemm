@@ -1,0 +1,65 @@
+<ion-header class="accent" lines="none">
+  <ion-toolbar class="accent" lines="none">
+  	<ion-buttons slot="start">
+      <ion-back-button  text="Voltar" class="primary-text" defaultHref="/menu/segmentos"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="principal">
+		<div class="header">
+			<ion-segment (click)="segmentChange()" [(ngModel)]="segmentBtn">
+				<ion-segment-button value="est" checked>Estabelecimento</ion-segment-button>
+				<ion-segment-button value="map">Mapa</ion-segment-button>
+			</ion-segment>
+		</div>
+		<div class="body">
+			<div class="segmentLoja" *ngIf="segmentLoja">
+				<div class="lojaNome ion-text-center">
+					<p>Nome da Loja</p>
+				</div>
+				<div class="slidesDiv">
+					<ion-slides #slides id="slideTag" pager="true" (ionSlidesDidLoad)="slidesDidLoad(slides)">
+						<ion-slide *ngFor="let imagem of imgs">
+							<ion-img class="slideImg" [src]="imagem.img"></ion-img>
+						</ion-slide>
+					</ion-slides>
+				</div>
+				<div class="lojaReserva  ion-text-center">
+					<ion-button class="btnReserva">
+						<div class="btnText ion-text-center">
+							<span>Reservar</span>
+							<br>
+							<span>5000 pontos</span>
+						</div>
+					</ion-button>
+				</div>
+				<div class="ion-text-center">
+					<p>Comentários</p>
+				</div>
+				<div class="lojaComentarios">
+					<ion-card class="cardUser" color="none" *ngFor="let coments of comentarios">
+						<ion-card-header>
+							<div class="comentHeader">
+								<ion-label class="comentUser">{{coments.usuario}}</ion-label>
+								<ion-label class="comentNota">{{coments.nota}}</ion-label>	
+							</div>	
+						</ion-card-header>
+						<ion-card-content>
+							<div class="comentario">
+								{{coments.comentario}}
+							</div>
+						</ion-card-content>	
+					</ion-card>
+				</div>		
+			</div>
+
+			<div class="segmentMapa" *ngIf="segmentMapa">
+				<div class="mapaDiv">
+					<img src="./assets/imgs/mapa.png" class="loja-logo"/>	
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

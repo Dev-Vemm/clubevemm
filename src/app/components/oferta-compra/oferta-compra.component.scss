@@ -1,0 +1,36 @@
+ion-content{
+	--background: #48008D;
+}
+
+.lbl-radio{
+	font-family: 'Hero-Regular';
+	color: #FFFFFF;
+}
+
+ion-list-header{
+	font-family: 'Hero-Bold';
+	color: #FFFFFF;
+}
+
+ion-list{
+	background: transparent;
+}
+
+p{
+	text-align: center;
+    font-family: 'Hero-Bold';
+}
+
+.empresa{
+	color: #0AE28F;
+}
+
+.oferta{
+	color: #FFA700;
+}
+
+ion-item{
+	--background: transparent !important;
+	color: #D4C2FF;
+	margin: 2% 0;
+}

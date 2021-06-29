@@ -1,0 +1,94 @@
+<ion-content>
+    <ion-header class="ion-no-border toolbarVerde" no-border>
+        <ion-toolbar lines="none">
+            <ion-buttons slot="start">
+                <ion-button  fill="clear" class="primary-text" (click)="voltar()">
+                    <ion-img src="assets/imgs/icons/Vector-down.png"></ion-img>
+                </ion-button>
+            </ion-buttons>
+            <div class="logo">
+                <ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+	<div class="content">
+        <div class="titulo ion-text-center">
+            <p>Agende sua viagem e aproveite!</p>
+        </div>
+    	<div class="origem ion-text-center">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione o ponto de origem</ion-label>
+	    		<ion-select [(ngModel)]="origem">
+	    			<ion-select-option *ngFor="let origem of estados" value="{{origem.uf}}">{{origem.nome}}</ion-select-option>
+	    		</ion-select>
+	    	</ion-item>
+    	</div>
+    	<div class="destino ion-text-center">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione o ponto de destino</ion-label>
+	    		<ion-select [(ngModel)]="destino">
+	    			<ion-select-option *ngFor="let destino of estados" value="{{destino.uf}}">{{destino.nome}}</ion-select-option>
+	    		</ion-select>
+	    	</ion-item>
+    	</div>
+    	<div class="datasIn">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione a data de partida</ion-label>
+	    		<ion-input type="date" class="dateInput" [(ngModel)]="dataInicial"></ion-input>
+	    	</ion-item>
+    	</div>
+    	<div class="datasFim">
+    		<ion-item>
+	    		<ion-label position="stacked">Selecione a data de retorno</ion-label>
+	    		<ion-input type="date" class="dateInput" [(ngModel)]="dataFinal"></ion-input>
+	    	</ion-item>
+    	</div>
+        <div class="areaDesc">
+            <ion-item>
+                <ion-label position="stacked">Descrição da viagem (opcional)</ion-label>
+                <ion-textarea [(ngModel)]="descricao" placeholder="Ex: Ingressos para shows, parques, alguma necessecidade especial, etc." id="desc-pedido"></ion-textarea>
+            </ion-item>
+        </div>
+    	<div class="opicionais">
+    		<p class="p-oferta">Opcionais</p>
+    		<ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Transfer</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Transfer')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Voo</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Voo')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Passeio</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Passeio')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="lblOp">Ingressos</ion-label>
+                            <ion-checkbox mode="md" (ionChange)="options('Ingressos')"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>      
+            </ion-grid>
+
+            <!--<ion-item *ngFor="let op of opcionais; let i = index;">
+                <ion-label>{{op.valor}}</ion-label>
+    			<ion-checkbox mode="md" (ionChange)="options(op.valor)"></ion-checkbox>
+    		</ion-item> -->
+    	</div>
+    	<div class="hotel">
+    		<ion-button shape="round" class="btn-base btnHotel" (click)="finalizar(origem, destino, dataInicial, dataFinal, opcoes, descricao)">Finalizar</ion-button>
+    	</div>
+    </div>
+</ion-content>

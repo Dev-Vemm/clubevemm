@@ -1,0 +1,175 @@
+#cM{
+	--background: rgb(72, 0, 141);
+}
+
+.group{
+	position: absolute;
+}
+
+.returnBtn{
+	margin: 8% 10%;
+}
+
+.g1{
+	top: 13%;
+	left: 0;
+}
+
+.g2{
+	top: 13%;
+	right: 0;
+}
+
+.aSenha{
+	color: #FFA700;
+}
+
+.header{
+	width: 100%;
+}
+
+.principal{
+	margin: 5%;
+	height: 95%;
+}
+
+.logo-principal{
+	margin: auto;
+	margin-top: 18%;
+    width: 75%;
+}
+
+.titulo{
+	color: #D4C2FF;
+	font-size: 4vw; 
+	font-family: Hero-Bold;
+}
+
+.btns{
+	height: 15vw;
+	margin: 5% 5%;
+	white-space: normal;
+	font-size: 3vw;
+	color: rgb(72, 0, 141);
+}
+
+a{
+	text-decoration: underline;
+	color: #FFFFFF;
+	font-family: Hero-Medium;
+}
+
+.footer{
+	font-size: 3.5vw;
+	color: #D4C2FF;
+	font-family: Hero-Regular;
+}
+
+.btn-img{
+	width: 100%;
+}
+
+.imgSpan{
+	position: absolute;
+    margin-left: 20%;
+    font-size: 3.5vw;
+    margin-bottom: 2.2%;
+}
+
+//----------------------------------------------------------------------------------------------------//
+
+@media (min-width: 800px) {
+  	.logo-principal{
+		width: 50%;
+		margin: auto;
+	}
+
+	.header-web {
+	    position: relative;
+	    width: 80%;
+	    margin: auto;
+	    margin-top: 10%;
+	}
+
+	.form-web{
+		position: relative;
+	    width: 50%;
+	    height: 75%;
+	    padding: 4%;
+	    margin: auto;
+	    margin-top: 9%;
+	    border-shadow: 5px;
+	    -moz-box-shadow: 0px 3px 8px rgb(100,100,100);
+	    box-shadow: 0px 3px 8px rgb(100 100 100);
+	}
+
+	.web-principal{
+		height: 100%;
+	}
+
+	.web-left{
+		height: 100%;
+		width: 27%;
+		float: left;
+		background: rgb(72, 0, 141);
+	}
+
+	.web-bg{
+		width: inherit;
+    	height: 84%;
+    	position: absolute;
+    	background-position: center;
+    	background-size: 100% 100%;
+    	opacity: 0.4;
+	}
+
+	.web-right{
+		float: right;
+		width: 60%;
+	}
+
+	.img-dots{
+		width: 100%;
+	}
+
+	.id2{
+		float: right;
+	}
+
+	.titulo{
+		color: #48008D;
+	    font-size: 18px;
+	    font-family: "Hero-Regular";
+	    text-align: center;
+	    margin-bottom: 24%;
+	}
+
+	.btns{
+		height: 3vw;
+	    margin: 11% 5%;
+	    white-space: normal;
+	    font-size: 0.8vw;
+	    border-radius: 1.5em;
+	    border: 2px solid #48008D;
+	}
+
+	.body{
+		width: 30%;
+		margin: auto;
+	}
+
+	.footer{
+		font-size: 1vw;
+		color: #FFFFFF;
+		font-family: 'Hero-Regular';
+	}
+
+	a:hover{
+		cursor: pointer;
+	}
+
+	.aSenha{
+		color: #48008D;
+		font-family: 'Hero-Regular';
+	}
+}

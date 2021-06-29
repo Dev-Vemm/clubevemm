@@ -1,0 +1,34 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-button fill="clear" (click)="voltar()" class="btn-voltar">Voltar</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="oferta">
+		<span class="nome" slot="start">{{detalhes.nome}}</span>		
+		<!--<span slot="end" class="coments">Todos os comentários<ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></span> -->
+	</div>
+	<div class="spinner" *ngIf="load">
+		<ion-spinner class="spin" name="bubbles"></ion-spinner>
+	</div>
+	<ion-list *ngIf="comentarios">
+		<ion-card *ngFor="let avaliacao of comentarios">
+			<ion-card-title>
+				<span class="usuario">{{avaliacao.USUARIO}}</span>
+				<div class="estrelas">
+					<ion-icon [name]="(avaliacao.NOTA > 0)? 'star': 'star-outline'" class="aval-icons" [ngStyle]="{'color': checkColor(avaliacao.NOTA), 'text-shadow': checkShadow(avaliacao.NOTA)}"></ion-icon>
+					<ion-icon [name]="(avaliacao.NOTA > 1)? 'star': 'star-outline'" class="aval-icons" [ngStyle]="{'color': checkColor(avaliacao.NOTA), 'text-shadow': checkShadow(avaliacao.NOTA)}"></ion-icon>
+					<ion-icon [name]="(avaliacao.NOTA > 2)? 'star': 'star-outline'" class="aval-icons" [ngStyle]="{'color': checkColor(avaliacao.NOTA), 'text-shadow': checkShadow(avaliacao.NOTA)}"></ion-icon>
+					<ion-icon [name]="(avaliacao.NOTA > 3)? 'star': 'star-outline'" class="aval-icons" [ngStyle]="{'color': checkColor(avaliacao.NOTA), 'text-shadow': checkShadow(avaliacao.NOTA)}"></ion-icon>
+					<ion-icon [name]="(avaliacao.NOTA > 4)? 'star': 'star-outline'" class="aval-icons" [ngStyle]="{'color': checkColor(avaliacao.NOTA), 'text-shadow': checkShadow(avaliacao.NOTA)}"></ion-icon>
+				</div>
+			</ion-card-title>
+			<ion-card-content>
+				{{avaliacao.COMENTARIO}}
+			</ion-card-content>
+		</ion-card>
+	</ion-list>
+</ion-content>
