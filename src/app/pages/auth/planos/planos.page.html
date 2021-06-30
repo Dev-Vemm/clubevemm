@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <ion-header class="ion-no-border" no-border *ngIf="!plat">
-=======
-<ion-header class="ion-no-border" no-border>
->>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 	<ion-toolbar lines="none">
 		<div class="logo">
 		    <ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
@@ -26,11 +22,7 @@
 <div class="background" *ngIf="load">
 	<ion-spinner name="dots"></ion-spinner>
 </div>
-<<<<<<< HEAD
 <ion-content *ngIf="!plat">
-=======
-<ion-content>
->>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 	<div class="principal">
 		<div class="body">
 			<ion-card class="card-plano" *ngFor="let plano of planos" [ngStyle]="{'background-color': (plano.TIPO == 1)? '#000000' : '#FFFFFF'}" (click)="abrirDetalhes(plano)">
@@ -39,7 +31,6 @@
 			</ion-card>
 		</div>
 	</div>
-<<<<<<< HEAD
 </ion-content>
 
 <ion-content *ngIf="plat">
@@ -97,6 +88,4 @@
 			</div>
 		</div>
 	</div>
-=======
->>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 </ion-content>

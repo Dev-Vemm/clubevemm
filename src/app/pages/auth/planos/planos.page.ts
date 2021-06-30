@@ -16,15 +16,12 @@ export class PlanosPage implements OnInit {
   public planos: any;
   private user: any; 
   load: boolean = false;
-<<<<<<< HEAD
   plat: any;
   tituloPlano: any;
   valorPlano: any;
   vantagens: any;
   tipoPlano: any;
   idPlano: any;
-=======
->>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
   constructor(
     private modaCtrl: ModalController,
     private data: DataService,
@@ -34,10 +31,7 @@ export class PlanosPage implements OnInit {
 
   
   ngOnInit(){
-<<<<<<< HEAD
     this.plat = (this.platform.width() >= 800)? true : false;
-=======
->>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
     this.platform.ready().then(async ()=>{
       this.user = await this.data.getStorage('USER');
       console.log(this.user);
@@ -48,7 +42,6 @@ export class PlanosPage implements OnInit {
   async loadPlanos(){
     this.load = true;
     try{
-<<<<<<< HEAD
       this.data.requestGet({}, 'planos').then((res: any) =>{
         if(res){
           var p = [];
@@ -73,11 +66,6 @@ export class PlanosPage implements OnInit {
             });
           });
           this.planos = p;
-=======
-      this.data.requestGet({}, 'planos').then((res) =>{
-        if(res){
-          this.planos = res;
->>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
         }
       }).then(()=>{
         this.load = false;
@@ -88,7 +76,6 @@ export class PlanosPage implements OnInit {
     }
   }
 
-<<<<<<< HEAD
   detalhesPlano(plano, key){
     this.setActive(key);
     this.tituloPlano = plano.TITULO;
@@ -116,8 +103,6 @@ export class PlanosPage implements OnInit {
     this.router.navigate(['pagamento'], navigationExtras);
   }
 
-=======
->>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
   async abrirDetalhes(plano){
     if(this.modalOpen){
       this.modal.dismiss();
