@@ -93,12 +93,17 @@
 			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
 			<ion-img [src]="asset" class="img-desk"></ion-img>
 		</div>
+<<<<<<< HEAD
 		<!-- <ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar> -->
+=======
+		<ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar>
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 		<div class="content-body">
 			<div class="dados">
 				<ion-label class="info-pessoal">Informações Pessoais</ion-label>
 				<ion-item class="form-perfil">
 					<ion-label position="stacked" class="lbl-perfil">Nome do usuário</ion-label>
+<<<<<<< HEAD
 					<ion-input type="text" class="input-perfil" value="{{usuario.nome}}"></ion-input>
 				</ion-item>
 				<ion-item class="form-perfil">
@@ -108,11 +113,26 @@
 				<ion-item class="form-perfil">
 					<ion-label position="stacked" class="lbl-perfil">Plano</ion-label>
 					<ion-input type="text" class="input-perfil" value="{{usuario.plano}}" readonly></ion-input>		
+=======
+					<ion-input type="text" class="input-perfil" value="Andrea Fonseca"></ion-input>
+				</ion-item>
+				<ion-item class="form-perfil">
+					<ion-label position="stacked" class="lbl-perfil">E-mail</ion-label>
+					<ion-input type="email" class="input-perfil" value="exemplo@mail.com"></ion-input>
+				</ion-item>
+				<ion-item class="form-perfil">
+					<ion-label position="stacked" class="lbl-perfil">Plano</ion-label>
+					<ion-input type="text" class="input-perfil" value="Platium" readonly></ion-input>		
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 				</ion-item>
 				<ion-label class="alterar-plano">Alterar Plano</ion-label>
 				<ion-item class="form-perfil">
 					<ion-label position="stacked" class="lbl-perfil">Data de Entrada</ion-label>
+<<<<<<< HEAD
 					<ion-input type="text" class="input-perfil" value="{{usuario.data_entrada}}" readonly></ion-input>
+=======
+					<ion-input type="date" class="input-perfil" value="2021-01-22" readonly></ion-input>
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 				</ion-item>
 				<div class="btns-perfil ion-text-center">
 					<ion-button shape="round" class="btn-base btn-perfil">Salvar Alterações</ion-button>
@@ -122,11 +142,19 @@
 			<div class="hist-foto">
 				<div class="avatar-perfil ion-text-center">
 					<ion-avatar slot="end" class="perfil-avatar">
+<<<<<<< HEAD
 					    <ion-img src="assets/imgs/img-a.png"></ion-img>
 					</ion-avatar>
 					<ion-label class="lbl-img">Alterar imagem</ion-label>
 				</div>
 				<!-- <div class="box-hist ion-text-center">
+=======
+					    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+					</ion-avatar>
+					<ion-label class="lbl-img">Alterar imagem</ion-label>
+				</div>
+				<div class="box-hist ion-text-center">
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 					<ion-label class="lbl-hist-gastos">Histórico de pontos gastos</ion-label>
 					<div class="card-hist" *ngFor="let gasto of btnsMenus">
 						<ion-img [src]="gasto.icon" class="img-ponto"></ion-img>
@@ -134,7 +162,11 @@
 							<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img desk-moeda"></ion-icon><span class="pontosIniciais">{{gasto.val}}</span>
 						</div>
 					</div>
+<<<<<<< HEAD
 				</div> -->
+=======
+				</div>
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 			</div>
 		</div>
 		<div class="desk-footer">
@@ -149,12 +181,20 @@
 				    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
 				</ion-avatar>
 			</div>
+<<<<<<< HEAD
 			<!-- <div class="ponto-desk-header ion-text-center">
+=======
+			<div class="ponto-desk-header ion-text-center">
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 				<ion-label class="status-titulo">Minha Pontuação</ion-label>
 			</div>
 			<div class="num-desk ion-text-center">
 				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk-header">12000</span>
+<<<<<<< HEAD
 			</div> -->
+=======
+			</div>
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 		</div>
 		<div class="status">
 			<div class="title-status ion-text-center">
@@ -173,7 +213,11 @@
 			<div class="title-historico ion-text-center">
 				<ion-label class="status-titulo">Histórico Recente</ion-label>
 			</div>
+<<<<<<< HEAD
 			<div *ngFor="let prod of historico">
+=======
+			<div *ngFor="let prod of hist">
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 				<ion-card  class="card-ponto-desk">
 					<ion-item lines="none">
 						<div class="img-prod-desk" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
@@ -181,11 +225,19 @@
 							<ion-label class="empresa-desk">{{prod.TITULO}}</ion-label>
 							<ion-label class="lbl-produto-desk" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
 						</div>
+<<<<<<< HEAD
 						<!-- <div slot="end" class="div-pontos-desk">
 							<div class="pontos-desk">
 								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk">{{prod.VALOR}}</span>
 							</div>
 						</div> -->
+=======
+						<div slot="end" class="div-pontos-desk">
+							<div class="pontos-desk">
+								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk">{{prod.VALOR}}</span>
+							</div>
+						</div>
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 					</ion-item>
 				</ion-card>
 			</div>

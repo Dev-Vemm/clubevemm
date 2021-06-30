@@ -128,6 +128,10 @@ export class PerfilPage implements OnInit {
     });
     pop.onDidDismiss().then((ds: any) =>{
       if(ds['data'].img){
+<<<<<<< HEAD
+=======
+        console.log(ds['data'].img);
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
         this.usuario.avatar = ds['data'].img;
       }
     });

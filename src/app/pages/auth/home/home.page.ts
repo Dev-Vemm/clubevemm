@@ -48,15 +48,48 @@ export class HomePage implements OnInit {
   visitante: boolean = false;
   plat: any;
 
+<<<<<<< HEAD
   public ofertas_recentes = [];
 
+=======
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
   public usuario = {
     email: 'victorbr321@gmail.com',
     plano: 'Platina',
     data_entrada: '15/03/2021 13:05:40'
   };
 
+<<<<<<< HEAD
   public historico = [];
+=======
+  public historico = [
+    {
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    },{
+      IMG: '',
+      TIPO: 1,
+      TITULO: 'Hotel Paraíso Mar',
+      DESCRICAO: 'Diária Quarto Casal',
+      VALOR: 300    
+    }
+  ];
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
 
   constructor(
     private modaCtrl: ModalController,
@@ -94,12 +127,18 @@ export class HomePage implements OnInit {
 
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
+<<<<<<< HEAD
       console.log(APIres);
       this.segmentos = APIres.segmentos;
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;
       this.ofertas_recentes = APIres.ofertas_recentes;
       this.historico = APIres.historico;
+=======
+      this.segmentos = APIres.segmentos;
+      this.melhoresOfertas = APIres.melhores;
+      this.cupons = APIres.destaques;
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
     });
   }
 
@@ -202,10 +241,13 @@ export class HomePage implements OnInit {
     return (img)? img : "url('assets/imgs/img1.jpg')";
   }
 
+<<<<<<< HEAD
   returnImgPadrao(img){
     return (img)? img : 'assets/imgs/success.png';
   }
 
+=======
+>>>>>>> c2aa04075440b3806e5b38df139c33cf429bdf72
   async favoritar(seg: any){
     let vals = {uid: this.user[0].UID, oferta: seg.oferta_id};
     let fav: any;
