@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border" no-border>
+<ion-header class="ion-no-border" no-border *ngIf="!plat">
 	<ion-toolbar lines="none">
 		<div class="logo">
 		    <ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
@@ -22,13 +22,70 @@
 <div class="background" *ngIf="load">
 	<ion-spinner name="dots"></ion-spinner>
 </div>
-<ion-content>
+<ion-content *ngIf="!plat">
 	<div class="principal">
 		<div class="body">
 			<ion-card class="card-plano" *ngFor="let plano of planos" [ngStyle]="{'background-color': (plano.TIPO == 1)? '#000000' : '#FFFFFF'}" (click)="abrirDetalhes(plano)">
 				<span class="plano-titulo">{{plano.TITULO}}</span>
 				<span class="plano-valor" [ngStyle]="{'color': (plano.TIPO == 1)? '#FFFFFF' : '#000000'}">R$ {{plano.VALOR.toFixed(2)}}</span>
 			</ion-card>
+		</div>
+	</div>
+</ion-content>
+
+<ion-content *ngIf="plat">
+	<div class="web-principal">
+		<div class="web-left">
+			<div class="header-web">
+				<ion-grid>
+					<ion-row>
+						<ion-col class="ion-align-self-start group g1" size="2">
+							<ion-img src="assets/web/Group1.png" class="img-dots id1"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-center" size="8">
+							<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-end group g2" size="2">
+							<ion-img src="assets/web/Group2.png" class="img-dots id2"></ion-img>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+			<div class="web-bg">
+				<ion-buttons class="return">
+					<ion-button  fill="clear" class="primary-text btnVoltar" (click)="navigate('/')">
+	      				<ion-img src="assets/web/Vector.png"></ion-img>
+	      			</ion-button>
+      			</ion-buttons>
+				<div class="desc-plano">
+					<p class="p-plano">
+						Assine e aproveite <br>
+						<span class="span-p">
+							ESCOLHA<br>
+							SEU PLANO<br>
+						</span>
+						<span class="span-p-baixo">Temos diversas opções pra sua necessidade.</span>
+					</p>
+				</div>
+				<div class="planos">
+					<ion-card class="card-plano-plat" *ngFor="let plano of planos; let i = index;" [ngStyle]="{'background-color': (plano.TIPO == 1)? '#000000' : '#FFFFFF', 'width': (plano.active)? '100%' : '90%'}" (click)="detalhesPlano(plano, i)">
+						<span class="plano-titulo-plat">{{plano.TITULO}}</span>
+						<span class="plano-valor-plat" [ngStyle]="{'color': (plano.TIPO == 1)? '#FFFFFF' : '#000000'}">R$ {{plano.VALOR.toFixed(2)}}</span>
+					</ion-card>
+				</div>
+			</div>
+		</div>
+		<div class="web-right">
+			<div class="plano-web" [ngStyle]="{'background-color': (tipoPlano == 1)? '#000000' : '#FFFFFF'}">
+				<p class="titulo-plano-web">{{tituloPlano}}</p>
+				<p class="valor-plano-web" [ngStyle]="{'color': (tipoPlano == 1)? '#FFFFFF' : '#000000'}">R$ {{valorPlano}}</p>
+				<div class="vantagens">
+					<p *ngFor="let txt of vantagens" class="txts" [ngStyle]="{'color': (tipoPlano == 1)? '#FFFFFF' : '#c4c4c4'}">{{txt}}</p>
+				</div>
+				<div class="plano-btn-web">
+					<ion-button shape="round" expand="block" [ngClass]="(tipoPlano == 1)? 'btn-comprar btn-base-ajuda' : 'btn-comprar btn-base'" (click)="assinar(idPlano, valorPlano)">Assinar Plano</ion-button>
+				</div>
+			</div>
 		</div>
 	</div>
 </ion-content>

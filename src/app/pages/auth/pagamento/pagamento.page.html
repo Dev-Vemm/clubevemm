@@ -11,7 +11,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!plat"> 
 	<div class="principal">
 		<ion-item class="item-cadastro">
 			<ion-label position="stacked">Nome do Titular do Cartão</ion-label>
@@ -41,5 +41,72 @@
 		</ion-item>
 		<span class="span-cartao" *ngIf="c5">O campo não pode ser vazio.</span>
 		<ion-button shape="round" expand="block" class="btn-base btn-pagamento" (click)="efetuarPagamento(uid, plano_id, email, valor, nomeTitular, numCartao, bandeira, validade, codigo)">Efetuar pagamento</ion-button>
+	</div>
+</ion-content>
+
+<ion-content *ngIf="plat">
+	<div class="web-principal">
+		<div class="web-left">
+			<div class="header-web">
+				<ion-grid>
+					<ion-row>
+						<ion-col class="ion-align-self-start group g1" size="2">
+							<ion-img src="assets/web/Group1.png" class="img-dots id1"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-center" size="8">
+							<ion-img src="assets/imgs/logo/logo-verde.png" class="logo-principal"></ion-img>
+						</ion-col>
+						<ion-col class="ion-align-self-end group g2" size="2">
+							<ion-img src="assets/web/Group2.png" class="img-dots id2"></ion-img>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+			<div class="web-bg" [style.background-image]="'url('+ url +')'">
+				
+			</div>
+		</div>
+		<div class="web-right">
+			<div class="form-web">
+				<ion-buttons class="return">
+					<ion-button  fill="clear" class="primary-text btnVoltar" (click)="navigate('/')">
+	      				<ion-img src="assets/web/Vector.png"></ion-img>
+	      			</ion-button>
+      			</ion-buttons>
+				<div class="inner-form">
+					<p class="titulo">Pagamento</p>
+					<div class="body">
+						<ion-item class="item-cadastro">
+							<ion-label position="stacked">Nome do Titular do Cartão</ion-label>
+							<ion-input type="text" [(ngModel)]="nomeTitular" placeholder="Nome do Titular"></ion-input>
+						</ion-item>
+						<span class="span-cartao" *ngIf="c1">O campo não pode ser vazio.</span>
+						<ion-item class="item-cadastro">
+							<ion-label position="stacked">Número do Cartão</ion-label>
+							<ion-input type="text" [(ngModel)]="numCartao" [brmasker]="{mask: '0000 0000 0000 0000', type:'num', len:19}" placeholder="0000 0000 0000 0000"></ion-input>
+						</ion-item>
+						<span class="span-cartao" *ngIf="c2">O campo não pode ser vazio.</span>
+						<ion-item class="item-cadastro">
+							<ion-label position="stacked">Bandeira</ion-label>
+							<ion-select [(ngModel)]="bandeira" placeholder="Selecione a bandeira">
+								<ion-select-option *ngFor="let brand of bandeiras" [value]="brand.verify">{{brand.nome}}</ion-select-option>
+							</ion-select>
+						</ion-item>
+						<span class="span-cartao" *ngIf="c3">O campo não pode ser vazio.</span>
+						<ion-item class="item-cadastro">
+							<ion-label position="stacked">Data de validade</ion-label>
+							<ion-input type="text"  [(ngModel)]="validade" [brmasker]="{mask: '00/00', type:'num', len:5}" placeholder="MM/AA"></ion-input>
+						</ion-item>
+						<span class="span-cartao" *ngIf="c4">O campo não pode ser vazio.</span>
+						<ion-item class="item-cadastro">
+							<ion-label position="stacked">CVV</ion-label>
+							<ion-input type="text" [(ngModel)]="codigo" [brmasker]="{mask: '0000', type:'num', len:4}" placeholder="000"></ion-input>
+						</ion-item>
+						<span class="span-cartao" *ngIf="c5">O campo não pode ser vazio.</span>
+					</div>
+					<ion-button class="btn-enviar btn-base" shape="round" expand="block" (click)="efetuarPagamento(uid, plano_id, email, valor, nomeTitular, numCartao, bandeira, validade, codigo)">Efetuar pagamento</ion-button>
+				</div>
+			</div>
+		</div>
 	</div>
 </ion-content>

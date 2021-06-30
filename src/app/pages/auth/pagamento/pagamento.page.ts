@@ -52,6 +52,8 @@ export class PagamentoPage implements OnInit {
   		verify: 'AURA'
   	}
   ];
+  url = 'assets/web/web-p.png';
+  public plat: any;
   constructor(
   	private data: DataService,
     private util: UtilsService,
@@ -61,6 +63,7 @@ export class PagamentoPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.plat = (this.platform.width() >= 800)? true : false;
   	this.platform.ready().then(() =>{
   		this.activatedRoute.queryParams.subscribe((params) => {
   			if (params.uid) {

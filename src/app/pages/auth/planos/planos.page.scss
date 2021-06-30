@@ -95,3 +95,211 @@ ion-spinner{
 ion-slides{
     height: 22vw;
 }
+
+@media (min-width: 800px) {
+    .logo-principal{
+      width: 70%;
+      margin: auto;
+  }
+
+  .header-web {
+      position: relative;
+      width: 80%;
+      margin: auto;
+      margin-top: 10%;
+  }
+
+  .form-web{
+      position: relative;
+      width: 50%;
+      height: 75%;
+      padding: 4%;
+      margin: auto;
+      margin-top: 9%;
+      box-shadow: 5px;
+      -moz-box-shadow: 0px 3px 8px rgb(100,100,100);
+      box-shadow: 0px 3px 8px rgb(100 100 100);
+  }
+
+  .web-principal{
+      height: 100%;
+  }
+
+  .web-left{
+      height: 100%;
+      width: 27%;
+      float: left;
+      background: rgb(72, 0, 141);
+  }
+
+  .web-bg{
+      width: inherit;
+      height: 84%;
+      position: absolute;
+      background-position: center;
+      background-size: 100% 100%;
+  }
+
+  .web-right{
+      float: right;
+      width: 60%;
+      padding: 10%;
+  }
+
+  .lblForm {
+      font-family: 'Hero-Bold';
+      color: #48008D;
+  }
+
+  .img-dots{
+      width: 100%;
+  }
+
+  .id2{
+      float: right;
+  }
+
+  .titulo{
+      color: #48008D;
+      font-size: 18px;
+      font-family: "Hero-Bold";
+      text-align: left;
+  }
+
+  .subtitulo{
+      color: #48008D;
+      font-size: 15px;
+      font-family: "Hero-Bold";
+  }
+
+  .btns{
+      height: 3vw;
+      margin: 11% 5%;
+      white-space: normal;
+      font-size: 0.8vw;
+      border-radius: 1.5em;
+      border: 2px solid #48008D;
+  }
+
+  .senhaReset{
+      color: #C4C4C4;
+  }
+
+  .aSenha{
+      color: #48008D;
+  }
+
+  .body{
+      width: 100%;
+      margin: auto;
+  }
+
+  .inner-form{
+      padding: 5%;
+  }
+
+  .footer{
+      font-size: 12px;
+      color: #FFFFFF;
+      font-family: 'Hero-Regular';
+  }
+
+  ion-input{
+      color: #48008D;
+      font-size: 12px;
+  }
+
+  .fala{
+      font-family: "Hero-Regular";
+      font-size: 12px;
+      color: #D4C2FF;
+      margin-bottom: 14%;
+  }
+
+  a:hover{
+      cursor: pointer;
+  }
+
+  .return{
+      width: 11%;
+  }
+
+  .btn-enviar{
+      width: 100%;
+      margin: 5% auto;
+      height: 3vw;
+      margin-top: 11%;
+      text-transform: none;
+  }
+
+  .p-plano{
+      text-align: left;
+  }
+   
+    .card-plano-plat{
+        border-radius: 15px;
+        padding: 7% 5%;
+        font-family: Poppins-Bold;
+        margin: 2% auto;
+    }
+
+    .card-plano-plat:hover{
+        cursor: pointer;
+    }
+
+    .planos{
+        padding: 5% 5% 0;
+    }
+
+    .plano-web{
+        padding-bottom: 1%;
+    }
+
+    .titulo-plano-web{
+        padding: 9% 0 0%;
+        font-size: 225%;
+        color: #48008D;
+        font-weight: bold;    
+    }
+
+    .valor-plano-web{
+        font-size: 300%;
+        padding: 2%;
+    }
+
+.plano-titulo-plat{
+	font-size: 170%;
+    color: #8011CC;
+    font-weight: bold;
+    float: left;
+    font-family: 'Hero-Bold';
+}
+
+.plano-valor-plat{
+	font-size: 170%;
+    font-weight: bold;
+    float: right;
+    font-family: 'Hero-Regular';
+}
+
+.span-p{
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.span-p-baixo{
+    font-size: 70%;
+}
+
+.desc-plano{
+    padding: 0 5%;
+}
+
+.btn-comprar{
+    height: 50px;
+}
+
+.plano-btn-web{
+    margin: 10% 20%;
+}
+}
