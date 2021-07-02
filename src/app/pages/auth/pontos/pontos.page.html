@@ -1,168 +1,174 @@
-<!-- <ion-content [ngStyle]="{'background-image': bg}">
-	<div class="principal">
-		<div class="header">
-			<div class="top-header">
-				<div class="avatar">
-		    		<ion-avatar>
-			    		<ion-img src="assets/imgs/img-a.jpg"></ion-img>
-			    	</ion-avatar>
-		    	</div>
-			</div>
-			<div class="pontuacao">
-				<label class="ponto-label">Minha Pontuação</label>
-			</div>
-			<div class="pontos-header">
-				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{pontos}}</span>
-			</div>
-			<div class="header-menu">
-				<div class="meus-pontos">
-					<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [ngStyle]="{'background-color': btnPontos? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Status</ion-button>
+<div class="background" *ngIf="load">
+	<ion-spinner name="dots"></ion-spinner>
+</div>
+
+
+<ion-content class="cM" *ngIf="!plat">
+	<ion-header class="ion-no-border toolbarVerde" no-border>
+	  	<ion-toolbar lines="none">
+		  	<!-- <ion-buttons slot="start">
+		      	<ion-button  fill="clear" class="pontos">
+		      		<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img desk-moeda"></ion-icon><span class="pontosIniciais">{{pontos}}</span>
+		      	</ion-button>
+		    </ion-buttons> -->
+		  	<div class="logo">
+		    	<ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
+		    </div>
+		  	<ion-avatar slot="end">
+			    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+			</ion-avatar>
+	  	</ion-toolbar>
+	</ion-header>
+	<ion-searchbar placeholder="Pesquisar ofertas" class="search-ofertas"></ion-searchbar>
+	<div class="cupons-recentes">
+		<label>Ofertas em destaque</label>
+	</div>
+	<div class="bar">
+		<ion-card *ngFor="let cupom of cupons" class="cupom ion-text-center" [style.background-image]="'url(' + requestImg(cupom.dimg) + ')'" (click)="abrirDetalhes(cupom, 6)">
+			<!-- <label>{{cupom.desc}}% de Desconto</label> -->
+		</ion-card>
+	</div>
+	<div class="cupons-recentes">
+		<label slot="start">Melhores Ofertas</label>
+		<ion-button fill="clear" class="ver-mais" (click)="verMaisOfertas(1)">Ver mais +</ion-button>
+	</div>
+	<div class="bar-oferta">
+		<ion-card class="ofertas" *ngFor="let offer of melhoresOfertas">
+	 		<ion-card-title [ngStyle]="{'background-image': bgImage(offer.img)}" class="card-oferta-title ion-text-center" (click)="abrirDetalhes(offer)"></ion-card-title>
+			<ion-card-content class="content-card-offer">
+				<ion-label class="ion-text-center oferta-nome"  (click)="abrirDetalhes(offer)">{{limitar(offer.produto)}}</ion-label>
+				<div class="offer-custo ion-text-center" (click)="abrirDetalhes(offer)">
+					<!-- <ion-label>
+						<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-img"></ion-icon><span class="quantPontos">{{offer.custo}}</span>
+					</ion-label> -->	
 				</div>
-				<div class="meus-favoritos">
-					<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(1)" [ngStyle]="{'background-color': btnFavoritos? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Histórico</ion-button>
+				<div class="buttons-ofertas">
+					<ion-button fill="clear" class="btn-ofertas-star" (click)="favoritar(offer)"><ion-icon [name]="(offer.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
+					<ion-button fill="clear" class="btn-ofertas-plus" (click)="abrirDetalhes(offer)"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
 				</div>
-				<div class="meus-favoritos">
-					<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(2)" [ngStyle]="{'background-color': btnPacotes? 'rgba(255, 255, 255, 0.3)' : 'transparent'}">Pacotes</ion-button>
-				</div>
-				<div class="filtro">
-					<ion-button fill="clear" class="btn-menu-header btn-right btn-filtro">Hoje <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></ion-button>
-				</div>
+			</ion-card-content>
+		</ion-card>
+	</div>
+
+	<div class="btns-softs ion-text-center">
+		<ion-button *ngFor="let btn of btnsMenus;" shape="round" fill="clear" (click)="verMais(btn)" class="icons-btns">
+			<ion-img [src]="btn.icon"></ion-img>
+		</ion-button>
+	</div>
+
+	<div *ngFor="let seg of segmentos" class="segs">
+		<div class="cupons-recentes">
+			<ion-label slot="start" class="label-segmento">{{seg.segmento}}</ion-label>
+		</div>
+		<div class="bar-segmentos">
+			<ion-card *ngFor="let prod of seg.prods">
+				<ion-card-title class="title-card" (click)="abrirDetalhes(prod, seg.id)">
+					<ion-label class="nome-prod">{{prod.nome}}</ion-label>
+					<!-- <div class="quantPontosSegmento" *ngIf="prod.custo">
+						<ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>
+						<<ion-label class="lblCusto">{{prod.custo}}</ion-label>	
+					</div> -->
+				</ion-card-title>
+				<ion-card-content class="content-prod-segmento">
+					<ion-item lines="none" class="segs-inner ion-no-padding">
+						<div class="img-prod" [ngStyle]="{'background-image': bgImage(prod.img) }" (click)="abrirDetalhes(prod, seg.id)"></div>
+						<div class="desc-prod" (click)="abrirDetalhes(prod, seg.id)">
+							<ion-label class="prod-produto">{{prod.produto}}</ion-label>
+							<ion-label class="lbl-desc">{{prod.descricao}}</ion-label>
+						</div>
+						<div class="buttons-prods" slot="end">
+							<ion-button fill="clear" class="btn-ofertas-star btn-off" (click)="favoritar(prod)"><ion-icon [name]="(prod.favorito)? 'star' : 'star-outline'" mode="ios"></ion-icon></ion-button>
+							<ion-button fill="clear" class="btn-ofertas-plus btn-off" (click)="abrirDetalhes(prod, seg.id)"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+						</div>
+					</ion-item>
+				</ion-card-content>
+			</ion-card>
+			<div class="verMais ion-text-center">
+				<ion-button fill="clear" class="btn-ver-mais"><ion-img src="assets/imgs/icons/ver-mais.png" class="img-ver-mais"></ion-img></ion-button>
 			</div>
 		</div>
-		<div class="spinner" *ngIf="load">
-			<ion-spinner class="spin" name="bubbles"></ion-spinner>
+	</div>	
+</ion-content>
+
+<ion-content *ngIf="plat">
+	<div class="content-centro">
+		<div class="desk-header">
+			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
+			<ion-img [src]="asset" class="img-desk"></ion-img>
 		</div>
-		<div class="content" *ngIf="!load">
-			<div class="content-pontos" *ngIf="btnPontos">
-				<ion-card *ngFor="let prod of dataArr; let i = index;" class="card-pontos">
-					<ion-item lines="none" (click)="abrirDetalhes(returnImg(prod.IMG), prod.EMPRESA, prod.PRODUTO, prod.PONTO_GASTO, prod.DATA_HORA_GASTO, prod.STATUS, prod.NOTA, prod.COMENTARIO, prod.FAVORITO, prod.OFERTA_ID, i)">
-						<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}"></div>
-						<div class="desc-prod">
-							<ion-label class="empresa">{{prod.EMPRESA}}</ion-label>
-							<ion-label class="lbl-produto">{{prod.PRODUTO}}</ion-label>
+
+		<div class="title-historico ion-text-center">
+			<ion-label class="status-titulo">Histórico </ion-label>
+		</div>
+		<div *ngFor="let prod of historico">
+			<ion-card  class="card-ponto-desk">
+				<ion-item lines="none">
+					
+					<div class="desc-prod-desk">
+						<ion-label class="empresa-desk">{{prod.TITULO}}</ion-label>
+						
+					</div>
+					<div slot="end" class="div-pontos-desk">
+						
+					</div>
+				</ion-item>
+			</ion-card>
+		</div>
+		
+		
+		
+		<div class="desk-footer">
+			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
+			<ion-img [src]="asset" class="img-desk-footer"></ion-img>
+		</div>
+	</div>
+	<div class="content-right">
+		<div class="header-right">
+			<div>
+				<ion-avatar slot="end" class="desk-avatar">
+				    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+				</ion-avatar>
+			</div>
+			<!-- <div class="ponto-desk-header ion-text-center">
+				<ion-label class="status-titulo">Minha Pontuação</ion-label>
+			</div>
+			<div class="num-desk ion-text-center">
+				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk-header">12000</span>
+			</div> -->
+		</div>
+		<div class="status">
+			<div class="title-status ion-text-center">
+				<ion-label class="status-titulo">Informações da Conta</ion-label>	
+			</div>
+			<div class="conta">
+				<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+				<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+			</div>
+		</div>
+		<div class="historico">
+			<div class="spinner" *ngIf="load">
+				<ion-spinner class="spin" name="bubbles"></ion-spinner>
+			</div>
+			<div class="title-historico ion-text-center">
+				<ion-label class="status-titulo">Histórico Recente</ion-label>
+			</div>
+			<div *ngFor="let prod of historico">
+				<ion-card  class="card-ponto-desk">
+					<ion-item lines="none">
+						<div class="img-prod-desk" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
+						<div class="desc-prod-desk">
+							<ion-label class="empresa-desk">{{prod.TITULO}}</ion-label>
+							<ion-label class="lbl-produto-desk" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
 						</div>
-						<div slot="end" class="div-pontos">
-							<div class="pontos">
-								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><span class="ponto-gasto">{{prod.PONTO_GASTO}}</span>
+						<!-- <div slot="end" class="div-pontos-desk">
+							<div class="pontos-desk">
+								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk">{{prod.VALOR}}</span>
 							</div>
-							<div class="status" [ngStyle]="{'background-color' : '#FF9500'}" *ngIf="prod.STATUS == 0">
-								<ion-label class="label-status">Pendente</ion-label>
-							</div>
-							<div class="status" [ngStyle]="{'background-color' : '#04D361'}" *ngIf="prod.STATUS == 1">
-								<ion-label class="label-status">Aprovado</ion-label>
-							</div>
-							<div class="status" [ngStyle]="{'background-color' : '#F71111'}" *ngIf="prod.STATUS == 2">
-								<ion-label class="label-status">Reprovado</ion-label>
-							</div>
-							<div class="status" [ngStyle]="{'background-color' : '#4c4c85'}" *ngIf="prod.STATUS == 3">
-								<ion-label class="label-status">Finalizado</ion-label>
-							</div>
-							<div class="status" [ngStyle]="{'background-color' : '#525252'}" *ngIf="prod.STATUS == 4">
-								<ion-label class="label-status">Cancelado</ion-label>
-							</div>
-						</div>
+						</div> -->
 					</ion-item>
 				</ion-card>
 			</div>
-
-			<div class="content-favoritos" *ngIf="btnFavoritos">
-				<div *ngFor="let prod of historico">
-					<ion-card  class="card-pontos">
-						<ion-item lines="none">
-							<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.IMG"></div>
-							<div class="desc-prod">
-								<ion-label class="empresa">{{prod.TITULO}}</ion-label>
-								<ion-label class="lbl-produto" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
-							</div>
-							<div slot="end" class="div-pontos">
-								<div class="pontos">
-									<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><ion-icon [name]="(prod.TIPO == 1)? 'remove-outline': 'add-outline'" class="operador-icon"></ion-icon><span class="ponto-gasto">{{prod.VALOR}}</span>
-								</div>
-							</div>
-						</ion-item>
-					</ion-card>
-				</div>
-			</div>
-		</div>
-	</div>
-</ion-content>
--->
-
-<ion-header class="ion-no-border" no-border>
-	<ion-toolbar lines="none">
-		<div class="logo">
-		    <ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
-		</div>
-		<div class="intro ion-text-center">
-		    <ion-label>Bem vindo(a), {{usuario.nome}}</ion-label>
-		    <br>
-		    <!-- <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda1.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label> -->
-		</div>
-		<div class="avatar">
-			<ion-avatar slot="end">
-			    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
-			</ion-avatar>
-		</div>
-	</ion-toolbar>
-</ion-header>
-
-<ion-content>
-	<div class="menu">
-		<!-- <div class="meus-pontos">
-			<ion-button fill="clear" class="btn-menu-header btn-left btn-pontos" (click)="alterarContent(0)" [style.background-color]="btnPontos? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnPontos? '#FFFFFF': '#48008D'}">Status</ion-button>
-		</div> -->
-		<div class="meus-pontos">
-			<ion-button fill="clear" class="btn-menu-header btn-left btn-favoritos" (click)="alterarContent(2)" [style.background-color]="btnPacotes? 'rgb(72, 0, 141)' : 'transparent'" [ngStyle]="{'color': btnPacotes? '#FFFFFF': '#48008D'}">Pacotes</ion-button>
-		</div><!-- 
-		<div class="filtro">
-			<ion-button fill="clear" class="btn-menu-header btn-right btn-filtro">Hoje <ion-icon name="arrow-down" mode="IOS" class="icon-arrow"></ion-icon></ion-button>
-		</div> -->
-	</div>
-
-	<div class="historico" *ngIf="btnPontos">
-		<div class="spinner" *ngIf="load">
-			<ion-spinner class="spin" name="bubbles"></ion-spinner>
-		</div>
-		<div *ngFor="let prod of dataArr">
-			<ion-card  class="card-pontos">
-				<ion-item lines="none">
-					<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
-					<div class="desc-prod">
-						<ion-label class="empresa">{{prod.EMPRESA}}</ion-label>
-						<ion-label class="lbl-produto">{{prod.PRODUTO}}</ion-label>
-					</div>
-					<div slot="end" class="div-pontos">
-						<!-- <div class="pontos">
-							<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><span class="ponto-gasto">{{prod.PONTO_GASTO}}</span>
-						</div> -->
-					</div>
-				</ion-item>
-			</ion-card>
-		</div>
-	</div>
-
-	<div class="historico" *ngIf="btnPacotes">
-		<div class="spinner" *ngIf="load">
-			<ion-spinner class="spin" name="bubbles"></ion-spinner>
-		</div>
-		<div *ngFor="let prod of pacotes">
-			<ion-card  class="card-pontos">
-				<ion-item lines="none">
-					<div class="img-prod" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
-					<div class="desc-pacote">
-						<ion-label class="empresa">Ponto de Origem: {{prod.PONTO_ORIGEM}} - Ponto de Destino: {{prod.PONTO_DESTINO}}</ion-label>
-						<ion-label class="empresa">Data Inicial: {{prod.DATA_INICIAL | date: 'dd/MM/yyyy'}} - Data Final: {{prod.DATA_FINAL | date: 'dd/MM/yyyy'}}</ion-label>
-						<ion-label class="empresa">Opcionais: {{prod.OPCIONAIS}}</ion-label>
-						<ion-label class="empresa">Data e Hora gerada: {{prod.DATA_HORA | date: 'dd/MM/yyyy HH:mm'}}</ion-label>
-						<ion-label>Status: {{status(prod.STATUS)}}</ion-label>
-					</div>
-					<!--<div slot="end" class="div-pontos">
-						<div class="pontos">
-							<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos"></ion-icon><span class="ponto-gasto">{{prod.PONTO_GASTO}}</span>
-						</div>
-					</div> -->
-				</ion-item>
-			</ion-card>
 		</div>
 	</div>
 </ion-content>

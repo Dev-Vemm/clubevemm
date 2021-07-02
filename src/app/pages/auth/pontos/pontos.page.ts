@@ -17,7 +17,7 @@ export class PontosPage implements OnInit {
   public btnPontos: boolean = false;
   public btnFavoritos: boolean = false;
   public btnPacotes: boolean = true;
-  public bg = "url('assets/imgs/cover.png')";
+  public asset = 'assets/imgs/success.png';
   public detalhesImg: any;
   public detalhesEmpresa: any;
   public detalhesProduto: any;
@@ -38,6 +38,7 @@ export class PontosPage implements OnInit {
   public user: any;
   public uid: any;
   public index: any;
+  public plat:any;
   constructor(
     private activatedRoute: ActivatedRoute,
   	private modaCtrl: ModalController,
@@ -65,6 +66,7 @@ export class PontosPage implements OnInit {
   }
 
   ngOnInit() {
+    this.plat = (this.platform.width() >= 1025)? true : false;
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.pacotes) {
         this.btnPontos = false;
