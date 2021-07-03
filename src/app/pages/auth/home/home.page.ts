@@ -51,9 +51,10 @@ export class HomePage implements OnInit {
   public ofertas_recentes = [];
 
   public usuario = {
-    email: 'victorbr321@gmail.com',
-    plano: 'Platina',
-    data_entrada: '15/03/2021 13:05:40'
+    nome: '',
+    email:'',
+    plano: '',
+    data_entrada: ''
   };
 
   public historico = [];
@@ -72,6 +73,10 @@ export class HomePage implements OnInit {
       this.plat = (this.platform.width() >= 1025)? true : false;
       this.mobile = (this.platform.is('cordova'))? true : false;
       this.user = await this.data.getStorage('USER');
+      this.usuario.data_entrada = this.user[0].DATA_HORA_ENTRADA;
+      this.usuario.email = this.user[0].EMAIL;
+      this.usuario.plano = this.user[0].TITULO;
+      this.usuario.nome = this.user[0].NOME;
       this.loadContent();
       if(this.user.vistante){
         this.visitante = true;
@@ -94,7 +99,6 @@ export class HomePage implements OnInit {
 
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
-      console.log(APIres);
       this.segmentos = APIres.segmentos;
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;

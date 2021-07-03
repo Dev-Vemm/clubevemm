@@ -12,7 +12,7 @@ const routes: Routes = [
     	{
 		    path: 'home',
 		    loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
-		},
+		},/*
 		{
 		    path: 'segmentos',
 		    loadChildren: () => import('../segmentos/segmentos.module').then( m => m.SegmentosPageModule)
@@ -28,11 +28,11 @@ const routes: Routes = [
 		{
 		    path: 'mapa',
 		    loadChildren: () => import('../mapa/mapa.module').then( m => m.MapaPageModule)
-		},
+		},**/
 		{
 		    path: 'perfil',
 		    loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule)
-		},
+		},/*
 		{
 		    path: 'pontos',
 		    loadChildren: () => import('../pontos/pontos.module').then( m => m.PontosPageModule)
@@ -48,7 +48,7 @@ const routes: Routes = [
 	  	{
 	    	path: 'resgate-detalhes',
 	    	loadChildren: () => import('../resgate-detalhes/resgate-detalhes.module').then( m => m.ResgateDetalhesPageModule)
-	  	},
+	  	},**/
     ]
   },
 ];

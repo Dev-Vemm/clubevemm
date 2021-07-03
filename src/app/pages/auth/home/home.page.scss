@@ -365,6 +365,7 @@ ion-slides{
 
 	.vantagem-disponivel{
 		display: flex;
+		margin-top: 3%;
 	}
 
 	.back-img{
@@ -486,7 +487,10 @@ ion-slides{
 	.ofertas-recentes-lbl{
 		color: #48008D;
     	font-family: 'Hero-Bold';
-    	font-size: 13px;
+	}
+	
+	.lbl-ofertas{
+		margin-top: 2%;
 	}
 
 	.off-card-title{
