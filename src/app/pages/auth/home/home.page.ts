@@ -101,7 +101,11 @@ export class HomePage implements OnInit {
       this.usuario.email = this.user[0].EMAIL;
       this.usuario.plano = this.user[0].TITULO;
       this.usuario.nome = this.user[0].NOME;
+<<<<<<< HEAD
       await this.loadContent();
+=======
+      this.loadContent();
+>>>>>>> 949912baeb8672eb7fb2081147ef13d88a1561a2
       if(this.user.vistante){
         this.visitante = true;
       }else{
@@ -124,7 +128,10 @@ export class HomePage implements OnInit {
 
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
+<<<<<<< HEAD
       console.log(APIres)
+=======
+>>>>>>> 949912baeb8672eb7fb2081147ef13d88a1561a2
       this.segmentos = APIres.segmentos;
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;
