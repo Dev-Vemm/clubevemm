@@ -1,0 +1,150 @@
+<ion-content *ngIf="plat">
+	<div class="content-centro">
+		<div class="desk-header">
+			<ion-label class="label-desk-header" slot="start">Olá, {{usuario.nome}}</ion-label>
+			<ion-img [src]="asset" class="img-desk"></ion-img>
+		</div>
+		<div class="pacote">
+			<p class="p-title">Monte o seu pacote de viagem personalizado com até 60% desconto!</p>
+			<p class="p-desc">Ligue para a nossa Central de Reservas</p>
+			<p class="p-num">
+				<ion-icon name="call-outline" class="iNum"></ion-icon>
+				<span class="s-num">(21) 3706-9608</span>
+			</p>
+			<p>Ou</p>
+			<p class="p-title">Preecha o formulário e entraremos em contato em até 24 horas.</p>
+			<div class="form-pacotes">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Selecione o ponto de origem</ion-label>
+                <ion-select [(ngModel)]="origem">
+                  <ion-select-option *ngFor="let origem of estados" value="{{origem.uf}}">{{origem.nome}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Selecione o ponto de destino</ion-label>
+                <ion-select [(ngModel)]="destino">
+                  <ion-select-option *ngFor="let destino of estados" value="{{destino.uf}}">{{destino.nome}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Selecione a data de partida</ion-label>
+                <ion-input type="date" class="dateInput" [(ngModel)]="dataInicial"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Selecione a data de retorno</ion-label>
+                <ion-input type="date" class="dateInput" [(ngModel)]="dataFinal"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Descrição da viagem (opcional)</ion-label>
+                <ion-textarea [(ngModel)]="descricao" placeholder="Ex: Ingressos para shows, parques, alguma necessecidade especial, etc." id="desc-pedido"></ion-textarea>
+            </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label class="lblOp">Transfer</ion-label>
+                    <ion-checkbox mode="md" (ionChange)="options('Transfer')"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-label class="lblOp">Voo</ion-label>
+                    <ion-checkbox mode="md" (ionChange)="options('Voo')"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label class="lblOp">Passeio</ion-label>
+                    <ion-checkbox mode="md" (ionChange)="options('Passeio')"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                    <ion-label class="lblOp">Ingressos</ion-label>
+                    <ion-checkbox mode="md" (ionChange)="options('Ingressos')"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+          </ion-row>  
+          <ion-row>
+            <ion-col>
+              <ion-item class="btn-finalizar">
+                <ion-button shape="round" class="btn-base btnHotel" (click)="finalizar(origem, destino, dataInicial, dataFinal, opcoes, descricao)">Finalizar</ion-button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+			</div>
+    </div>
+		<div class="desk-footer">
+			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
+			<ion-img [src]="asset" class="img-desk-footer"></ion-img>
+		</div>
+	</div>
+	<div class="content-right">
+		<div class="header-right">
+			<div>
+				<ion-avatar slot="end" class="desk-avatar">
+				    <ion-img src="assets/imgs/img-a.png"></ion-img>
+				</ion-avatar>
+			</div>
+			<!-- <div class="ponto-desk-header ion-text-center">
+				<ion-label class="status-titulo">Minha Pontuação</ion-label>
+			</div>
+			<div class="num-desk ion-text-center">
+				<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk-header">12000</span>
+			</div> -->
+		</div>
+		<div class="status">
+			<div class="title-status ion-text-center">
+				<ion-label class="status-titulo">Informações da Conta</ion-label>	
+			</div>
+			<div class="conta">
+				<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+				<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+			</div>
+		</div>
+		<div class="historico">
+			<div class="spinner" *ngIf="load">
+				<ion-spinner class="spin" name="bubbles"></ion-spinner>
+			</div>
+			<div class="title-historico ion-text-center">
+				<ion-label class="status-titulo">Histórico Recente</ion-label>
+			</div>
+			<div *ngFor="let prod of historico">
+				<ion-card  class="card-ponto-desk">
+					<ion-item lines="none">
+						<div class="img-prod-desk" [ngStyle]="{'background-image': returnImg(prod.IMG)}" *ngIf="prod.TIPO == 1"></div>
+						<div class="desc-prod-desk">
+							<ion-label class="empresa-desk">{{prod.TITULO}}</ion-label>
+							<ion-label class="lbl-produto-desk" *ngIf="prod.DESCRICAO">{{prod.DESCRICAO}}</ion-label>
+						</div>
+						<div slot="end" class="div-pontos-desk">
+							<!-- <div class="pontos-desk">
+								<ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda-pontos-desk"></ion-icon><span class="ponto-gasto-desk">{{prod.VALOR}}</span>
+							</div> -->
+						</div>
+					</ion-item>
+				</ion-card>
+			</div>
+		</div>
+	</div>
+</ion-content>

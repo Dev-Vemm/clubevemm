@@ -378,7 +378,7 @@ ion-slides{
 		width: 50%;
 	    background: #48008D;
 	    border-radius: 0 15px 15px 0;
-	    padding: 4%;
+	    padding: 3%;
 	}
 
 	.barra-desk{
@@ -467,7 +467,16 @@ ion-slides{
 
 	.card-off-desk-cont{
 		overflow: hidden;
-		height: 20vw;
+		height: 10vw;
+		font-size: 400%;
+		padding: 5% 0;
+		text-align: center;
+		color: #ACB3BF
+	}
+
+	.card-off-desk-cont:hover{
+		cursor: pointer;
+		color: #48008D;
 	}
 
 	.card-off-desk:hover .off-seg-title{

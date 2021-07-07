@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { UtilsService } from '../../../services/utils.service';
 import { Platform, ModalController } from '@ionic/angular';
@@ -34,6 +34,29 @@ export class HomePage implements OnInit {
     id: 4
   }];
 
+  public desk_segs = [
+    {
+      segmento: 'Saúde',
+      link: 'saude',
+      icon: 'medkit-outline'
+    },
+    {
+      segmento: 'Hospedagem',
+      link: 'hospedagem',
+      icon: 'bed-outline'
+    },
+    {
+      segmento: 'Pacotes',
+      link: 'pacotes',
+      icon: 'airplane-outline'
+    },
+    {
+      segmento: 'Experiências',
+      link: 'experiencias',
+      icon: 'color-filter-outline'
+    },
+  ];
+
   public cupons:any = [];
 
   public melhoresOfertas: any;
@@ -43,6 +66,7 @@ export class HomePage implements OnInit {
   private modal: any;
   private modalOpen: boolean = false;
   public asset = 'assets/imgs/success.png';
+  public destaque: any = [];
   mobile: any;
   load: boolean = false;
   visitante: boolean = false;
@@ -51,9 +75,10 @@ export class HomePage implements OnInit {
   public ofertas_recentes = [];
 
   public usuario = {
-    email: 'victorbr321@gmail.com',
-    plano: 'Platina',
-    data_entrada: '15/03/2021 13:05:40'
+    nome: '',
+    email:'',
+    plano: '',
+    data_entrada: ''
   };
 
   public historico = [];
@@ -72,7 +97,11 @@ export class HomePage implements OnInit {
       this.plat = (this.platform.width() >= 1025)? true : false;
       this.mobile = (this.platform.is('cordova'))? true : false;
       this.user = await this.data.getStorage('USER');
-      this.loadContent();
+      this.usuario.data_entrada = this.user[0].DATA_HORA_ENTRADA;
+      this.usuario.email = this.user[0].EMAIL;
+      this.usuario.plano = this.user[0].TITULO;
+      this.usuario.nome = this.user[0].NOME;
+      await this.loadContent();
       if(this.user.vistante){
         this.visitante = true;
       }else{
@@ -89,18 +118,24 @@ export class HomePage implements OnInit {
           }
         });
       }
+      
     });
   }
 
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
-      console.log(APIres);
+      console.log(APIres)
       this.segmentos = APIres.segmentos;
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;
       this.ofertas_recentes = APIres.ofertas_recentes;
       this.historico = APIres.historico;
+      this.destaque = APIres.pacote;
     });
+  }
+
+  openLink(link){
+    this.route.navigate(['menu/' + link]);
   }
 
   limitar(str){
@@ -117,6 +152,15 @@ export class HomePage implements OnInit {
 
   navigate(url){
   	this.route.navigate([url]);
+  }
+
+  continuar(pacote){
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          sub_off: pacote
+      }
+    };
+    this.route.navigate(['menu/pacotes/contato'], navigationExtras);
   }
 
   returnDots(string){

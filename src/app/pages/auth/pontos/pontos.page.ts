@@ -155,6 +155,7 @@ export class PontosPage implements OnInit {
     this.load = true;
     try{
       this.data.requestPost({uid: this.user[0].UID}, 'consumos').then((res:any) =>{
+        console.log(res);
         if(res.consumos){
           this.dataArr = res.consumos;
         }

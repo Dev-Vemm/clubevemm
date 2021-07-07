@@ -93,46 +93,20 @@
 <ion-content *ngIf="plat">
 	<div class="content-centro">
 		<div class="desk-header">
-			<ion-label class="label-desk-header" slot="start">Olá, Andrea</ion-label>
+			<ion-label class="label-desk-header" slot="start">Olá, {{usuario.nome}}</ion-label>
 			<ion-img [src]="asset" class="img-desk"></ion-img>
 		</div>
 		<ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar>
-		<div class="vantagem-disponivel">
-			<div class="back-img" [style.background-image]="'url(' + asset + ')'"></div>
-			<div class="vant-content">
-				<div class="cont-header">
-					<ion-label class="lbl-header-cont" slot="start">VANTAGEM DISPONÍVEL</ion-label>
-					<ion-icon name="star" class="icon-desk" slot="end"></ion-icon>
-				</div>
-				<ion-label class="desk-empresa">Hotel Costa Azul</ion-label>
-				<div class="resgate-desk">
-					<div class="barra-desk">
-						<!-- <ion-label>
-							<ion-icon src="assets/imgs/icons/moeda.svg" class="desk-moeda"></ion-icon><span class="pontos-desk-vant">Resgatar por 3000</span>
-						</ion-label> -->
-						<br />
-						<ion-progress-bar value="0.5" class="vant-progress"></ion-progress-bar>
-					</div>
-					<div class="ion-text-center barra-btn-desk">
-						<ion-button class="btn-base btn-desk" shape="round" (click)="navigate('menu/resgate-detalhes')">Resgatar</ion-button>
-					</div>
-				</div>
-				<div class="detalhes-vantagem">
-					<p class="txt-det-vant">Fim de Semana / Quarto p/ Casal</p>
-					<p class="desc-det-vant">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
-				</div>
-			</div>
-		</div>
-		<div class="ofertass-recentes-desk">
-			<ion-label class="ofertas-recentes-lbl">Ofertas Recentes</ion-label>
-		</div>
+		
+		
 		<div class="ofertas-recentes-card">
-			<div class="card-off-desk" *ngFor="let off of ofertas_recentes">
-				<div class="off-card-title ion-text-center">
+			<div class="card-off-desk" *ngFor="let off of desk_segs">
+				<div class="off-card-title ion-text-center" (click)="openLink(off.link)">
 					<ion-label class="off-seg-title">{{off.segmento}}</ion-label>
 				</div>
-				<div class="card-off-desk-cont">
-					<div class="off-img-desk" [style.background-image]="'url(' + returnImgPadrao(off.img) + ')'"></div>
+				<div class="card-off-desk-cont" (click)="openLink(off.link)">
+					<ion-icon name="{{off.icon}}"></ion-icon>
+					<!-- <div class="off-img-desk" [style.background-image]="'url(' + returnImgPadrao(off.img) + ')'"></div>
 					<div class="off-detalhes-desk">
 						<div class="det-top">
 							<div class="lbls-det-off">
@@ -140,9 +114,6 @@
 								<br />
 								<ion-label class="off-nome-det">{{off.descricao}}</ion-label>
 							</div>
-							<!-- <div class="moeda-det-off">
-								<ion-icon src="assets/imgs/icons/moeda.svg" class="moeda-off"></ion-icon><span class="pontos-off">500</span>
-							</div> -->
 						</div>
 						<div class="det-bottom">
 							<div class="btn-det-bottom ion-text-center">
@@ -152,9 +123,39 @@
 								<ion-button class="btn-icon-off" fill="clear">
 									<ion-img src="assets/imgs/icons/mapa.png" class="map-icon"></ion-img>
 								</ion-button>
+								
 							</div>
 						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<div class="ofertass-recentes-desk">
+			<ion-label class="ofertas-recentes-lbl"><h1 class="lbl-ofertas">Pacotes de viagens</h1></ion-label>
+		</div>
+		<div class="vantagem-disponivel" *ngIf="destaque[0]">
+			<div class="back-img" [style.background-image]="'url(' + requestImg(destaque[0].dimg) + ')'"></div>
+			<div class="vant-content">
+				<div class="cont-header">
+					<ion-label class="lbl-header-cont" slot="start">VANTAGEM DISPONÍVEL</ion-label>
+					<ion-icon name="star" class="icon-desk" slot="end"></ion-icon>
+				</div>
+				<ion-label class="desk-empresa">{{destaque[0].EMPRESA}}</ion-label>
+				<div class="resgate-desk">
+					<div class="barra-desk">
+						<!-- <ion-label>
+							<ion-icon src="assets/imgs/icons/moeda.svg" class="desk-moeda"></ion-icon><span class="pontos-desk-vant">Resgatar por 3000</span>
+						</ion-label> -->
+						<br />
+						<ion-progress-bar value="1" class="vant-progress"></ion-progress-bar>
 					</div>
+					<div class="ion-text-center barra-btn-desk">
+						<ion-button class="btn-base btn-desk" shape="round" (click)="continuar(destaque[0].oferta_id)">Resgatar</ion-button>
+					</div>
+				</div>
+				<div class="detalhes-vantagem">
+					<p class="txt-det-vant">{{destaque[0].produto}}</p>
+					<p class="desc-det-vant">{{destaque[0].descricao}}</p>
 				</div>
 			</div>
 		</div>
@@ -184,7 +185,7 @@
 			<div class="conta">
 				<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
 				<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
-				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada | date: 'dd/MM/yyyy'}}</span></p>
 			</div>
 		</div>
 		<div class="historico">

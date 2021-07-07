@@ -16,7 +16,7 @@ const routes: Routes = [
 		{
 		    path: 'segmentos',
 		    loadChildren: () => import('../segmentos/segmentos.module').then( m => m.SegmentosPageModule)
-		},
+		},/*
 		{
 		    path: 'busca',
 		    loadChildren: () => import('../busca/busca.module').then( m => m.BuscaPageModule)
@@ -28,7 +28,7 @@ const routes: Routes = [
 		{
 		    path: 'mapa',
 		    loadChildren: () => import('../mapa/mapa.module').then( m => m.MapaPageModule)
-		},
+		},*/
 		{
 		    path: 'perfil',
 		    loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule)
@@ -36,7 +36,7 @@ const routes: Routes = [
 		{
 		    path: 'pontos',
 		    loadChildren: () => import('../pontos/pontos.module').then( m => m.PontosPageModule)
-		},
+		},/*
 		{
 		    path: 'cupom',
 		    loadChildren: () => import('../cupom/cupom.module').then( m => m.CupomPageModule)
@@ -48,7 +48,31 @@ const routes: Routes = [
 	  	{
 	    	path: 'resgate-detalhes',
 	    	loadChildren: () => import('../resgate-detalhes/resgate-detalhes.module').then( m => m.ResgateDetalhesPageModule)
-	  	},
+	  	},*/
+		{
+			path: 'saude',
+			loadChildren: () => import('../web-segmento/web-segmento.module').then( m => m.WebSegmentoPageModule)
+		},
+		{
+			path: 'hospedagem',
+			loadChildren: () => import('../web-segmento/web-segmento.module').then( m => m.WebSegmentoPageModule)
+		},
+		{
+			path: 'pacotes',
+			loadChildren: () => import('../web-segmento/web-segmento.module').then( m => m.WebSegmentoPageModule)
+		},
+		{
+			path: 'experiencias',
+			loadChildren: () => import('../web-segmento/web-segmento.module').then( m => m.WebSegmentoPageModule)
+		},
+		{
+		  path: 'pacotes/contato',
+		  loadChildren: () => import('../pacote/pacote.module').then( m => m.PacotePageModule)
+		},
+		{
+		    path: 'historico',
+		    loadChildren: () => import('../pontos/pontos.module').then( m => m.PontosPageModule)
+		},
     ]
   },
 ];
