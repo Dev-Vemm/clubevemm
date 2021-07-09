@@ -28,11 +28,7 @@ const routes: Routes = [
 		{
 		    path: 'mapa',
 		    loadChildren: () => import('../mapa/mapa.module').then( m => m.MapaPageModule)
-<<<<<<< HEAD
 		},*/
-=======
-		},**/
->>>>>>> 949912baeb8672eb7fb2081147ef13d88a1561a2
 		{
 		    path: 'perfil',
 		    loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule)
@@ -52,7 +48,6 @@ const routes: Routes = [
 	  	{
 	    	path: 'resgate-detalhes',
 	    	loadChildren: () => import('../resgate-detalhes/resgate-detalhes.module').then( m => m.ResgateDetalhesPageModule)
-<<<<<<< HEAD
 	  	},*/
 		{
 			path: 'saude',
@@ -78,9 +73,6 @@ const routes: Routes = [
 		    path: 'historico',
 		    loadChildren: () => import('../pontos/pontos.module').then( m => m.PontosPageModule)
 		},
-=======
-	  	},**/
->>>>>>> 949912baeb8672eb7fb2081147ef13d88a1561a2
     ]
   },
 ];
