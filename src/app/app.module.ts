@@ -46,6 +46,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { IonicSelectableModule } from 'ionic-selectable';
+
 //import { Facebook } from '@ionic-native/facebook/ngx';
 
 const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.com/', options: {}};
@@ -90,6 +92,7 @@ const config: SocketIoConfig = { url: 'https://ultravantagens-teste.herokuapp.co
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     HttpClientModule,
+    IonicSelectableModule,
     SocketIoModule.forRoot(config),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

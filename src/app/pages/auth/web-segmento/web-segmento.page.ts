@@ -3,6 +3,16 @@ import { Router, NavigationExtras } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { UtilsService } from '../../../services/utils.service';
 import { Platform } from '@ionic/angular';
+import { IonicSelectableComponent } from 'ionic-selectable';
+
+class Especialidades{
+  public ID: number;
+  public ESPECIALIDADE: string;
+}
+
+class Cidade{
+  public CIDADE: string;
+}
 
 @Component({
   selector: 'app-web-segmento',
@@ -23,6 +33,11 @@ export class WebSegmentoPage implements OnInit {
   public segmento: string;
   public exp: any = [];
   public asset = 'assets/imgs/success.png';
+  public especialidades: Especialidades[];
+  public especialidade: Especialidades;
+  public municipios: Cidade[];
+  public municipio: Cidade;
+  public exames: any = [];
   constructor(
     private route: Router, 
     private data: DataService, 
@@ -40,8 +55,12 @@ export class WebSegmentoPage implements OnInit {
       this.usuario.email = this.user[0].EMAIL;
       this.usuario.plano = this.user[0].TITULO;
       this.usuario.nome = this.user[0].NOME;
-      this.loadContent();
+      
     });
+  }
+
+  ionViewWillEnter(){
+    this.loadContent();
   }
 
   returnImg(img){
@@ -62,6 +81,16 @@ export class WebSegmentoPage implements OnInit {
           0: APIres.pacotes[i], 1: (APIres.pacotes[i+1])? APIres.pacotes[i+1] : null, 2: (APIres.pacotes[i+2])? APIres.pacotes[i+2] : null
         });
       }
+      for(var i = 0; i < APIres['exames'].length; i += 3){
+        this.exames.push({
+          0: APIres.exames[i], 
+          1: (APIres.exames[i+1])? APIres.exames[i+1] : null,
+          2: (APIres.exames[i+2])? APIres.exames[i+2] : null
+        });
+      }
+      this.especialidades = APIres.especialidades;
+      this.municipios = APIres.municipios;
+      console.log(this.especialidades);
       this.historico = APIres.historico;
     });
   }
@@ -73,6 +102,13 @@ export class WebSegmentoPage implements OnInit {
       }
     };
     this.route.navigate(['menu/pacotes/contato'], navigationExtras);
+  }
+
+  portChange(event: {
+    component: IonicSelectableComponent,
+    value: any
+  }) {
+    console.log('port:', event.value);
   }
 
 }

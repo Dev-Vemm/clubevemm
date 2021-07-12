@@ -38,22 +38,22 @@ export class HomePage implements OnInit {
     {
       segmento: 'Saúde',
       link: 'saude',
-      icon: 'medkit-outline'
+      icon: 'assets/imgs/vemm_600x600_1.png'
     },
     {
       segmento: 'Hospedagem',
       link: 'hospedagem',
-      icon: 'bed-outline'
+      icon: 'assets/imgs/vemm_600x600_4.png'
     },
     {
       segmento: 'Pacotes',
       link: 'pacotes',
-      icon: 'airplane-outline'
+      icon: 'assets/imgs/vemm_600x600_3.png'
     },
     {
       segmento: 'Experiências',
       link: 'experiencias',
-      icon: 'color-filter-outline'
+      icon: 'assets/imgs/vemm_600x600_2.png'
     },
   ];
 
@@ -101,7 +101,11 @@ export class HomePage implements OnInit {
       this.usuario.email = this.user[0].EMAIL;
       this.usuario.plano = this.user[0].TITULO;
       this.usuario.nome = this.user[0].NOME;
+
+      await this.loadContent();
+
       this.loadContent();
+
       if(this.user.vistante){
         this.visitante = true;
       }else{
@@ -124,6 +128,10 @@ export class HomePage implements OnInit {
 
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
+
+      console.log(APIres)
+
+
       this.segmentos = APIres.segmentos;
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;

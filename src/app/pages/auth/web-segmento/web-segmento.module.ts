@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { IonicSelectableModule } from 'ionic-selectable';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,7 +14,8 @@ import { WebSegmentoPage } from './web-segmento.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    WebSegmentoPageRoutingModule
+    WebSegmentoPageRoutingModule,
+    IonicSelectableModule
   ],
   declarations: [WebSegmentoPage]
 })

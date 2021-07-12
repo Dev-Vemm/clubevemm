@@ -4,24 +4,48 @@
 			<ion-label class="label-desk-header" slot="start">Olá, {{usuario.nome}}</ion-label>
 			<ion-img [src]="asset" class="img-desk"></ion-img>
 		</div>
-		<ion-searchbar placeholder="Pesquisar ofertas" class="search-desk"></ion-searchbar>
+		<ion-searchbar placeholder="Pesquisar ofertas" class="search-desk" *ngIf="segmento !== 'saude'"></ion-searchbar>
 		<div class="saude" *ngIf="segmento == 'saude'">
 			<p class="p-title">Para saber a localidades próximas, entre em contato com os números abaixo:</p>
 			<p class="p-desc">Número convencional</p>
 			<p class="p-num">
 				<ion-icon name="call-outline" class="iNum"></ion-icon>
-				<span class="s-num">(21) 3706-9608</span>
+				<span class="s-num">(21) 2495-8391</span>
 			</p>
 			<p class="p-desc">Número do celular</p>
 			<p class="p-num">
 				<ion-icon name="phone-portrait-outline" class="iCel"></ion-icon>
-				<span class="c-num">(21) 99587-9884</span>
+				<span class="c-num">(21) 9 9587-9884</span>
 			</p>
 			<p class="p-desc">Número convencional</p>
 			<p class="p-num">
 				<ion-icon name="logo-whatsapp" class="wNum"></ion-icon>
-				<span class="w-num">(21) 9 9588-4587</span>
+				<span class="w-num">(21) 99343-8477</span>
 			</p>
+			<ion-item>
+				<ion-item class="especialidade-medica">
+					<ion-label>Especialidade Médica</ion-label>
+					<ionic-selectable 
+						[(ngModel)]="especialidade"
+						[items]="especialidades"
+						itemValueField="ID"
+						itemTextField="ESPECIALIDADE"
+						[canSearch]="true"
+						(onChange)="portChange($event)" 
+					></ionic-selectable>
+				</ion-item>
+				<ion-item class="municipio-unidade">
+					<ion-label>Município</ion-label>
+					<ionic-selectable
+						[(ngModel)]="municipio"
+						[items]="municipios"
+						itemValueField="CIDADE"
+						itemTextField="CIDADE"
+						[canSearch]="true"
+						(onChange)="portChange($event)" ></ionic-selectable>
+				</ion-item>
+				<ion-button>Buscar</ion-button>
+			</ion-item>
 		</div>
 
 		<div class="pacotes" *ngIf="segmento == 'pacotes'">
@@ -67,7 +91,7 @@
 			<p class="p-desc">Número convencional</p>
 			<p class="p-num">
 				<ion-icon name="call-outline" class="iNum"></ion-icon>
-				<span class="s-num">(21) 3706-9608</span>
+				<span class="s-num">(21) 2495-8391</span>
 			</p>
 			<p class="p-desc">Número do celular</p>
 			<p class="p-num">
@@ -77,7 +101,7 @@
 			<p class="p-desc">Número convencional</p>
 			<p class="p-num">
 				<ion-icon name="logo-whatsapp" class="wNum"></ion-icon>
-				<span class="w-num">(21) 9 9588-4587</span>
+				<span class="w-num">(21) 99343-8477</span>
 			</p>
 		</div>
 		<div class="desk-footer">

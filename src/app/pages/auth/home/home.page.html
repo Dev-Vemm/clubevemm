@@ -104,8 +104,8 @@
 				<div class="off-card-title ion-text-center" (click)="openLink(off.link)">
 					<ion-label class="off-seg-title">{{off.segmento}}</ion-label>
 				</div>
-				<div class="card-off-desk-cont" (click)="openLink(off.link)">
-					<ion-icon name="{{off.icon}}"></ion-icon>
+				<div class="card-off-desk-cont" (click)="openLink(off.link)" [style.background-image]="'url(' + off.icon + ')'" >
+					<!--<ion-icon name="{{off.icon}}"></ion-icon>-->
 					<!-- <div class="off-img-desk" [style.background-image]="'url(' + returnImgPadrao(off.img) + ')'"></div>
 					<div class="off-detalhes-desk">
 						<div class="det-top">
@@ -159,6 +159,8 @@
 				</div>
 			</div>
 		</div>
+		
+		
 		<div class="desk-footer">
 			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
 			<ion-img [src]="asset" class="img-desk-footer"></ion-img>

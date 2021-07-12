@@ -16,6 +16,18 @@
 			<ion-icon name="gift-outline"></ion-icon>
 			<ion-label>Resgate</ion-label>
 		</ion-tab-button>
+		<ion-tab-button tab="saude" class="tab-menu" *ngIf="plat">
+			<ion-icon name="medkit-outline"></ion-icon>
+			<ion-label>Saúde</ion-label>
+		</ion-tab-button>
+		<ion-tab-button tab="hospedagem" class="tab-menu" *ngIf="plat">
+			<ion-icon name="bed-outline"></ion-icon>
+			<ion-label>Hospedagem</ion-label>
+		</ion-tab-button>
+		<ion-tab-button tab="pacotes" class="tab-menu" *ngIf="plat">
+			<ion-icon name="airplane-outline"></ion-icon>
+			<ion-label>Pacotes</ion-label>
+		</ion-tab-button>
 		<!--<ion-tab-button tab="busca" class="tab-menu">
 			<ion-icon name="search"></ion-icon>
 			<ion-label>Busca</ion-label>
