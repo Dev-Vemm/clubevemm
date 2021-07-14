@@ -89,8 +89,7 @@ export class PagamentoPage implements OnInit {
   }
 
   async efetuarPagamento(uid, plano, email, valor, nomeCartao, numeroCartao, bandeira, mesExpiracao, CC){
-    console.log(email);
-  	this.resetCampos();
+    this.resetCampos();
     this.cadastrando = true;
   	if(!nomeCartao){
       this.c1 = true;
@@ -131,8 +130,7 @@ export class PagamentoPage implements OnInit {
   			if(res.status == 1){
   				this.data.requestPost({uid: uid, plano_id: plano, email: email}, 'contratar').then((res)=>{
 			        if(res){
-                console.log(res);
-			          this.data.setStorage('USER', res).then(()=>{
+                this.data.setStorage('USER', res).then(()=>{
 			            this.util.alertOpen('Pagamento realizado com sucesso').then(()=>{
                     this.router.navigate(['menu']);
                   });

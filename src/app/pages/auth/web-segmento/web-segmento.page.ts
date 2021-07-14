@@ -55,12 +55,12 @@ export class WebSegmentoPage implements OnInit {
       this.usuario.email = this.user[0].EMAIL;
       this.usuario.plano = this.user[0].TITULO;
       this.usuario.nome = this.user[0].NOME;
-      
+      await this.loadContent();
     });
   }
 
   ionViewWillEnter(){
-    this.loadContent();
+    
   }
 
   returnImg(img){

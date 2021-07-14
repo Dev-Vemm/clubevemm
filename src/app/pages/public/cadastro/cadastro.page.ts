@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../../services/firebase.service';
 import { DataService } from '../../../services/data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,6 +13,9 @@ import { Platform } from '@ionic/angular';
 export class CadastroPage implements OnInit {
   email: string;
   senha: string;
+  rSenha: string;
+  codigo: string;
+  block: boolean = false;
   nome: string;
   cadastrando: boolean = false;
   plat: any;
@@ -20,10 +24,18 @@ export class CadastroPage implements OnInit {
     private firebase: FirebaseService, 
     private data: DataService, 
     private router: Router,
-    private platform: Platform
+    private activate: ActivatedRoute,
+    private platform: Platform,
+    private toastCtrl: ToastController
     ) { }
 
   ngOnInit() {
+    this.activate.queryParams.subscribe((params: any) => {
+      if (params.cod) {
+        this.codigo = params.cod;
+        this.block = true;
+      }
+    });
     this.plat = (this.platform.width() >= 800)? true : false;
   }
 
@@ -31,15 +43,33 @@ export class CadastroPage implements OnInit {
     this.router.navigateByUrl('/');
   }
 
-  async cadastrar(nome, email, senha){
+  async presentToast(msg) {
+    let toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 2000,
+    });
+    await toast.present();
+  }
+
+  async cadastrar(nome, email, senha, rSenha, codigo){
+    if(senha !== rSenha){
+      this.presentToast('As senhas devem sem iguais');
+      return false;
+    }
   	this.cadastrando = true;
   	try{
+      let check = await this.checkCod(email, codigo);    
+      if(!check){
+
+        return false;
+      }
   		this.firebase.register(email, senha).then((fireRes) =>{
   			if(fireRes['user']){
   				let vals = {
   					uid: fireRes['user'].uid,
   					email: email,
-  					nome: nome
+  					nome: nome,
+            codigo: codigo
   				};
   				this.data.requestPost(vals, 'cadastrar').then((APIres) =>{
   					if(APIres['status']){
@@ -63,18 +93,38 @@ export class CadastroPage implements OnInit {
   			}
   		}).catch((err) =>{
         if(err['code'] == 'auth/invalid-email'){          
-          console.log('Formato de email inválido.');         
+          this.presentToast('Formato de email inválido.');         
         }         
         if(err['code'] == 'auth/weak-password'){           
-          console.log('Senha fraca');         
+          this.presentToast('Senha fraca');         
         }         
         if(err['code'] == 'auth/email-already-in-use'){           
-          console.log("E-mail já cadastrado");         
+          this.presentToast("E-mail já cadastrado");         
         }
       });
   	}catch(err){
   		console.log(err);
-  	}
+  	}finally{
+      this.cadastrando = false;
+    }
+  }
+
+  async checkCod(email, codigo){
+    if(!codigo){
+      return true;
+    }
+    let codVals = {
+      email: email,
+      codigo: codigo
+    }
+    let cod: any = await this.data.requestPost(codVals, 'checkCod');
+    console.log(cod);
+    if(!cod.status){
+      this.presentToast('Código inválido');
+      return false;
+    }else{
+      return true;
+    }
   }
 
 }

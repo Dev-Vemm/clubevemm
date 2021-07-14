@@ -42,6 +42,14 @@
 				<ion-label position=stacked>Senha</ion-label>
 				<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
 			</ion-item>
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>Repita a Senha</ion-label>
+				<ion-input type="password" class="senhaInput" [(ngModel)]="rSenha"></ion-input>
+			</ion-item>
+			<ion-item class="item-cadastro">
+				<ion-label position=stacked>Código de convite (opcional)</ion-label>
+				<ion-input type="password" class="senhaInput" [(ngModel)]="codigo" [readonly]="block"></ion-input>
+			</ion-item>
 		</div>
 		<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha)" shape="round" expand="block">Cadastrar</ion-button>
 		<div class="footer ion-text-center">
@@ -95,8 +103,16 @@
 							<ion-label position=stacked class="lblForm">Senha</ion-label>
 							<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
 						</ion-item>
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">Repita a Senha</ion-label>
+							<ion-input type="password" class="rSenhaInput" [(ngModel)]="rSenha"></ion-input>
+						</ion-item>
+						<ion-item class="item-cadastro">
+							<ion-label position=stacked class="lblForm">Código de convite (opcional)</ion-label>
+							<ion-input type="text" class="codInput" [(ngModel)]="codigo" [readonly]="block"></ion-input>
+						</ion-item>
 					</div>
-					<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha)" shape="round" expand="block">Acessar</ion-button>
+					<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha, rSenha, codigo)" shape="round" expand="block">Acessar</ion-button>
 					<div class="footer">
 						<p class="terms">Ao registrar você concorda com os nossos <a>Termos de Serviços</a> e nossa <a>Política de Privacidade</a>.</p>
 					</div>
