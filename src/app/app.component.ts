@@ -48,12 +48,12 @@ export class AppComponent {
         this.oneSignal.handleNotificationOpened().subscribe(data => {console.log(data); this.onPushOpened(data.notification.payload)});
         this.oneSignal.endInit();
         this.oneSignal.getIds().then(identity => {
-          this.data.getStorage('USER').then((user)=>{
-            if(user[0].ONE_SIGNAL_ID !== identity.userId){
+          /*this.data.getStorage('USER').then((user)=>{
+            if(user[0] && user[0].ONE_SIGNAL_ID !== identity.userId){
               let vals = {uid: user[0].UID, oneSignal: identity.userId};
               this.data.requestPost(vals, 'onesignal');  
             }
-          });          
+          });      */    
         });
       }
       this.statusBar.styleDefault();

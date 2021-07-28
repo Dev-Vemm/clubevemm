@@ -14,6 +14,7 @@ export class AuthGuard implements CanActivate {
 
   async canActivate(): Promise<boolean>{
   	let dt = await this.data.getStorage('USER');
+
     return new Promise((resolve) =>{
   		if(dt){
   			if(dt[0].PLANO_ID == null){

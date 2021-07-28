@@ -11,7 +11,7 @@
 			</div>
 			<div class="avatar">
 				<ion-avatar slot="end">
-				    <ion-img src="https://painel.clubevemm.com.br/storage/app/public/avatars/{{usuario.avatar}}"></ion-img>
+				    <ion-img [src]="usuario.avatar"></ion-img>
 				</ion-avatar>
 				<ion-button shape="round" fill="clear" class="camera-btn" (click)="open()">
 					<ion-icon name="camera-outline"></ion-icon>
@@ -122,7 +122,7 @@
 			<div class="hist-foto">
 				<div class="avatar-perfil ion-text-center">
 					<ion-avatar slot="end" class="perfil-avatar">
-					    <ion-img src="assets/imgs/img-a.png"></ion-img>
+					    <ion-img [src]="usuario.avatar"></ion-img>
 					</ion-avatar>
 					<ion-label class="lbl-img">Alterar imagem</ion-label>
 				</div>
@@ -146,7 +146,7 @@
 		<div class="header-right">
 			<div>
 				<ion-avatar slot="end" class="desk-avatar">
-				    <ion-img src="assets/imgs/img-a.png"></ion-img>
+				    <ion-img [src]="usuario.avatar"></ion-img>
 				</ion-avatar>
 			</div>
 			<!-- <div class="ponto-desk-header ion-text-center">

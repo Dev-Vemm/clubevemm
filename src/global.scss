@@ -25,10 +25,6 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-ion-content{
-  --background:#ffff !important;
-}
-
 .header-md::after{
 	background-image: none !important;
 }
@@ -186,6 +182,10 @@ ion-content{
 }
 
 @media (min-width: 1025px){
+  ion-content{
+    --background:#ffff !important;
+  }
+  
   .searchbar-input.sc-ion-searchbar-md {
     height: 45px !important;
     font-size: 12px;

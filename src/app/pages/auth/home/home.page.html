@@ -15,7 +15,7 @@
 		    	<ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
 		    </div>
 		  	<ion-avatar slot="end">
-			    <ion-img src="assets/imgs/img-a.jpg"></ion-img>
+			    <ion-img [src]="usuario.avatar"></ion-img>
 			</ion-avatar>
 	  	</ion-toolbar>
 	</ion-header>
@@ -170,7 +170,7 @@
 		<div class="header-right">
 			<div>
 				<ion-avatar slot="end" class="desk-avatar">
-				    <ion-img src="assets/imgs/img-a.png"></ion-img>
+				    <ion-img [src]="usuario.avatar"></ion-img>
 				</ion-avatar>
 			</div>
 			<!-- <div class="ponto-desk-header ion-text-center">

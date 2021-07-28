@@ -71,6 +71,7 @@ export class HomePage implements OnInit {
   load: boolean = false;
   visitante: boolean = false;
   plat: any;
+  src: string;
 
   public ofertas_recentes = [];
 
@@ -78,7 +79,8 @@ export class HomePage implements OnInit {
     nome: '',
     email:'',
     plano: '',
-    data_entrada: ''
+    data_entrada: '',
+    avatar: ''
   };
 
   public historico = [];
@@ -101,10 +103,8 @@ export class HomePage implements OnInit {
       this.usuario.email = this.user[0].EMAIL;
       this.usuario.plano = this.user[0].TITULO;
       this.usuario.nome = this.user[0].NOME;
-
+      this.usuario.avatar = this.requestAvatar(this.user[0].AVATAR);
       await this.loadContent();
-
-      this.loadContent();
 
       if(this.user.vistante){
         this.visitante = true;
@@ -128,10 +128,6 @@ export class HomePage implements OnInit {
 
   async loadContent(){
     this.data.requestPost({uid: this.user[0].UID}, 'principal').then((APIres:any)=>{
-
-      console.log(APIres)
-
-
       this.segmentos = APIres.segmentos;
       this.melhoresOfertas = APIres.melhores;
       this.cupons = APIres.destaques;
@@ -159,6 +155,10 @@ export class HomePage implements OnInit {
 
   navigate(url){
   	this.route.navigate([url]);
+  }
+
+  requestAvatar(avatar){
+    return (avatar)? 'https://painel.clubevemm.com.br/storage/app/' + avatar : 'assets/imgs/img-a.png';
   }
 
   continuar(pacote){

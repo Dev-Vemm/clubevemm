@@ -1,0 +1,53 @@
+<ion-content>
+  <ion-header class="ion-no-border" no-border>
+		<ion-toolbar lines="none">
+			<div class="logo">
+			    <ion-img src="assets/imgs/logo/logo-verde.png"></ion-img>
+			</div>
+			<div class="intro ion-text-center">
+			    <ion-label>Bem vindo(a), {{usuario.nome}}</ion-label>
+			    <br>
+			    <!-- <ion-label class="lblMoeda"><ion-icon src="assets/imgs/icons/moeda.svg" class="icon-moeda"></ion-icon><span class="pontos-quant">{{usuario.pontos}}</span></ion-label> -->
+			</div>
+		</ion-toolbar>
+	</ion-header>
+  <div class="body">
+    <div class="body-header">
+      <p class="p-body-header">Para ter o total proveito do Clube Vemm, é necessário você nos informar os seus dados.</p>
+    </div>
+    <div class="body-part">
+      <ion-item class="item-cadastro">
+        <ion-label position="stacked">CPF</ion-label>
+        <ion-input type="text" [(ngModel)]="cpf" placeholder="xxx-xxx-xxx-xx" [brmasker]="{mask: '000.000.000-00', type:'num', len:14}"></ion-input>
+      </ion-item>
+      <span class="span-cpf" *ngIf="c1">O campo não pode ser vazio.</span>
+      <ion-item class="item-cadastro">
+        <ion-label position="stacked">Data de Nascimento</ion-label>
+        <ion-input type="text" [(ngModel)]="data_nascimento" placeholder="dd/mm/aaaa" [brmasker]="{mask: '00/00/0000', type:'num', len:10}"></ion-input>
+      </ion-item>
+      <span class="span-data" *ngIf="c1">O campo não pode ser vazio.</span>
+      <ion-item>
+          <ion-label position="stacked">Sexo</ion-label>
+          <ion-radio-group [(ngModel)]="sexo">
+            <ion-item>
+              <ion-label>Masculino</ion-label>
+              <ion-radio slot="start" value="M" (click)="setSexo('M')"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Feminino</ion-label>
+              <ion-radio slot="start" value="F" (click)="setSexo('F')"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+      </ion-item>
+      <span class="span-sexo" *ngIf="c1">O campo não pode ser vazio.</span>
+      <ion-item class="item-cadastro">
+        <ion-label position="stacked">Celular</ion-label>
+        <ion-input type="text" [(ngModel)]="telefone" placeholder="(ddd) x xxxx-xxxx" [brmasker]="{mask: '(00) 0 0000-0000', type:'num', len:16}"></ion-input>
+      </ion-item>
+      <span class="span-data" *ngIf="c1">O campo não pode ser vazio.</span>
+    </div>
+    <div class="body-footer">
+      <ion-button expand="block" shape="round" class="btn-finalizar">Finalizar</ion-button>
+    </div>
+  </div>
+</ion-content>

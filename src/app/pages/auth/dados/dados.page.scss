@@ -1,0 +1,45 @@
+ion-toolbar{
+    --background: #48008D;
+    border-radius: 100px / 30px;
+    height: 75vw;
+    position: absolute;
+    top: -43px;
+}
+
+.logo{
+	width: 30%;
+    margin: 25% auto 0;
+}
+
+.intro{
+	float: left;
+    font-size: 15px;
+    color: #FFF;
+    padding: 10%;
+    font-family: 'Hero-Bold';
+}
+
+ion-radio-group{
+    margin-top: 3%;
+}
+
+.body{
+    margin-top: 65%;
+}
+
+.body-header{
+    padding: 1% 3%;
+    text-align: center;
+    font-family: 'Hero-Bold';
+}
+
+.btn-finalizar{
+	--background: #FF5400;
+    height: 15vw;
+    font-family: 'Hero-Regular';
+    text-transform: none;
+}
+
+.body-footer{
+    padding: 5% 10%;
+}

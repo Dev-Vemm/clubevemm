@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'pagamento',
     loadChildren: () => import('./pages/auth/pagamento/pagamento.module').then( m => m.PagamentoPageModule)
   },
+  {
+    path: 'dados',
+    loadChildren: () => import('./pages/auth/dados/dados.module').then( m => m.DadosPageModule)
+  },
 ];
 
 @NgModule({

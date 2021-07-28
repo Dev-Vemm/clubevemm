@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { config } from '../configs/config';
 import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+//import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Storage } from '@ionic/storage';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class DataService {
 
   	constructor(
       private http: HTTP, 
-      private storage: NativeStorage, 
+      //private storage: NativeStorage, 
       private client: HttpClient,
       private wStorage: Storage
     ) {}
@@ -92,22 +92,22 @@ export class DataService {
   	}
 
     async setStorage(key, arr){
-      if(this.isCordovaAvailable()){
-        await this.storage.setItem(key, arr);
-      }else{
+      //if(this.isCordovaAvailable()){
+        //await this.storage.setItem(key, arr);
+      //}else{
         await this.wStorage.set(key, arr);
-      }
+      //}
     }
 
     async getStorage(key){
       return new Promise((resolve, reject) =>{
         try{
           let s: any;
-          if(this.isCordovaAvailable()){
-            s = this.storage.getItem(key);
-          }else{
+          //if(this.isCordovaAvailable()){
+            //s = this.storage.getItem(key);
+          //}else{
             s = this.wStorage.get(key);
-          }
+          //}
           s.then((res)=>{
             resolve(res);
           });
@@ -118,10 +118,10 @@ export class DataService {
     }
 
     async removeStorage(key){
-      if(this.isCordovaAvailable()){
-        await this.storage.remove(key);
-      }else{
+      //if(this.isCordovaAvailable()){
+        //await this.storage.remove(key);
+      //}else{
         await this.wStorage.remove(key);
-      }
+      //}
     }
 }

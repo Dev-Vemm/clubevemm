@@ -66,7 +66,9 @@ export class PerflFotoComponent implements OnInit {
         uid: this.uid,
         file: file
       }; 
+      console.log(vals);
       const result:any = await this.service.requestPost(vals, 'atualizarImg');
+      console.log(result);
       this.img = result['img'];
     }catch(err){
       console.log(err);

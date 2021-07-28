@@ -104,7 +104,7 @@ export class PerfilPage implements OnInit {
         email: this.user[0].EMAIL,
         pontos: this.user[0].PONTOS,
         plano: this.user[0].TITULO,
-        avatar: (this.user[0].AVATAR)? this.user[0].AVATAR : '',
+        avatar: this.requestAvatar(this.user[0].AVATAR),
         data_entrada: t.toLocaleString().split(' ').join(' - ')
       };
       this.activatedRoute.queryParams.subscribe(async params => {
@@ -119,6 +119,10 @@ export class PerfilPage implements OnInit {
     });
   }
 
+  requestAvatar(avatar){
+    return (avatar)? 'https://painel.clubevemm.com.br/storage/app/public/avatars/' + avatar : 'assets/imgs/img-a.png';
+  }
+
   async open(){
     let pop = await this.popCtrl.create({
       component: PerflFotoComponent,
@@ -128,7 +132,7 @@ export class PerfilPage implements OnInit {
     });
     pop.onDidDismiss().then((ds: any) =>{
       if(ds['data'].img){
-        this.usuario.avatar = ds['data'].img;
+        this.usuario.avatar = 'https://painel.clubevemm.com.br/storage/app/public/avatars/' + ds['data'].img;
       }
     });
     return await pop.present();
