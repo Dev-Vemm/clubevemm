@@ -15,6 +15,7 @@ import { Socket } from 'ngx-socket-io';
 export class HomePage implements OnInit {
   public lorem = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letr';
   public bg = "url('assets/imgs/cover.png')";
+  public vermais:boolean = false;
   
   public btnsMenus = [{
     icon: 'assets/imgs/icons/hospedagem_btn.png',
@@ -135,6 +136,31 @@ export class HomePage implements OnInit {
       this.historico = APIres.historico;
       this.destaque = APIres.pacote;
     });
+  }
+
+  async addContent(seg){
+    this.vermais = true;
+    try{
+      const vals = {
+        uid: this.user[0].UID,
+        segmento: seg
+      };
+      const ofertas:any = await this.data.requestPost(vals, 'requestMaisOfertas');
+      var contador = 0;
+      var limite = 2;
+      for(var i = 0; i < ofertas.length; i++){
+        if(!this.segmentos.find(x => x.id == seg).prods.some(y => y.oferta_id == ofertas[i].oferta_id)){
+          if(contador < limite){
+            this.segmentos.find(x => x.id == seg).prods.push(ofertas[i]);
+            contador++;
+          }
+        }
+      }
+    }catch(err){
+      console.log(err);
+    }finally{
+      this.vermais = false;
+    }
   }
 
   openLink(link){

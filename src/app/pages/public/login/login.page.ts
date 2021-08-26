@@ -14,6 +14,7 @@ export class LoginPage implements OnInit {
   senha: string;
   cadastrando: boolean = false;
   plat: any;
+  log:boolean = false;
   url = 'assets/web/web-p.png';
   constructor(
     private firebase: FirebaseService, 
@@ -30,8 +31,9 @@ export class LoginPage implements OnInit {
     this.router.navigate([url]);
   }
 
-  login(email, senha){
+  async login(email, senha){
     this.cadastrando = true;
+    this.log = true;
     try{
       this.firebase.login(email, senha).then((fireLogin) =>{
         if(fireLogin['user']){
@@ -67,9 +69,11 @@ export class LoginPage implements OnInit {
         }
       });
       this.cadastrando = false;
+      this.log = false;
     }catch(err){
       console.log(err);
       this.cadastrando = false;
+      this.log = false;
     }
   }
 

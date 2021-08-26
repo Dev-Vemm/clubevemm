@@ -19,6 +19,7 @@ export class CadastroPage implements OnInit {
   nome: string;
   cadastrando: boolean = false;
   plat: any;
+  log = false;
   url = 'assets/web/web-p.png';
   constructor(
     private firebase: FirebaseService, 
@@ -57,6 +58,7 @@ export class CadastroPage implements OnInit {
       return false;
     }
   	this.cadastrando = true;
+    this.log = true;
   	try{
       let check = await this.checkCod(email, codigo);    
       if(!check){
@@ -87,6 +89,7 @@ export class CadastroPage implements OnInit {
               ];
               this.data.setStorage('USER', arr);
               this.cadastrando = false;
+              this.log = false;
   						this.router.navigate(['menu']);
   					}
   				});
@@ -101,11 +104,14 @@ export class CadastroPage implements OnInit {
         if(err['code'] == 'auth/email-already-in-use'){           
           this.presentToast("E-mail já cadastrado");         
         }
+        this.log = false;
       });
   	}catch(err){
   		console.log(err);
+      this.log = false;
   	}finally{
       this.cadastrando = false;
+      this.log = false;
     }
   }
 

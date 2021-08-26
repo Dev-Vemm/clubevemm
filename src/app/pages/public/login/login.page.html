@@ -39,7 +39,7 @@
 				<ion-input type="password" class="senhaInput" [(ngModel)]="senha"></ion-input>
 			</ion-item>
 		</div>
-		<ion-button class="btn-enviar btn-base" (click)="login(email, senha)" shape="round" expand="block">Acessar</ion-button>
+		<ion-button class="btn-enviar btn-base" (click)="login(email, senha)" shape="round" expand="block" [disabled]="log"><span *ngIf="!log">Acessar</span><ion-spinner class="sp" *ngIf="log" name="dots"></ion-spinner></ion-button>
 		<div class="footer ion-text-center">
 			<p class="senhaReset">Esqueceu a senha? <a (click)="navigate('reset-senha')" class="aSenha">Clique aqui.</a></p>
 		</div>

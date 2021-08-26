@@ -19,10 +19,10 @@
 			<ion-card *ngFor="let prod of ofertas">
 				<ion-card-title class="title-card" (click)="abrirDetalhes(prod)">
 					<ion-label class="nome-prod">{{prod.nome}}</ion-label>
-					<div class="quantPontosSegmento" *ngIf="prod.custo">
+					<!-- <div class="quantPontosSegmento" *ngIf="prod.custo">
 						<ion-icon src="assets/imgs/icons/moeda.svg" class="segmento-img-moeda"></ion-icon>
 						<ion-label class="lblCusto">{{prod.custo}}</ion-label>	
-					</div>
+					</div> -->
 				</ion-card-title>
 				<ion-card-content class="content-prod-segmento">
 					<ion-item lines="none" class="segs-inner ion-no-padding">
@@ -38,13 +38,13 @@
 					</ion-item>
 				</ion-card-content>
 			</ion-card>
-			<div class="verMais ion-text-center">
-				<ion-button fill="clear" class="btn-ver-mais"><ion-img src="assets/imgs/icons/ver-mais.png" class="img-ver-mais"></ion-img></ion-button>
-			</div>
+			<!-- <div class="verMais ion-text-center">
+				<ion-button fill="clear" class="btn-ver-mais" (click)="addContent(detalhes.id)"><ion-img src="assets/imgs/icons/ver-mais.png" class="img-ver-mais"></ion-img></ion-button>
+			</div> -->
 		</div>
 	</div>
 
-	<div class="content">
+	<div class="content" *ngIf="detalhes.id == 4">
 		<div class="header">
 			<ion-label class="segmento-title">{{detalhes.content}}</ion-label>
 		</div>

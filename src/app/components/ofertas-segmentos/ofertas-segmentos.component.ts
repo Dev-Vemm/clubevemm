@@ -17,6 +17,7 @@ export class OfertasSegmentosComponent implements OnInit {
   public ofertas: any = [];
   private modalOpen = false;
   public destaque: any;
+  public vermais:boolean = false;
   constructor(
     private modaCtrl: ModalController,
     private navParam: NavParams, 
@@ -30,6 +31,31 @@ export class OfertasSegmentosComponent implements OnInit {
 
   voltar(){
   	this.modal.dismiss();
+  }
+
+  async addContent(seg){
+    this.vermais = true;
+    try{
+      const vals = {
+        uid: this.uid,
+        segmento: seg
+      };
+      const ofertas:any = await this.data.requestPost(vals, 'requestMaisOfertas');
+      var contador = 0;
+      var limite = 2;
+      for(var i = 0; i < ofertas.length; i++){
+        if(!this.ofertas.some(y => y.oferta_id == ofertas[i].oferta_id)){
+          if(contador < limite){
+            this.ofertas.push(ofertas[i]);
+            contador++;
+          }
+        }
+      }
+    }catch(err){
+      console.log(err);
+    }finally{
+      this.vermais = false;
+    }
   }
 
   async loadData(request){
@@ -50,6 +76,7 @@ export class OfertasSegmentosComponent implements OnInit {
   	try{
   		this.data.requestPost(vals, endpoint).then((res) =>{
         	if(res){
+            console.log(res);
         		this.ofertas = res;
         	}
 	    }).then(()=>{
