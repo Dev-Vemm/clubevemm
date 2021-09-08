@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content  *ngIf="!plat">
   <ion-header class="ion-no-border" no-border>
 		<ion-toolbar lines="none">
 			<div class="logo">
@@ -88,4 +88,116 @@
       <ion-button expand="block" shape="round" class="btn-finalizar" (click)="finalizar(data_nascimento, sexo, cpf, telefone, dependentes)">Finalizar</ion-button>
     </div>
   </div>
+</ion-content>
+
+
+<ion-content *ngIf="plat">
+	<div class="content-centro">
+		<div class="desk-header">
+			<ion-label class="label-desk-header" slot="start">Olá, {{usuario.nome}}</ion-label>
+			<ion-img [src]="asset" class="img-desk"></ion-img>
+		</div>
+		<div class="content-body">
+			<div class="dados">
+				<div class="body-header">
+          <p class="p-body-header">Para ter o total proveito do Clube Vemm, é necessário você nos informar os seus dados.</p>
+        </div>
+        <div class="body-part">
+          <ion-item class="item-cadastro">
+            <ion-label position="stacked">CPF</ion-label>
+            <ion-input type="text" [(ngModel)]="cpf" placeholder="xxx-xxx-xxx-xx" [brmasker]="{mask: '000.000.000-00', type:'num', len:14}"></ion-input>
+          </ion-item>
+          <span class="span-cpf" *ngIf="c1">O campo não pode ser vazio.</span>
+          <ion-item class="item-cadastro">
+            <ion-label position="stacked">Data de Nascimento</ion-label>
+            <ion-input type="text" [(ngModel)]="data_nascimento" placeholder="dd/mm/aaaa" [brmasker]="{mask: '00/00/0000', type:'num', len:10}"></ion-input>
+          </ion-item>
+          <span class="span-data" *ngIf="c1">O campo não pode ser vazio.</span>
+          <ion-item>
+              <ion-label position="stacked">Sexo</ion-label>
+              <ion-radio-group [(ngModel)]="sexo">
+                <ion-item>
+                  <ion-label>Masculino</ion-label>
+                  <ion-radio slot="start" value="M" (click)="setSexo('M')"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Feminino</ion-label>
+                  <ion-radio slot="start" value="F" (click)="setSexo('F')"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+          </ion-item>
+          <span class="span-sexo" *ngIf="c1">O campo não pode ser vazio.</span>
+          <ion-item class="item-cadastro">
+            <ion-label position="stacked">Celular</ion-label>
+            <ion-input type="text" [(ngModel)]="telefone" placeholder="(ddd) x xxxx-xxxx" [brmasker]="{mask: '(00) 0 0000-0000', type:'num', len:16}"></ion-input>
+          </ion-item>
+          <span class="span-data" *ngIf="c1">O campo não pode ser vazio.</span>
+          <div class="deps" *ngIf="usuario.deps > 0">
+            <div class="btn-add">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="10">
+                    <h5>Adicionar dependentes</h5>
+                  </ion-col>
+                  <ion-col size="2">
+                    <ion-button class="register-group" fill="clear" (click) = "addDeps()"><ion-icon name="add"></ion-icon></ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+            <div class="deps-list" *ngFor="let d of dependentes; let i = index;">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="10">
+                    <p class="dep-title">Dependente {{i+1}}</p>
+                  </ion-col>
+                  <ion-col size="2">
+                    <ion-button class="del-group" fill="clear" (click) = "removeDeps(i)"><ion-icon name="remove"></ion-icon></ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-item>
+                <ion-label position="stacked">Nome</ion-label>
+                <ion-input type="text" [(ngModel)]="d.nome"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">Data de Nascimento</ion-label>
+                <ion-input type="text" [(ngModel)]="d.nasc" placeholder="dd/mm/aaaa" [brmasker]="{mask: '00/00/0000', type:'num', len:10}"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">CPF</ion-label>
+                <ion-input type="text" [(ngModel)]="d.cpf" placeholder="xxx-xxx-xxx-xx" [brmasker]="{mask: '000.000.000-00', type:'num', len:14}"></ion-input>
+              </ion-item>
+            </div>
+          </div>
+        </div>
+        <div class="body-footer">
+          <ion-button expand="block" shape="round" class="btn-finalizar" (click)="finalizar(data_nascimento, sexo, cpf, telefone, dependentes)">Finalizar</ion-button>
+        </div>
+			</div>
+		</div>
+		<div class="desk-footer">
+			<ion-label class="label-desk-footer">VALORIZE A VIDA. USE MÁSCARA E MANTENHA DISTANCIAMENTO.</ion-label>
+			<ion-img [src]="asset" class="img-desk-footer"></ion-img>
+		</div>
+	</div>
+	<div class="content-right">
+		<div class="header-right">
+			<div>
+				<ion-avatar slot="end" class="desk-avatar">
+				    <ion-img [src]="usuario.avatar"></ion-img>
+				</ion-avatar>
+			</div>
+		</div>
+		<div class="status">
+			<div class="title-status ion-text-center">
+				<ion-label class="status-titulo">Informações da Conta</ion-label>	
+			</div>
+			<div class="conta">
+				<p class="conta-lbl">Email: <span class="conta-span">{{usuario.email}}</span></p>
+				<p class="conta-lbl">Plano: <span class="conta-span">{{usuario.plano}}</span></p>
+				<p class="conta-lbl">Data de Entrada: <span class="conta-span">{{usuario.data_entrada}}</span></p>
+			</div>
+		</div>
+	</div>
 </ion-content>

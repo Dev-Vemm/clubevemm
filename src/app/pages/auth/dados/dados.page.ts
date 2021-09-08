@@ -21,6 +21,7 @@ export class DadosPage implements OnInit {
   	nome: '',
     deps: 0
   };
+  public asset = 'assets/imgs/success.png';
   private uid: string;
   constructor(
     private data: DataService, 
@@ -34,12 +35,25 @@ export class DadosPage implements OnInit {
     this.platform.ready().then(async ()=>{
       this.plat = (this.platform.width() >= 1025)? true : false;
       this.user = await this.data.getStorage('USER');
+      var a = this.user[0].DATA_HORA_ENTRADA.split(/[- :]/);
+      // Apply each element to the Date function
+      var d = new Date(a[0], a[1]-1, a[2], a[3], a[4], a[5]);
+      var t = new Date(d);
       this.usuario = {
         nome: this.user[0].NOME,
-        deps: this.user[0].DEPENDENTES
+        email: this.user[0].EMAIL,
+        pontos: this.user[0].PONTOS,
+        plano: this.user[0].TITULO,
+        deps: this.user[0].DEPENDENTES,
+        avatar: this.requestAvatar(this.user[0].AVATAR),
+        data_entrada: t.toLocaleString().split(' ').join(' - ')
       };
       this.uid = this.user[0].UID;
     });
+  }
+
+  requestAvatar(avatar){
+    return (avatar)? 'https://painel.clubevemm.com.br/storage/app/public/avatars/' + avatar : 'assets/imgs/img-a.png';
   }
 
   async presentLoading(msg){
