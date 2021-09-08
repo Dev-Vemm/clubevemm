@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
+import { DadosGuard } from './guards/dados.guard';
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
   },
   {
     path: 'dados',
-    loadChildren: () => import('./pages/auth/dados/dados.module').then( m => m.DadosPageModule)
+    loadChildren: () => import('./pages/auth/dados/dados.module').then( m => m.DadosPageModule),
+    canActivate: [DadosGuard]
   },
 ];
 
