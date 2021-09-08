@@ -43,7 +43,7 @@ export class DataService {
         return new Promise((resolve, reject) =>{
           this.http.get(this.url + endpoint, vals, this.headers).then((data)=>{
             let parsedData = JSON.parse(data['data']);
-            console.log(parsedData);
+            //console.log(parsedData);
             resolve(parsedData);
           }).catch((err) =>{
             console.log(err);
@@ -69,7 +69,7 @@ export class DataService {
         return new Promise((resolve, reject) =>{
           this.http.post(this.url + endpoint, vals, this.headers).then((data)=>{
             let parsedData = JSON.parse(data['data']);
-            console.log(parsedData);
+            //console.log(parsedData);
             resolve(parsedData);
           }).catch((err) =>{
             console.log(err);

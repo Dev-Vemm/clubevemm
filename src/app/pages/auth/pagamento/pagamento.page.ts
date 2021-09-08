@@ -127,7 +127,7 @@ export class PagamentoPage implements OnInit {
   			cod_cartao: CC
   		};
   		await this.data.requestPost(vals, 'pagamento').then((res: any) =>{
-  			if(res.status == 1){
+  			if(res.payment.status == 2){
   				this.data.requestPost({uid: uid, plano_id: plano, email: email}, 'contratar').then((res)=>{
 			        if(res){
                 this.data.setStorage('USER', res).then(()=>{

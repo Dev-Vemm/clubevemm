@@ -73,6 +73,10 @@ const routes: Routes = [
 		    path: 'historico',
 		    loadChildren: () => import('../pontos/pontos.module').then( m => m.PontosPageModule)
 		},
+		{
+		  path: 'card',
+		  loadChildren: () => import('../card/card.module').then( m => m.CardPageModule)
+		},
     ]
   },
 ];

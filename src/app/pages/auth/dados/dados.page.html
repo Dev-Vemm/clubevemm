@@ -45,9 +45,47 @@
         <ion-input type="text" [(ngModel)]="telefone" placeholder="(ddd) x xxxx-xxxx" [brmasker]="{mask: '(00) 0 0000-0000', type:'num', len:16}"></ion-input>
       </ion-item>
       <span class="span-data" *ngIf="c1">O campo não pode ser vazio.</span>
+      <div class="deps" *ngIf="usuario.deps > 0">
+        <div class="btn-add">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="10">
+                <h5>Adicionar dependentes</h5>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button class="register-group" fill="clear" (click) = "addDeps()"><ion-icon name="add"></ion-icon></ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="deps-list" *ngFor="let d of dependentes; let i = index;">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="10">
+                <p class="dep-title">Dependente {{i+1}}</p>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button class="register-group" fill="clear" (click) = "removeDeps(i)"><ion-icon name="remove"></ion-icon></ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-item>
+            <ion-label position="stacked">Nome</ion-label>
+            <ion-input type="text" [(ngModel)]="d.nome"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Data de Nascimento</ion-label>
+            <ion-input type="text" [(ngModel)]="d.nasc" placeholder="dd/mm/aaaa" [brmasker]="{mask: '00/00/0000', type:'num', len:10}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">CPF</ion-label>
+            <ion-input type="text" [(ngModel)]="d.cpf" placeholder="xxx-xxx-xxx-xx" [brmasker]="{mask: '000.000.000-00', type:'num', len:14}"></ion-input>
+          </ion-item>
+        </div>
+      </div>
     </div>
     <div class="body-footer">
-      <ion-button expand="block" shape="round" class="btn-finalizar">Finalizar</ion-button>
+      <ion-button expand="block" shape="round" class="btn-finalizar" (click)="finalizar(data_nascimento, sexo, cpf, telefone, dependentes)">Finalizar</ion-button>
     </div>
   </div>
 </ion-content>

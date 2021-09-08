@@ -20,7 +20,11 @@ export class AuthGuard implements CanActivate {
   			if(dt[0].PLANO_ID == null){
 	  			this.router.navigate(['planos']);
 	  		}else{
-	  			resolve(true);
+				if(dt[0].CPF == null || dt[0].TELEFONE == null || dt[0].NASCIMENTO == '0000-00-00' || dt[0].SEXO == null){
+					this.router.navigate(['dados']);
+				}else{
+					resolve(true);
+				}
 	  		}
 	  	}else{
 	  		this.router.navigate(['start']);

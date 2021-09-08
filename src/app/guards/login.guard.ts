@@ -16,9 +16,9 @@ export class LoginGuard implements CanActivate {
   	return new Promise(resolve =>{
   		this.afa.onAuthStateChanged(state =>{
   			if(state){
-  			this.router.navigate(['menu']);
-  		}
-  		resolve(!state? true : false);
+  				this.router.navigate(['menu']);
+			}
+			resolve(!state? true : false);
   		});
   	});
   }

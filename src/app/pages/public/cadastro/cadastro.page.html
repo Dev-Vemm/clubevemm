@@ -51,7 +51,7 @@
 				<ion-input type="password" class="senhaInput" [(ngModel)]="codigo" [readonly]="block"></ion-input>
 			</ion-item>
 		</div>
-		<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha)" shape="round" expand="block" [disabled]="log"><span *ngIf="!log">Cadastrar</span><ion-spinner class="sp" *ngIf="log" name="dots"></ion-button>
+		<ion-button class="btn-enviar btn-base" (click)="cadastrar(nome, email, senha)" shape="round" expand="block" [disabled]="log"><span *ngIf="!log">Cadastrar</span><ion-spinner class="sp" *ngIf="log" name="dots"></ion-spinner></ion-button>
 		<div class="footer ion-text-center">
 			<p>Ao registrar você concorda com os nossos <a>Termos de Serviços</a> e nossa <a>Política de Privacidade</a>.</p>
 		</div>

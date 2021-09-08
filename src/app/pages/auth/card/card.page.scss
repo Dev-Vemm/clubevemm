@@ -1,0 +1,492 @@
+ion-toolbar{
+    --background: #48008D;
+    border-radius: 100px / 30px;
+    height: 75vw;
+    position: absolute;
+    top: -43px;
+}
+
+.item-card{
+    --background: transparent;
+}
+
+.lbl-card{
+    color: #FFFFFF;
+    font-family: 'Hero-Bold';
+    font-size: 13px;
+}
+
+.inp-card{
+    --color: #0AE28F;
+    font-family: 'Hero-Regular';
+    font-size: 13px;
+}
+
+.card-verso {
+    background: #48008D;
+    margin: 67% 0 0;
+    border-radius: 15px;
+}
+
+.topo{
+    padding: 10% 0 5%;
+    text-align: center;
+}
+
+.img-topo{
+    width: 30%;
+    margin: auto;
+}
+
+.barra{
+    background: #000000;
+    padding: 5% 0;
+}
+
+.baixo{
+    padding: 1% 0;
+}
+ion-spinner{
+	transform: scale(2,7);
+    --color: #FFFFFF;
+    margin-top: 90%;
+    width: 100%;
+}
+
+.card-pontos{
+	height: 27vw;
+    border-radius: 10px;
+}
+
+.img-prod{
+	background-position: center;
+    background-size: cover;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 10px;
+    margin: 5% 4% 5% 0;
+}
+
+.desc-prod{
+	height: 100%;
+    font-size: 15px;
+    padding-top: 5vw;
+}
+
+.empresa{
+	font-family: 'Hero-Bold';
+    color: #48008D;
+}
+
+.lbl-produto{
+	font-family: 'Hero-Bold';
+    margin-top: 10%;
+}
+
+
+.logo{
+	width: 30%;
+    margin: 25% auto 0;
+}
+
+.intro{
+	float: left;
+    font-size: 15px;
+    color: #FFF;
+    padding: 10%;
+    font-family: 'Hero-Bold';
+}
+
+.avatar{
+	float: right;
+    padding: 6%;
+    margin-right: 3%;
+}
+
+ion-avatar{
+	width: 22vw;
+    height: 22vw;
+    border: 2px solid #FFF;
+}
+
+.principal{
+	padding: 2%;
+	margin: 3%;
+}
+
+.header{
+	font-size: 4vw;
+	padding: 2%;
+	margin: 3%;
+}
+
+.icon-moeda{
+    margin-top: 5%;
+}
+
+.btn-menu-header{
+	font-size: 12px;
+    color: #FFFFFF;
+	border-radius: 1.5em;
+    height: 7vw;
+    text-transform: none;
+    font-family: 'Hero-Bold'
+}
+
+.menu{
+	margin-top: 65%;
+    padding: 0 10%;
+}
+
+.meus-pontos{
+	float: left;
+	margin-top: 4%;
+}
+
+.pontuacao{
+	margin-top: 5%;
+	color: #FFFFFF;
+	font-size: 5.5vw;
+}
+
+.pontos-quant{
+	margin-left: 5%;
+}
+
+.ponto-gasto{
+	color: #FFA700;
+	font-family: 'Hero-Bold';
+}
+
+.lblMoeda{
+	font-size: 35px;
+}
+
+.label-perfil{
+	font-family: Poppins-Medium;
+	font-size: 4vw;
+	color: #8011CC;
+}
+
+.user-span{
+	color: #FF9500;
+}
+
+.logout{
+	width: 100%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.share{
+	margin: auto;
+}
+
+.btn-favoritos{
+	margin-left: 5%;
+}
+
+.conta-span{
+	color: #000000;
+    font-family: 'Hero-Regular';
+}
+
+.conta-lbl{
+	color: #48008D;
+    font-size: 16px;
+    font-family: 'Hero-Bold';
+}
+
+.conta{
+	padding: 5%;
+}
+
+.status, .senha{
+	padding: 22% 10% 10%;
+}
+
+.status-titulo{
+	color: #48008D;
+    font-size: 16px;
+    font-family: 'Hero-Bold';
+}
+
+.btn-logout{
+	--background: #FF5400;
+    height: 15vw;
+    font-family: 'Hero-Regular';
+    text-transform: none;
+}
+
+.senha-btn{
+    margin-top: 5%;
+}
+
+.afiliado-btn{
+    float: right;
+    font-size: 20px;
+    color: #48008D;
+}
+
+.camera-btn{
+    --color: #FFFFFF;
+}
+
+@media (min-width: 1025px) {
+    ion-content{
+        --background: #FFFFFF;
+    }
+
+    .card-verso {
+        background: #48008D;
+        margin: 5% 20%;
+        border-radius: 15px;
+    }
+
+    .baixo{
+        padding: 1% 2%;
+    }
+
+    .lbl-card{
+        color: #FFFFFF;
+        font-family: 'Hero-Bold';
+        font-size: 14px;
+    }
+    
+    .inp-card{
+        --color: #0AE28F;
+        font-family: 'Hero-Regular';
+        font-size: 14px;
+    }
+
+    .content-centro{
+        width: 74%;
+        height: 100%;
+        float: left;
+        margin: 0;
+        padding: 2%;
+    }
+
+    .content-right{
+        width: 25%;
+        height: 100%;
+        float: left;
+    }
+
+    .label-desk-header{
+        font-size: 20px;
+        color: #FFFFFF;
+        font-family: 'Hero-Bold';
+        padding: 3% 7%;
+    }
+
+    .desk-header{
+        border-radius: 15px;
+        background: #FFA700;
+        display: flex;
+        margin-bottom: 2%;
+    }
+
+    .desk-footer{
+        border-radius: 19px;
+        background: #FF5400;
+        display: flex;
+        margin-top: 4%;
+    }
+
+    .label-desk-footer{
+        width: 80%;
+        padding: 3% 10%;
+        font-family: 'Hero-Bold';
+    }
+
+    .img-desk{
+        width: 15%;
+        margin-left: 50%;
+    }
+
+    .img-desk-footer{
+        width: 10%;
+    }
+
+    .status{
+        padding: 12% 10% 10%;
+    }
+
+    .status-titulo{
+        color: #48008D;
+        font-size: 16px;
+        font-family: 'Hero-Bold';
+    }
+
+    .conta-lbl{
+        color: #48008D;
+        font-size: 13px;
+        font-family: 'Hero-Bold';
+    }
+
+    .conta-span{
+        color: #000000;
+        font-family: 'Hero-Regular';
+    }
+
+    ion-spinner{
+        transform: scale(2,7);
+        --color: #FFFFFF;
+        margin-top: 90%;
+        width: 100%;
+    }
+
+    .card-ponto-desk{
+        border-radius: 10px;
+    }
+
+    .img-prod-desk{
+        background-position: center;
+        background-size: cover;
+        width: 3vw;
+        height: 3vw;
+        border-radius: 10px;
+        margin: 5% 4% 5% 0;
+    }
+
+    .desc-prod-desk{
+        height: 100%;
+        font-size: 15px;
+        padding-top: 5%;
+    }
+
+    .empresa-desk{
+        font-family: 'Hero-Bold';
+        color: #0AE28F;
+        font-size: 12px;
+    }
+
+    .lbl-produto-desk{
+        font-family: 'Hero-Bold';
+        margin-top: 3%;
+        font-size: 14px;
+    }
+
+    .ponto-gasto-desk{
+        color: #FFA700;
+        font-family: 'Hero-Bold';
+    }
+
+    .desk-avatar{
+        width: 6vw;
+        height: 6vw;
+        border: 2px solid #FFFFFF;
+        margin: 8% auto;
+    }
+
+    .ponto-gasto-desk-header{
+        color: #48008D;
+        font-family: "Hero-Bold";
+        font-size: 20px;
+    }
+
+    .num-desk{
+        margin-top: 6%;
+    }
+
+    .historico{
+        height: 40vw;
+        overflow: hidden;
+    }
+
+    .content-body {
+        display: flex;
+    }
+
+    .dados {
+        width: 65%;
+        padding: 5%;
+    }
+
+    .info-pessoal{
+        font-size: 18px;
+        font-family: 'Hero-Bold';
+        color: #48008D;
+    }
+
+    .form-perfil{
+        margin-top: 5%;
+        display: block;
+    }
+
+    .alterar-plano{
+        font-size: 14px;
+        color: #C4C4C4;
+        font-family: 'Hero-Regular';
+        float: right;
+    }
+
+    .alterar-plano:hover{
+        cursor: pointer;
+    }
+
+    .btn-perfil{
+        text-transform: none;
+        width: 40%;
+        font-size: 15px;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+
+    .btn-cancelar{
+        --background: #FFA700;
+    }
+
+    .btns-perfil{
+        margin-top: 5%;
+    }
+
+    .hist-foto{
+        width: 35%;
+    }
+
+    .perfil-avatar{
+        width: 8vw;
+        height: 8vw;
+        margin: auto;
+        margin-top: 15%;    
+    }
+
+    .img-ponto{
+        width: 20%;
+    }    
+
+    .card-hist{
+        display: flex;
+        padding: 5% 0% 5% 22%;
+    }
+
+    .txt-ponto{
+        width: 80%;
+        padding: 2% 20% 5% 0%;
+    }
+
+    .pontosIniciais{
+        font-size: 20px;
+        font-family: 'Hero-Bold';
+        color: #48008D;
+    }
+
+    .box-hist{
+        padding: 5%;
+        margin-top: 10%;
+    }
+
+    .lbl-hist-gastos{
+        font-size: 12px;
+        font-family: 'Hero-Bold';
+        color: #48008D;
+    }
+
+    .lbl-img{
+        font-size: 14px;
+        color: #2F2E41;
+        font-family: 'Hero-Regular';
+    }
+}
