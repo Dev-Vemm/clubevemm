@@ -19,53 +19,59 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <div class="card-verso">
-              <div class="topo">
-                <ion-img src="assets/imgs/logo/logo-verde.png" class="img-topo"></ion-img>
+            <input type="checkbox" [checked]="cardCheck" id="card-check">
+              <div class="flip-card" (click)="checkCard(cardCheck)">
+                <div class="flip-card-inner">
+                  <div class="card-flip c-frente"></div>
+                  <div class="card-flip c-verso">
+                    <div class="topo">
+                      <ion-img src="assets/imgs/logo/logo-verde.png" class="img-topo"></ion-img>
+                    </div>
+                    <div class="barra"></div>
+                    <div class="baixo">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Nome do Usuário</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nome" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Nascimento</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nasc" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">CPF</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.cpf" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Tipo de plano</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.plano" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Vencimento</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="vencimento" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="barra"></div>
-              <div class="baixo">
-                <ion-grid>
-                  <ion-row>
-                    <ion-col size="4">
-                      <ion-item class="item-card" lines="none">
-                        <ion-label position="stacked" class="lbl-card">Nome do Usuário</ion-label>
-                        <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nome" readonly></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col size="4">
-                      <ion-item class="item-card" lines="none">
-                        <ion-label position="stacked" class="lbl-card">Nascimento</ion-label>
-                        <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nasc" readonly></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col size="4">
-                      <ion-item class="item-card" lines="none">
-                        <ion-label position="stacked" class="lbl-card">CPF</ion-label>
-                        <ion-input class="inp-card" type="text" [(ngModel)]="usuario.cpf" readonly></ion-input>
-                      </ion-item>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col size="4">
-                      <ion-item class="item-card" lines="none">
-                        <ion-label position="stacked" class="lbl-card">Tipo de plano</ion-label>
-                        <ion-input class="inp-card" type="text" [(ngModel)]="usuario.plano" readonly></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col size="4">
-                      <ion-item class="item-card" lines="none">
-                        <ion-label position="stacked" class="lbl-card">Vencimento</ion-label>
-                        <ion-input class="inp-card" type="text" [(ngModel)]="vencimento" readonly></ion-input>
-                      </ion-item>
-                    </ion-col>
-                    <ion-col size="4">
-                      
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-              </div>
-            </div>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -84,55 +90,58 @@
       <div class="card-body-row">
         <ion-grid>
           <ion-row>
-            
-          </ion-row>
-          <ion-row>
             <ion-col>
-              <div class="card-verso">
-                <div class="topo">
-                  <ion-img src="assets/imgs/logo/logo-verde.png" class="img-topo"></ion-img>
-                </div>
-                <div class="barra"></div>
-                <div class="baixo">
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col size="4">
-                        <ion-item class="item-card" lines="none">
-                          <ion-label position="stacked" class="lbl-card">Nome do Usuário</ion-label>
-                          <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nome" readonly></ion-input>
-                        </ion-item>
-                      </ion-col>
-                      <ion-col size="4">
-                        <ion-item class="item-card" lines="none">
-                          <ion-label position="stacked" class="lbl-card">Nascimento</ion-label>
-                          <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nasc" readonly></ion-input>
-                        </ion-item>
-                      </ion-col>
-                      <ion-col size="4">
-                        <ion-item class="item-card" lines="none">
-                          <ion-label position="stacked" class="lbl-card">CPF</ion-label>
-                          <ion-input class="inp-card" type="text" [(ngModel)]="usuario.cpf" readonly></ion-input>
-                        </ion-item>
-                      </ion-col>
-                    </ion-row>
-                    <ion-row>
-                      <ion-col size="4">
-                        <ion-item class="item-card" lines="none">
-                          <ion-label position="stacked" class="lbl-card">Tipo de plano</ion-label>
-                          <ion-input class="inp-card" type="text" [(ngModel)]="usuario.plano" readonly></ion-input>
-                        </ion-item>
-                      </ion-col>
-                      <ion-col size="4">
-                        <ion-item class="item-card" lines="none">
-                          <ion-label position="stacked" class="lbl-card">Vencimento</ion-label>
-                          <ion-input class="inp-card" type="text" [(ngModel)]="vencimento" readonly></ion-input>
-                        </ion-item>
-                      </ion-col>
-                      <ion-col size="4">
-                        
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
+              <input type="checkbox" [checked]="cardCheck" id="card-check">
+              <div class="flip-card" (click)="checkCard(cardCheck)">
+                <div class="flip-card-inner">
+                  <div class="card-flip c-frente"></div>
+                  <div class="card-flip c-verso">
+                    <div class="topo">
+                      <ion-img src="assets/imgs/logo/logo-verde.png" class="img-topo"></ion-img>
+                    </div>
+                    <div class="barra"></div>
+                    <div class="baixo">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Nome do Usuário</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nome" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Nascimento</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.nasc" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">CPF</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.cpf" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Tipo de plano</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="usuario.plano" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            <ion-item class="item-card" lines="none">
+                              <ion-label position="stacked" class="lbl-card">Vencimento</ion-label>
+                              <ion-input class="inp-card" type="text" [(ngModel)]="vencimento" readonly></ion-input>
+                            </ion-item>
+                          </ion-col>
+                          <ion-col size="4">
+                            
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ion-col>

@@ -18,6 +18,7 @@ export class CardPage implements OnInit {
   user: any;
   uid: string;
   vencimento: string;
+  cardCheck: boolean = false;
   public asset = 'assets/imgs/success.png';
   constructor(
     private data: DataService, 
@@ -64,6 +65,14 @@ export class CardPage implements OnInit {
     data[0] = parseInt(data[0]) + 1;
     let newData = data[2] + '/' + data[1] + '/' + data[0];
     return newData;
+  }
+
+  checkCard(check){
+    if(check){
+      this.cardCheck = false;
+      return false;
+    }
+    this.cardCheck = true;
   }
 
 }
